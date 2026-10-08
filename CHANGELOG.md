@@ -5,7 +5,12 @@ O formato é baseado no [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.
 
 ---
 
-## [Unreleased] — Integração do Protocolo A11Y.md, Skill Accessibility e ADR 0006
+## [v1.3.0] — 2026-10-08 — Protocolo de Acessibilidade Persistente A11Y.md, Skill Accessibility & ADR 0006
+
+### 🚀 Visão Geral da Versão
+Esta versão estabelece a conformidade canônica com acessibilidade digital através da integração do protocolo **A11Y.md v2.2.0** como contexto persistente para agentes de IA (**Lovable.dev, Cursor, Claude Code e Antigravity**). Adiciona a skill especializada `accessibility` (`addyosmani/web-quality-skills`), formaliza o **ADR 0006**, implementa melhorias de acessibilidade no código (skip links, landmarks, WAI-ARIA Dialog, `aria-required` e tabelas semânticas) e cria o validador automatizado `verify-a11y`.
+
+---
 
 ### ♿ Acessibilidade Canônica & Protocolo A11Y.md v2.2.0
 - **Núcleo Normativo e Governança (`docs/a11y/`):**
