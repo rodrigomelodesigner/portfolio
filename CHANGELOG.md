@@ -5,6 +5,55 @@ O formato é baseado no [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.
 
 ---
 
+## [v1.2.0] — 2026-10-08 — Rotas Modulares React, Suíte Completa de 19 Skills, Manual In-Repo & Pipeline de Mídia
+
+### 🚀 Visão Geral da Versão
+Esta versão consolida a arquitetura modular SPA do portfólio para edição visual total no **Lovable.dev** e desenvolvimento ágil no **Cursor / Claude Code / Antigravity**. Expande a suíte de skills de IA para 19 ferramentas especializadas, introduz os manuais definitivos de skills e workflow, formaliza os ADRs 0003 e 0004, e adiciona pipeline automatizado de auditoria de mídia para conformidade com Core Web Vitals.
+
+---
+
+### ⚛️ Arquitetura de Páginas Modulares React (`src/pages/`)
+- **Decomposição em Componentes Especializados:**
+  - `src/pages/Home.tsx`: Hero de alta densidade, Proof Strip, Featured Work conectado ao `CASES_DATA`, Prévia do Manifesto e Callout de contato.
+  - `src/pages/WorkIndex.tsx`: Catálogo completo de projetos com filtros dinâmicos por categoria (Gamificação, Compliance, Autosserviço) e barra de busca.
+  - `src/pages/CaseStudyDetail.tsx`: Rota dinâmica `/work/:slug` com breadcrumbs, refatoração de problema, hipótese de design, métricas longitudinais completas, timeline de decisões e galeria com lazy-loading.
+  - `src/pages/About.tsx`: Manifesto completo dos três pilares operacionais (*Fricção como Proteção*, *Sistemas sobre Artefatos*, *Evidência sobre Opinião*) e domínio de regulação.
+  - `src/pages/Contact.tsx`: Canais diretos rápidos (E-mail e LinkedIn) e formulário acessível com validação e feedback.
+  - `src/pages/NotFound.tsx`: Rota fallback 404 estilizada sob o design system.
+- **Casca de Layout Unificada (`src/App.tsx`):**
+  - Header fixo com efeito blur, alternador de tema Dark/Light persistente e acionador da Command Palette.
+  - Command Palette global (`Cmd+K` / `Ctrl+K`) permitindo busca instantânea em tempo real de estudos de caso e páginas.
+  - Rodapé semântico unificado com menção ao ADR 005.
+
+### 📦 Suíte Completa de 19 Skills de Agente (`.agents/skills/`)
+- **Instalação do Lote 2 & Sincronização em `skills-lock.json`:**
+  - `vercel-react-best-practices`: Otimização de performance React e Next.js.
+  - `handoff`: Transição estruturada de contexto entre sessões e agentes de IA.
+  - `web-design-guidelines`: Auditoria de conformidade com WCAG 2.2 AA e UX moderno.
+  - `caveman`: Modo conciso de alta densidade técnica com economia de tokens.
+  - `redesign-existing-projects`: Elevação de sofisticação visual e eliminação de *AI slop*.
+  - `skill-creator`: Criação, teste e calibração de novas skills especializadas.
+  - `writing-for-agents`: Engenharia de documentação otimizada para modelos de linguagem.
+  - `obsidian-vault`: Integração e catalogação de notas de pesquisa em cofre Obsidian.
+  - `vercel-composition-patterns`: Padrões de composição e erradicação de props booleanas.
+
+### 📖 Manuais e Governança In-Repo
+- **Manual de Skills (`docs/MANUAL-SKILLS.md`):**
+  - Guia definitivo para as 19 skills com matriz de decisão, quando usar / quando evitar, prompts de exemplo validados e combos encadeados.
+- **Workflow Multi-IA (`docs/WORKFLOW.md`):**
+  - Ciclo de trabalho integrado entre Lovable.dev (visual), Cursor (tipos e código), Claude Code (conteúdo e ADRs) e Antigravity (skills e testes). Protocolo rigoroso de handoff e quality gates inegociáveis.
+- **Decisões de Arquitetura Registradas (`docs/adr/`):**
+  - `ADR 0003`: Modular React Router Architecture and Case Study Routing.
+  - `ADR 0004`: Image Asset Optimization and Core Web Vitals Budget.
+
+### 🖼️ Pipeline e Auditoria de Mídia
+- **Script Executável de Auditoria (`scripts/optimize-images.mjs`):**
+  - Adicionado comando `npm run optimize-images` no `package.json`.
+  - Diagnóstico automatizado de 89 arquivos de imagem em `public/images/` totalizando 235 MB.
+  - Relatório gerado em `docs/reports/image-inventory.md` classificando assets críticos (> 2 MB), de atenção e otimizados, projetando economia de até 75% na conversão para WebP.
+
+---
+
 ## [v1.1.0] — 2026-10-08 — Suíte de Skills de Agente, Compatibilidade Multi-IA (Lovable/Cursor) & Governança de ADRs
 
 ### 🚀 Visão Geral da Versão

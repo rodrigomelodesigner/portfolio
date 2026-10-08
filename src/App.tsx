@@ -1,26 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
 import { CASES_DATA } from './data/cases';
-import { 
-  Sun, 
-  Moon, 
-  Command, 
-  ArrowUpRight, 
-  ArrowDown, 
-  ArrowRight, 
-  ShieldCheck, 
-  Layers, 
-  FileCheck,
-  Search,
-  X
-} from 'lucide-react';
+import Home from './pages/Home';
+import WorkIndex from './pages/WorkIndex';
+import CaseStudyDetail from './pages/CaseStudyDetail';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import NotFound from './pages/NotFound';
+import { Sun, Moon, Command, Search, X, ArrowUpRight } from 'lucide-react';
 
-export default function App() {
+function Layout({ children }: { children: React.ReactNode }) {
   const [isDark, setIsDark] = useState(false);
   const [isPaletteOpen, setIsPaletteOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
-    // Check initial preference
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       setIsDark(true);
       document.documentElement.classList.add('dark');
@@ -49,207 +45,98 @@ export default function App() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const filteredCases = CASES_DATA.filter((c) =>
-    c.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    c.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    c.tags.some((t) => t.toLowerCase().includes(searchQuery.toLowerCase()))
+  // Close palette on route change
+  useEffect(() => {
+    setIsPaletteOpen(false);
+    setSearchQuery('');
+  }, [location.pathname]);
+
+  const filteredCases = CASES_DATA.filter(
+    (c) =>
+      c.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      c.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      c.tags.some((t) => t.toLowerCase().includes(searchQuery.toLowerCase()))
   );
 
   return (
-    <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-200">
+    <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-200 flex flex-col justify-between">
       {/* Navbar */}
-      <nav className="max-w-4xl mx-auto p-6 md:px-12 md:py-8 flex justify-between items-center border-b border-zinc-100 dark:border-zinc-900">
-        <a href="/" className="font-bold text-xl tracking-tight hover:opacity-80 transition">
-          Rodrigo Melo.
-        </a>
-        <div className="flex gap-6 items-center text-sm font-medium">
-          <a href="#work" className="hover:text-zinc-600 dark:hover:text-zinc-400 transition">
-            Work
-          </a>
-          <a href="#about" className="hover:text-zinc-600 dark:hover:text-zinc-400 transition">
-            About
-          </a>
-          <a href="#contact" className="hover:text-zinc-600 dark:hover:text-zinc-400 transition">
-            Contact
-          </a>
-          <button
-            onClick={() => setIsPaletteOpen(true)}
-            className="hidden md:inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition"
-            title="Buscar com atalho de teclado"
-          >
-            <Command className="w-3.5 h-3.5" />
-            <span>K</span>
-          </button>
-          <button
-            onClick={toggleTheme}
-            className="p-2 bg-zinc-100 dark:bg-zinc-800 rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-700 transition"
-            aria-label="Alternar tema claro e escuro"
-          >
-            {isDark ? <Sun className="w-4 h-4 text-zinc-200" /> : <Moon className="w-4 h-4 text-zinc-700" />}
-          </button>
+      <nav className="border-b border-zinc-100 dark:border-zinc-900 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md sticky top-0 z-40">
+        <div className="max-w-4xl mx-auto p-4 md:px-12 md:py-6 flex justify-between items-center">
+          <Link to="/" className="font-bold text-xl tracking-tight hover:opacity-80 transition">
+            Rodrigo Melo.
+          </Link>
+          <div className="flex gap-5 md:gap-6 items-center text-sm font-medium">
+            <Link
+              to="/work"
+              className={`transition hover:text-zinc-600 dark:hover:text-zinc-400 ${
+                location.pathname.startsWith('/work') ? 'text-zinc-950 dark:text-zinc-50 font-semibold' : 'text-zinc-600 dark:text-zinc-400'
+              }`}
+            >
+              Work
+            </Link>
+            <Link
+              to="/about"
+              className={`transition hover:text-zinc-600 dark:hover:text-zinc-400 ${
+                location.pathname === '/about' ? 'text-zinc-950 dark:text-zinc-50 font-semibold' : 'text-zinc-600 dark:text-zinc-400'
+              }`}
+            >
+              About
+            </Link>
+            <Link
+              to="/contact"
+              className={`transition hover:text-zinc-600 dark:hover:text-zinc-400 ${
+                location.pathname === '/contact' ? 'text-zinc-950 dark:text-zinc-50 font-semibold' : 'text-zinc-600 dark:text-zinc-400'
+              }`}
+            >
+              Contact
+            </Link>
+            <button
+              onClick={() => setIsPaletteOpen(true)}
+              className="hidden md:inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition"
+              title="Buscar com atalho (Cmd+K)"
+            >
+              <Command className="w-3.5 h-3.5" />
+              <span>K</span>
+            </button>
+            <button
+              onClick={toggleTheme}
+              className="p-2 bg-zinc-100 dark:bg-zinc-800 rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-700 transition"
+              aria-label="Alternar tema claro e escuro"
+            >
+              {isDark ? <Sun className="w-4 h-4 text-zinc-200" /> : <Moon className="w-4 h-4 text-zinc-700" />}
+            </button>
+          </div>
         </div>
       </nav>
 
-      {/* Main Content */}
-      <main className="max-w-4xl mx-auto p-6 md:px-12 md:py-16">
-        {/* Hero Section */}
-        <header className="mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-6 max-w-2xl">
-            Sistemas que sustentam decisões.
-          </h1>
-          <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed mb-8">
-            Sou Product Designer focado em operações reguladas e plataformas de alta escala. Traduzo requisitos de compliance e fricções de negócio em interfaces praticáveis e documentadas.
-          </p>
-          <div className="flex gap-4">
-            <a
-              href="#work"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 font-medium rounded hover:opacity-90 transition"
-            >
-              Ver Projetos <ArrowDown className="w-4 h-4" />
-            </a>
-            <a
-              href="#about"
-              className="inline-flex items-center gap-2 px-5 py-2.5 border border-zinc-200 dark:border-zinc-800 font-medium rounded hover:bg-zinc-50 dark:hover:bg-zinc-900 transition"
-            >
-              Sobre mim <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
-
-          <div className="mt-16 pt-6 border-t border-zinc-100 dark:border-zinc-900">
-            <p className="text-xs font-semibold tracking-wider uppercase text-zinc-500 dark:text-zinc-400 flex flex-wrap gap-4">
-              <span>Conformidade SPA/MF Nº 1.231</span>
-              <span>•</span>
-              <span>+1.048% engajamento gamificado</span>
-              <span>•</span>
-              <span>+237% aquisição B2C</span>
-            </p>
-          </div>
-        </header>
-
-        {/* Featured Work Section */}
-        <section id="work" className="py-12">
-          <div className="flex justify-between items-end mb-8">
-            <div>
-              <h2 className="text-2xl font-bold tracking-tight">Featured Work</h2>
-              <p className="text-sm text-zinc-500 mt-1">Decisões metodológicas, métricas reais e entrega de ponta a ponta.</p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {CASES_DATA.map((caseItem) => (
-              <a
-                key={caseItem.id}
-                href={`./work/${caseItem.slug}.html`}
-                className="group block border border-zinc-200 dark:border-zinc-800 rounded-lg overflow-hidden hover:border-zinc-400 dark:hover:border-zinc-600 transition flex flex-col justify-between"
-              >
-                <div>
-                  <div className="h-48 bg-zinc-100 dark:bg-zinc-900 relative overflow-hidden">
-                    <img
-                      src={caseItem.coverImage}
-                      alt={caseItem.title}
-                      className="object-cover w-full h-full group-hover:scale-105 transition duration-500"
-                      onError={(e) => {
-                        (e.target as HTMLElement).style.display = 'none';
-                      }}
-                    />
-                  </div>
-                  <div className="p-5">
-                    <div className="flex flex-wrap gap-1.5 mb-2.5">
-                      {caseItem.tags.slice(0, 2).map((tag, idx) => (
-                        <span key={idx} className="text-xs font-semibold tracking-wider text-zinc-500 uppercase">
-                          {tag} {idx < 1 && '·'}
-                        </span>
-                      ))}
-                    </div>
-                    <h3 className="text-lg font-semibold mb-2 group-hover:underline">
-                      {caseItem.title}
-                    </h3>
-                    <p className="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-3">
-                      {caseItem.subtitle || caseItem.problem.reframed}
-                    </p>
-                  </div>
-                </div>
-                <div className="p-5 pt-0">
-                  <span className="inline-flex items-center gap-1 mt-4 text-xs font-semibold text-zinc-900 dark:text-zinc-100">
-                    Ver Estudo de Caso <ArrowUpRight className="w-3.5 h-3.5" />
-                  </span>
-                </div>
-              </a>
-            ))}
-          </div>
-        </section>
-
-        {/* About Section */}
-        <section id="about" className="py-16 border-t border-zinc-100 dark:border-zinc-900">
-          <h2 className="text-2xl font-bold tracking-tight mb-8">Sobre Mim & Princípios</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div className="p-6 border border-zinc-200 dark:border-zinc-800 rounded-lg">
-              <ShieldCheck className="w-6 h-6 mb-4 text-zinc-800 dark:text-zinc-200" />
-              <h3 className="font-semibold text-base mb-2">Fricção como Proteção</h3>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                Em mercados regulados, facilidade cega gera dano financeiro e passivo jurídico. Projetar atrito consciente é um dever ético de design.
-              </p>
-            </div>
-            <div className="p-6 border border-zinc-200 dark:border-zinc-800 rounded-lg">
-              <Layers className="w-6 h-6 mb-4 text-zinc-800 dark:text-zinc-200" />
-              <h3 className="font-semibold text-base mb-2">Sistemas sobre Artefatos</h3>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                Telas individuais envelhecem rápido. Regras de negócio tipadas, tokens semânticos e documentação viva escalam a maturidade do produto.
-              </p>
-            </div>
-            <div className="p-6 border border-zinc-200 dark:border-zinc-800 rounded-lg">
-              <FileCheck className="w-6 h-6 mb-4 text-zinc-800 dark:text-zinc-200" />
-              <h3 className="font-semibold text-base mb-2">Evidência sobre Opinião</h3>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                Toda hipótese estética deve ser submetida a teste empírico (ADR 005). Menos conjecturas subjetivas, mais métricas longitudinais rastreáveis.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Contact Section */}
-        <section id="contact" className="py-16 border-t border-zinc-100 dark:border-zinc-900">
-          <div className="max-w-xl">
-            <h2 className="text-2xl font-bold tracking-tight mb-4">Contato</h2>
-            <p className="text-zinc-600 dark:text-zinc-400 mb-6 leading-relaxed">
-              Disponível para posições sênior de Product Design em fintechs, scale-ups de tecnologia e ambientes de operação regulada.
-            </p>
-            <div className="flex flex-wrap gap-4 text-sm font-medium">
-              <a
-                href="mailto:contato@rodrigomelo.design"
-                className="px-4 py-2 bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 rounded hover:opacity-90 transition"
-              >
-                contato@rodrigomelo.design
-              </a>
-              <a
-                href="https://linkedin.com/in/rodrigomelodesigner"
-                target="_blank"
-                rel="noreferrer"
-                className="px-4 py-2 border border-zinc-200 dark:border-zinc-800 rounded hover:bg-zinc-50 dark:hover:bg-zinc-900 transition"
-              >
-                LinkedIn
-              </a>
-            </div>
-          </div>
-        </section>
+      {/* Main Page Area */}
+      <main className="max-w-4xl mx-auto p-4 md:px-12 w-full flex-1">
+        {children}
       </main>
 
-      {/* Footer */}
-      <footer className="max-w-4xl mx-auto p-6 md:px-12 py-8 border-t border-zinc-100 dark:border-zinc-900 text-xs text-zinc-500 flex justify-between items-center">
-        <span>© {new Date().getFullYear()} Rodrigo Melo. Todos os direitos reservados.</span>
-        <span>Prova sobre Promessa (ADR 005)</span>
+      {/* Unified Footer */}
+      <footer className="border-t border-zinc-100 dark:border-zinc-900 text-xs text-zinc-500 py-8 bg-zinc-50/50 dark:bg-zinc-950">
+        <div className="max-w-4xl mx-auto px-4 md:px-12 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <span>© {new Date().getFullYear()} Rodrigo Melo. Todos os direitos reservados.</span>
+          <div className="flex gap-4">
+            <Link to="/about" className="hover:underline">Metodologia</Link>
+            <span>·</span>
+            <span>Prova sobre Promessa (ADR 005)</span>
+          </div>
+        </div>
       </footer>
 
-      {/* Command Palette Modal */}
+      {/* Global Command Palette Modal */}
       {isPaletteOpen && (
-        <div className="fixed inset-0 z-50 bg-zinc-900/40 backdrop-blur-sm flex items-start justify-center pt-24 p-4">
+        <div className="fixed inset-0 z-50 bg-zinc-900/40 backdrop-blur-sm flex items-start justify-center pt-20 p-4">
           <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl shadow-2xl w-full max-w-lg overflow-hidden">
             <div className="flex items-center px-4 border-b border-zinc-100 dark:border-zinc-800">
               <Search className="w-4 h-4 text-zinc-400 mr-2" />
               <input
                 type="text"
                 autoFocus
-                placeholder="Buscar casos de estudo ou seções..."
+                placeholder="Buscar casos de estudo ou navegação..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full py-3.5 bg-transparent text-sm focus:outline-none dark:text-zinc-100 placeholder-zinc-400"
@@ -262,32 +149,76 @@ export default function App() {
               </button>
             </div>
             <div className="max-h-64 overflow-y-auto p-2">
+              <div className="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider px-3 py-1.5">
+                Estudos de Caso
+              </div>
               {filteredCases.length > 0 ? (
                 filteredCases.map((c) => (
-                  <a
+                  <button
                     key={c.id}
-                    href={`./work/${c.slug}.html`}
-                    onClick={() => setIsPaletteOpen(false)}
-                    className="flex justify-between items-center p-3 hover:bg-zinc-50 dark:hover:bg-zinc-800 rounded-lg text-sm transition group"
+                    onClick={() => {
+                      navigate(`/work/${c.slug}`);
+                      setIsPaletteOpen(false);
+                    }}
+                    className="w-full text-left flex justify-between items-center p-3 hover:bg-zinc-50 dark:hover:bg-zinc-800 rounded-lg text-sm transition group"
                   >
                     <div>
                       <div className="font-medium text-zinc-900 dark:text-zinc-100">{c.title}</div>
                       <div className="text-xs text-zinc-500">{c.category} · {c.highlightMetric}</div>
                     </div>
                     <ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100" />
-                  </a>
+                  </button>
                 ))
               ) : (
                 <div className="p-4 text-center text-xs text-zinc-500">Nenhum resultado encontrado.</div>
               )}
+
+              <div className="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider px-3 pt-3 pb-1.5 border-t border-zinc-100 dark:border-zinc-800">
+                Páginas
+              </div>
+              <button
+                onClick={() => { navigate('/work'); setIsPaletteOpen(false); }}
+                className="w-full text-left p-2.5 hover:bg-zinc-50 dark:hover:bg-zinc-800 rounded text-xs font-medium text-zinc-700 dark:text-zinc-300"
+              >
+                Ver todos os projetos (/work)
+              </button>
+              <button
+                onClick={() => { navigate('/about'); setIsPaletteOpen(false); }}
+                className="w-full text-left p-2.5 hover:bg-zinc-50 dark:hover:bg-zinc-800 rounded text-xs font-medium text-zinc-700 dark:text-zinc-300"
+              >
+                Sobre Mim & Filosofia (/about)
+              </button>
+              <button
+                onClick={() => { navigate('/contact'); setIsPaletteOpen(false); }}
+                className="w-full text-left p-2.5 hover:bg-zinc-50 dark:hover:bg-zinc-800 rounded text-xs font-medium text-zinc-700 dark:text-zinc-300"
+              >
+                Falar Comigo (/contact)
+              </button>
             </div>
             <div className="px-4 py-2 border-t border-zinc-100 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 text-[10px] text-zinc-400 flex justify-between">
-              <span>Navegue com Enter</span>
+              <span>Navegue com clique ou atalhos</span>
               <span>ESC para fechar</span>
             </div>
           </div>
         </div>
       )}
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/work" element={<WorkIndex />} />
+          <Route path="/work/:slug" element={<CaseStudyDetail />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
   );
 }

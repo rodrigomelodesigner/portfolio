@@ -1,19 +1,21 @@
 {
   "name": "rodrigo-melo-portfolio",
   "private": true,
-  "version": "1.1.0",
+  "version": "1.2.0",
   "type": "module",
   "description": "Portfólio profissional de Rodrigo Melo — Product Designer em operações reguladas (Fintech / iGaming)",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "optimize-images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
     "lucide-react": "^0.469.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0",
     "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
