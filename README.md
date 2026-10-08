@@ -47,6 +47,14 @@ Abra `http://localhost:5173` no navegador para visualizar.
 
 ---
 
+## 📦 Releases & Versionamento
+
+Este repositório adere estritamente ao [Versionamento Semântico](https://semver.org/lang/pt-BR/) (SemVer 2.0.0) e mantém notas estruturadas no padrão *Keep a Changelog*:
+- **Histórico Completo:** Consulte o [CHANGELOG.md](CHANGELOG.md).
+- **Última Release:** [`v1.0.0`](https://github.com/rodrigomelodesigner/portfolio/releases/tag/v1.0.0) — *Fundação do Portfólio, Casos de Estudo Regulados & Design System Base*.
+
+---
+
 ## 📄 Licença & Direitos
 
 - O **código-fonte** da aplicação é disponibilizado sob a licença [MIT](LICENSE).
