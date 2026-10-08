@@ -70,7 +70,7 @@ Os recursos abaixo possuem tendências estéticas que **conflitam** com o posici
 
 ---
 
-## 🛠️ 5. Como Integrar esses Recursos nos Prompts dos Agentes
+## 🛠️ 5. Como Integrar Recursos nos Prompts dos Agentes
 
 Quando for solicitar uma nova funcionalidade no **Lovable.dev** ou **Cursor**, utilize a estrutura abaixo:
 
@@ -84,3 +84,31 @@ Regras inegociáveis:
 - Touch target mínimo de 44x44px.
 - Sem neomorfismo ou sombras pesadas."
 ```
+
+---
+
+## 🌊 6. Metodologia Scrolltide & Himanshu Hingorani ([@himanshubuildss](https://x.com/himanshubuildss))
+
+O criador **Himanshu Hingorani** propõe uma tese central para o ecossistema de "vibe coding":
+> *"Modelos de IA não falham em design de interface por falta de capacidade técnica de código, mas sim por falta de exposição prévia ao 'Design DNA' de alta qualidade e por prompts vagos."*
+
+### O que é o Scrolltide ([scrolltide.co](https://scrolltide.co))?
+Uma biblioteca e cofre com mais de 600 **Master Prompts** e templates projetados para alimentar ferramentas como **Claude Code, Lovable e Cursor**, gerando componentes animados, hero sections dinâmicas e transições orientadas por scroll (scrollytelling) em minutos.
+
+### Como Aplicar no Portfólio de Rodrigo Melo (Filtro ADR 005 + A11Y):
+1. **Scrollytelling Editorial e Restrito:**
+   - Em operações reguladas (Fintech / iGaming), evite partículas e 3D cósmico. Em vez disso, use animações de scroll para **revelar dados longitudinais e etapas metodológicas** (ex: transição entre as 7 rodadas do Brasileirão ou o funil do fluxo de limites prudenciais).
+2. **Respeito Obrigatório a `prefers-reduced-motion` (WCAG 2.2 SC 2.3.3):**
+   - Todo master prompt de scroll ou transição deve conter a instrução explícita de desabilitar o movimento se o sistema operacional do usuário solicitar redução de movimento.
+3. **Template de Master Prompt Calibrado (Scrolltide + ADR 005):**
+
+```markdown
+"Atue como Product Designer e Frontend Engineer sênior.
+Construa uma seção de scrollytelling para o estudo de caso [NOME DO CASE] utilizando React, Tailwind CSS e transições suaves de opacidade/transform.
+Diretrizes técnicas e estéticas:
+- Design DNA: Swiss Modern Flat (Inter font, paleta Zinc 50 a 950, zero sombras pesadas).
+- Acessibilidade: Contraste WCAG 2.2 AA (mínimo 4.5:1), suporte rigoroso a prefers-reduced-motion.
+- Propósito da animação: Destacar a mudança de métrica de [VALOR A] para [VALOR B] conforme o usuário rola a tela.
+- Código: Modular, tipado em TypeScript, sem bibliotecas pesadas de 3D."
+```
+
