@@ -64,7 +64,7 @@ Este repositório possui uma arquitetura documentada para colaboração contínu
 
 Este repositório adere estritamente ao [Versionamento Semântico](https://semver.org/lang/pt-BR/) (SemVer 2.0.0) e mantém notas estruturadas no padrão *Keep a Changelog*:
 - **Histórico Completo:** Consulte o [CHANGELOG.md](CHANGELOG.md).
-- **Última Release:** [`v1.1.0`](https://github.com/rodrigomelodesigner/portfolio/releases/tag/v1.1.0) — *Suíte de Skills de Agente, Compatibilidade Multi-IA (Lovable/Cursor) & Governança de ADRs*.
+- **Última Release:** [`v1.2.0`](https://github.com/rodrigomelodesigner/portfolio/releases/tag/v1.2.0) — *Rotas Modulares React, Suíte Completa de 19 Skills, Manual In-Repo & Pipeline de Mídia*.
 
 ---
 
