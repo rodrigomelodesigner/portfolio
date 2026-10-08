@@ -44,7 +44,7 @@ export const CASES_DATA: CaseStudy[] = [
     squad: "Gabriel Nascimento (PM), Lucca Schramm (Dev), Paulo Ricardo",
     timeline: "Março a Maio / 2025 (7 Rodadas)",
     highlightMetric: "+1.048% Apostas / +727% Volume",
-    coverImage: "/images/00_covers/artilheiro_thumb.png",
+    coverImage: "/images/covers/artilheiro_showcase_cover.png",
     problem: {
       briefing: "Divulgar a promoção do Artilheiro com mais banners na Home e enviar e-mails com as regras da rodada.",
       reframed: "O problema não era falta de canais de mídia, mas sim a fricção cognitiva de exigir leitura regulamentar densa para uma ação lúdica. Era necessário transformar o modelo mental em uma experiência visual imediata."
@@ -76,6 +76,28 @@ export const CASES_DATA: CaseStudy[] = [
       "O design visual gerou um salto de +1.048% sem alteração na verba de marketing.",
       "A experiência depende de alinhamento estreito com curadoria esportiva (queda na Rodada 5 por falta de apelo dos atletas).",
       "Resiliência técnica e empty states claros são fundamentais quando integrações de terceiros oscilam (Rodada 4)."
+    ],
+    screenshots: [
+      {
+        url: "/images/02_artilheiros_casa/artilheiro_cards_spread_showcase.png",
+        caption: "Composição visual de cards colecionáveis inspirada em card games esportivos com odds e metas legíveis."
+      },
+      {
+        url: "/images/02_artilheiros_casa/card_pedro_flamengo_2048x1365.png",
+        caption: "Card individual do atleta Pedro (Flamengo) com multiplicadores e regras de freebet."
+      },
+      {
+        url: "/images/02_artilheiros_casa/card_hulk_atletico_2048x1365.png",
+        caption: "Card individual do atleta Hulk (Atlético-MG) em alta definição para grid promocional."
+      },
+      {
+        url: "/images/02_artilheiros_casa/card_raphael_veiga_2048x1365.png",
+        caption: "Card individual do atleta Raphael Veiga (Palmeiras) detalhando mecânica de bônus por gol."
+      },
+      {
+        url: "/images/02_artilheiros_casa/card_estevao_palmeiras_2048x1365.png",
+        caption: "Card individual da revelação Estêvão (Palmeiras) com odd turbinada e CTA direto."
+      }
     ]
   },
   {
@@ -90,7 +112,7 @@ export const CASES_DATA: CaseStudy[] = [
     squad: "Tamille Ramos (PM), Luedy Costa (Design Supervisor), Jimmy",
     timeline: "Junho a Julho / 2025",
     highlightMetric: "100% Conformidade Regulatória SPA/MF",
-    coverImage: "/images/00_covers/autoexclusao_thumb.png",
+    coverImage: "/images/covers/limites_showcase_cover.png",
     problem: {
       briefing: "Atender a Portaria 1.231 inserindo os limites obrigatórios de apostas e perdas no sistema.",
       reframed: "O fluxo anterior oferecia apenas um botão nuclear de encerramento irreversível de conta. Era indispensável criar um painel preventivo graduado de proteção ao jogador com fricções éticas."
@@ -115,12 +137,24 @@ export const CASES_DATA: CaseStudy[] = [
     ],
     screenshots: [
       {
-        url: "/images/01_limites_autoexclusao/autoexclusao_08_1041KB.png",
-        caption: "Tela de Limite de Perdas Líquidas (Apostas vs Ganhos) com granularidade diária, semanal e mensal."
+        url: "/images/01_limites_autoexclusao/limites_tela_definicao_deposito.png",
+        caption: "Definição de limites de depósito diário, semanal e mensal com prevenção de rage betting."
       },
       {
-        url: "/images/01_limites_autoexclusao/autoexclusao_10_912KB.png",
-        caption: "Painel de Proteção do Jogador com limites de tempo de sessão e carência regulatória."
+        url: "/images/01_limites_autoexclusao/limites_tela_pausa_temporaria.png",
+        caption: "Hierarquia invertida: pausa temporária graduada (1, 7 ou 30 dias) como ação de acolhimento primária."
+      },
+      {
+        url: "/images/01_limites_autoexclusao/limites_tela_perdas_liquidas.png",
+        caption: "Controle estrito de perdas líquidas (Apostas vs Ganhos) conforme Portaria SPA/MF nº 1.231."
+      },
+      {
+        url: "/images/01_limites_autoexclusao/limites_tela_autoexclusao_definitiva.png",
+        caption: "Autoexclusão definitiva com modal de confirmação e fricção de segurança de 24 horas."
+      },
+      {
+        url: "/images/01_limites_autoexclusao/limites_tela_tempo_sessao.png",
+        caption: "Configuração de tempo máximo de sessão diária com notificações de alerta."
       }
     ]
   },
@@ -136,7 +170,7 @@ export const CASES_DATA: CaseStudy[] = [
     squad: "Tamille Ramos (PM), Luedy Costa, Verônica Lima",
     timeline: "Agosto a Setembro / 2025",
     highlightMetric: "-40% Tickets de Suporte / 36 Meses de Histórico",
-    coverImage: "/images/00_covers/transacoes_thumb.png",
+    coverImage: "/images/covers/transacoes_showcase_cover.png",
     problem: {
       briefing: "Atualizar a tela de Minhas Transações para cumprir a nova portaria do Ministério da Fazenda.",
       reframed: "A ausência de filtros e o extrato misturado sobrecarregavam o SAC Nível 1 com pedidos manuais de planilha. Era preciso transformar o extrato em uma ferramenta de autoauditoria pelo usuário."
@@ -158,6 +192,28 @@ export const CASES_DATA: CaseStudy[] = [
     learnings: [
       "A transparência de dados reduz drasticamente o custo operacional de suporte.",
       "Interfaces reguladas exigem performance extrema (< 1.5s em mobile 4G) para garantir confiabilidade de auditoria."
+    ],
+    screenshots: [
+      {
+        url: "/images/03_transacoes_onboarding/transacoes_dashboard_desktop_1920x1440.png",
+        caption: "Visão consolidada desktop do extrato financeiro com métricas de P&L líquido e histórico estendido."
+      },
+      {
+        url: "/images/03_transacoes_onboarding/transacoes_mobile_esportes_aba.png",
+        caption: "Extrato segregado de apostas esportivas no mobile com status em tempo real."
+      },
+      {
+        url: "/images/03_transacoes_onboarding/transacoes_mobile_cassino_aba.png",
+        caption: "Extrato segregado de sessões e giros de cassino com saldo resultante."
+      },
+      {
+        url: "/images/03_transacoes_onboarding/transacoes_mobile_seletor_periodo.png",
+        caption: "Filtros temporais dinâmicos (7d, 30d, 90d, custom) para auditoria e histórico de até 36 meses."
+      },
+      {
+        url: "/images/03_transacoes_onboarding/transacoes_mobile_detalhe_aposta.png",
+        caption: "Detalhamento individual da aposta com comprovante e ID de transação para SAC e conformidade."
+      }
     ]
   }
 ];
