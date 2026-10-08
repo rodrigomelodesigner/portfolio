@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Transações — Estudo de Caso · Rodrigo Melo</title>
+    <title>Painel de Transações: Extrato Segregado — Estudo de Caso · Rodrigo Melo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>
@@ -45,19 +45,19 @@
             <span>/</span>
             <a href="../index.html#work" class="hover:underline">Work</a>
             <span>/</span>
-            <span class="text-zinc-900 dark:text-zinc-100">Página de Transações</span>
+            <span class="text-zinc-900 dark:text-zinc-100">Painel de Transações</span>
         </div>
 
         <!-- Case Header -->
         <header class="mb-12">
             <div class="inline-block px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 text-xs font-semibold uppercase tracking-wider rounded mb-4">
-                Transparência Financeira · Regulação · Self-Service UX
+                Transparência Financeira · Portaria SPA/MF nº 1.231 · Self-Service UX
             </div>
             <h1 class="text-3xl md:text-5xl font-bold tracking-tight leading-tight mb-4">
-                Painel Gráfico de Extrato e Autosserviço Financeiro
+                Painel de transações: extrato segregado e autosserviço sob a Portaria SPA/MF nº 1.231
             </h1>
             <p class="text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-3xl">
-                Arquitetura de informação e prototipação mobile-first da conta gráfica da Casa de Apostas em conformidade compulsória com a Portaria SPA/MF nº 1.231. Como a transparência segregada mitigou o volume de suporte Nível 1.
+                Arquitetura mobile-first em scroll único com segregação Esportes vs. Cassino, histórico de 36 meses e eliminação de cálculo mental de saldo.
             </p>
 
             <!-- Metadata Grid -->
@@ -72,11 +72,11 @@
                 </div>
                 <div>
                     <span class="block text-xs uppercase tracking-wider text-zinc-500 font-semibold mb-1">Squad</span>
-                    <span class="font-medium">Tamille A. (PM), Luedy C., Verônica L.</span>
+                    <span class="font-medium">Tamille Rocha (PM), Luedy Costa, Verônica Lima</span>
                 </div>
                 <div>
-                    <span class="block text-xs uppercase tracking-wider text-zinc-500 font-semibold mb-1">Meta Principal</span>
-                    <span class="font-bold text-emerald-600 dark:text-emerald-400">-40% Tickets de Extrato / 36 Meses</span>
+                    <span class="block text-xs uppercase tracking-wider text-zinc-500 font-semibold mb-1">Status</span>
+                    <span class="font-bold text-emerald-600 dark:text-emerald-400">Homologado em Design (Set/2026)</span>
                 </div>
             </div>
         </header>
@@ -88,62 +88,61 @@
 
         <!-- Section 1: O Problema Real de Suporte e Auditoria -->
         <section class="space-y-6 mb-16">
-            <h2 class="text-2xl font-bold tracking-tight">1. O Problema: Sobrecarga de Suporte & Assimetria de Informação</h2>
+            <h2 class="text-2xl font-bold tracking-tight">1. O Problema</h2>
             <p class="text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                Antes do projeto, os apostadores da Casa de Apostas não possuíam visibilidade clara de lucros e prejuízos consolidados. As transações esportivas apareciam misturadas com giros de cassino em uma lista bruta sem categorização ou filtros temporais avançados.
-            </p>
-            <p class="text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                O resultado eram dois problemas simultâneos: <strong>(1) Risco regulatório</strong> imediato frente aos prazos da Secretaria de Prêmios e Apostas (SPA/MF), que exige histórico auditável de até 36 meses; e <strong>(2) Sobrecarga massiva da equipe de atendimento</strong>, que passava horas gerando extratos manuais em planilhas para atender solicitações no SAC.
+                Em setembro de 2026, a Portaria SPA/MF nº 1.231 exigia transparência ativa da conta gráfica do apostador. O extrato legado misturava apostas esportivas e giros de cassino num feed contínuo, sem resultado líquido por categoria. O apostador não conseguia auditar o próprio saldo, e o suporte Nível 1 recebia frequentes pedidos manuais de extrato e contestação de débitos. A demanda veio da PM Tamille Rocha, com prioridade regulatória sobre iniciativas de crescimento.
             </p>
         </section>
 
-        <!-- Section 2: Arquitetura de Informação & Decisões de Design -->
+        <!-- Section 2: Decisões de Arquitetura de Informação -->
         <section class="space-y-6 mb-16">
-            <h2 class="text-2xl font-bold tracking-tight">2. Decisões de Arquitetura de Informação</h2>
-            <div class="space-y-6 text-zinc-700 dark:text-zinc-300 leading-relaxed">
+            <h2 class="text-2xl font-bold tracking-tight">2. Intervenção de Design</h2>
+            <p class="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                A partir de um MVP funcional gerado no Vercel v0 pela PM Tamille Rocha, estruturei em 24 horas o protótipo de alta fidelidade no Figma integrado aos tokens do design system da CDA. O redesign organiza o extrato mobile em um scroll único: filtros de 7 dias, 30 dias, 12 meses e período personalizado com datepicker limitado a 36 meses por restrição de API; card de visão geral com resultado consolidado e tempo de uso, e um link textual discreto para limites quando o resultado consolidado do período é negativo; detalhamento separado de Apostas Esportivas e Cassino, com Apostas, Ganhos e Resultado líquido em colunas; e feed cronológico de depósitos, saques e apostas com download do extrato oficial em PDF/CSV. Lucro e prejuízo nunca dependem só de cor (usam sinal matemático +/- e cor). As pills de filtro seguem o alvo de toque mínimo de 44px do design system da CDA.
+            </p>
+            <div class="space-y-6 text-zinc-700 dark:text-zinc-300 leading-relaxed pt-4">
                 <div class="border-l-2 border-zinc-900 dark:border-zinc-100 pl-4">
-                    <h3 class="font-bold mb-1">A. Segregação Mandatória: Apostas Esportivas vs Cassino</h3>
+                    <h3 class="font-bold mb-1">A. Segregação Esportes vs. Cassino com Tríade Matemática Visível</h3>
                     <p class="text-sm text-zinc-600 dark:text-zinc-400">
-                        O usuário de apostas pensa por partida e odd; o jogador de cassino pensa por volume de giros e sessões. Criamos abas segregadas que discriminam com exatidão: <em>Apostas Realizadas</em>, <em>Ganhos Obtidos</em> e <em>Resultado Líquido</em>, com semântica de cores auditável (verde para positivo / vermelho para negativo com alto contraste).
+                        Colunas alinhadas de Apostas, Ganhos e Resultado líquido em cada modalidade, eliminando cálculo mental por parte do apostador.
                     </p>
                 </div>
 
                 <div class="border-l-2 border-zinc-900 dark:border-zinc-100 pl-4">
-                    <h3 class="font-bold mb-1">B. Filtros Temporais Modulares</h3>
+                    <h3 class="font-bold mb-1">B. Filtros Modulares com Trava de 36 Meses no Datepicker</h3>
                     <p class="text-sm text-zinc-600 dark:text-zinc-400">
-                        Implementação de seletores rápidos de <strong>7 Dias</strong>, <strong>30 Dias</strong>, <strong>12 Meses</strong> e seletor com calendário personalizado para intervalos históricos específicos, permitindo exportação em formato padrão compatível com declarações fiscais e auditoria pessoal.
+                        Seletor de datas travado na interface em exatamente 36 meses retroativos, prevenindo erros de requisição e timeout de API.
                     </p>
                 </div>
 
                 <div class="border-l-2 border-zinc-900 dark:border-zinc-100 pl-4">
-                    <h3 class="font-bold mb-1">C. Métrica de Tempo de Uso (Guardrail de Jogo Consciente)</h3>
+                    <h3 class="font-bold mb-1">C. Acessibilidade Estrita e Sinal Matemático Explícito</h3>
                     <p class="text-sm text-zinc-600 dark:text-zinc-400">
-                        Integração de um card permanente indicando as horas ativas de navegação na plataforma na semana corrente, servindo como gatilho contextual para os Limites Prudenciais caso o tempo exceda o padrão de jogo recreativo.
+                        Veto ao uso exclusivo de cor para saldo; valores utilizam prefixo explícito (+R$ e -R$) e contraste WCAG 2.2 AA para daltônicos.
+                    </p>
+                </div>
+
+                <div class="border-l-2 border-zinc-900 dark:border-zinc-100 pl-4">
+                    <h3 class="font-bold mb-1">D. Link Contextual para Limites no Cenário Negativo</h3>
+                    <p class="text-sm text-zinc-600 dark:text-zinc-400">
+                        Exibição de link textual sutil abaixo do resultado geral negativo direcionando ao HUB de Jogo Responsável, sem bloqueio ou tom punitivo.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- Section 3: Resultados e KRs -->
+        <!-- Section 3: Resultados e Limites -->
         <section class="space-y-6 mb-16">
-            <h2 class="text-2xl font-bold tracking-tight">3. Critérios de Sucesso e Impacto de Negócio</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="p-6 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg">
-                    <span class="text-2xl font-bold font-mono text-emerald-600 dark:text-emerald-400 block mb-1">100%</span>
-                    <span class="text-xs uppercase tracking-wider text-zinc-500 font-semibold block mb-2">Conformidade SPA</span>
-                    <p class="text-xs text-zinc-600 dark:text-zinc-400">Aderência integral aos requisitos da Portaria 1.231 para licenciamento.</p>
-                </div>
-                <div class="p-6 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg">
-                    <span class="text-2xl font-bold font-mono text-emerald-600 dark:text-emerald-400 block mb-1">-40%</span>
-                    <span class="text-xs uppercase tracking-wider text-zinc-500 font-semibold block mb-2">Tickets de Suporte</span>
-                    <p class="text-xs text-zinc-600 dark:text-zinc-400">Redução projetada em chamados de solicitação manual de extrato.</p>
-                </div>
-                <div class="p-6 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg">
-                    <span class="text-2xl font-bold font-mono text-emerald-600 dark:text-emerald-400 block mb-1">&lt; 1.5s</span>
-                    <span class="text-xs uppercase tracking-wider text-zinc-500 font-semibold block mb-2">Latência Mobile</span>
-                    <p class="text-xs text-zinc-600 dark:text-zinc-400">Renderização ultrarrápida do extrato transacional em conexões 4G.</p>
-                </div>
-            </div>
+            <h2 class="text-2xl font-bold tracking-tight">3. Resultados e Limites de Atribuição</h2>
+            <p class="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                O trabalho passou por revisão heurística interna baseada nas 10 Heurísticas de Nielsen (identificando e corrigindo dois apontamentos de alta prioridade no Figma: a trava de 36 meses no calendário e o link contextual de limites) e parou na homologação de design com Produto, antes das férias coletivas de outubro de 2026. Não há dados de produção nem teste de usabilidade em campo.
+            </p>
+            <p class="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                O projeto parou na homologação de design com Produto antes do ciclo de férias coletivas da empresa (outubro de 2026). Não há dados de produção nem teste de usabilidade em campo.
+            </p>
+            <p class="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                A meta de negócio estipulada no briefing era reduzir em 40% os chamados de N1 sobre extrato. Em produção, as métricas a acompanhar seriam o volume de tickets no SAC, taxa de download do extrato oficial e tempo até a primeira interação com o detalhamento por categoria.
+            </p>
         </section>
 
         <!-- Section 4: Galeria de Interfaces Desktop & Mobile -->

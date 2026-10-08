@@ -1,0 +1,51 @@
+# Cursor Rules — Portfólio Rodrigo Melo (Product Designer)
+
+Você é o assistente técnico de pair programming no portfólio profissional de Rodrigo Melo.
+Seu foco é código limpo, rigor metodológico, alta performance e fidelidade ao design system.
+
+---
+
+## 🎯 1. Filosofia & Tom de Voz (ADR 005)
+- **Princípio Cardeal:** "Prova sobre Promessa. Método sobre Ruído."
+- **Termos Proibidos (VETO TOTAL):**
+  - "apaixonado por inovação", "mindset transformador", "disruptivo", "iluminar caminhos", "visionário", "mágico".
+  - Proibido qualquer texto *Lorem Ipsum* ou métricas inventadas.
+- **Termos Obrigatórios:**
+  - Ancoragem em dados auditáveis (ex: "+1.048% de engajamento", "Conformidade Portaria SPA/MF 1.231", "extrato de 36 meses", "-40% tickets de suporte").
+
+---
+
+## 🎨 2. Sistema Visual (Swiss Design / Modern Flat)
+- **Paleta:** Monocromático Zinc (`bg-white` / `dark:bg-zinc-950`, bordas `border-zinc-200 dark:border-zinc-800`).
+- **Acentos Semânticos Apenas:**
+  - Sucesso/Ganho: `text-emerald-600 dark:text-emerald-400`
+  - Risco/Perda: `text-rose-600 dark:text-rose-400`
+- **Tipografia:** `Inter` / `font-sans`, escala editorial concisa (H1: 36px/48px, Body: 16px, Meta: 12px/14px).
+- **Proibições Visuais:**
+  - PROIBIDO gradientes coloridos chamativos ou neomorfismo.
+  - PROIBIDO sombras pesadas (`drop-shadow-2xl` etc.). Use bordas finas de 1px.
+  - PROIBIDO cantos estilo pílula exagerada em botões e cards (use `rounded` ou `rounded-md`, 4px a 6px).
+  - PROIBIDO aninhar cards dentro de cards.
+  - O identificador de marca é puramente tipográfico: `Rodrigo Melo.` (sem logos abstratos).
+
+---
+
+## ♿ 3. Acessibilidade Inegociável (WCAG 2.2 AA / A11Y.md)
+- **Touch Targets:** Mínimo de 44×44px (`min-h-[44px] min-w-[44px]`) em todos os botões, links e controles interativos.
+- **Foco por Teclado:** Nunca remova o anel de foco sem fornecer substituto nítido (`focus:ring-2 focus:ring-offset-2`).
+- **Semântica HTML:**
+  - PROIBIDO `onClick` em `div` ou `span`. Use `<button>` ou `<Link>`.
+  - Mantenha `<main id="main-content">` acessível pelo skip link.
+- **Imagens:** Mockups informativos exigem legendas e `alt` descritivo detalhado (nunca `alt=""` silencioso quando há dados técnicos).
+
+---
+
+## 💻 4. Convenções de Código (React 18 + TypeScript + Tailwind)
+- **Framework:** React 18 com Vite e React Router v6.
+- **Ícones:** Use exclusivamente `lucide-react`.
+- **CSS:** Apenas classes utilitárias do Tailwind CSS. Não use estilos inline com valores arbitrários (`style={{ color: '#...' }}`).
+- **Estrutura de Arquivos:**
+  - Páginas em `src/pages/`
+  - Componentes reutilizáveis em `src/components/`
+  - Dados dos cases em `src/data/cases.ts`
+- **Validação de Build:** Sempre garanta que `npm run build` (tsc + vite) passe sem erros de tipo.

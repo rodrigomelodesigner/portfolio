@@ -34,7 +34,7 @@ Por favor, faça uma varredura inicial no `src/App.tsx` e confirme que você abs
 Vamos refinar a `Home.tsx`. Quero aplicar um visual altamente polido e profissional.
 
 1. **Hero Section:** Adicione um efeito de entrada muito sutil e cinematográfico (fade-in e um leve transform vertical de 10px em 600ms) no H1. Use tipografia densa e refinada (H1 bem grande no desktop).
-2. **Proof Strip:** Transforme a faixa de prova social (onde diz "+1.048% de engajamento", "Conformidade Portaria SPA/MF 1.231", etc.) em um ticker elegante e fluido ou um grid brutalista que transmita máxima autoridade financeira.
+2. **Proof Strip:** Transforme a faixa de prova social (onde diz "470 / rodada (6,5x)", "Conformidade Portaria SPA/MF 1.231", etc.) em um ticker elegante e fluido ou um grid brutalista que transmita máxima autoridade financeira.
 3. **Cards de Projetos em Destaque:** Melhore os cards usando a arquitetura baseada no shadcn/ui. Borda fina de 1px (zinc-200 no light, zinc-800 no dark). Adicione uma micro-interação no hover: um leve aumento de contraste na borda ou leve expansão de sombra, mas SEM gradientes coloridos e SEM quebrar o limite de cantos levemente arredondados.
 4. **Animação Funcional:** Respeite rigorosamente a preferência do usuário com as classes `motion-reduce` do Tailwind.
 

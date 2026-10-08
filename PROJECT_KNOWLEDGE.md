@@ -10,7 +10,7 @@
 * **Problema a Resolver:** Recrutadores e Hiring Managers de tecnologia (Fintechs, Scale-ups, Setores Regulados no Brasil) precisam avaliar a senioridade, o rigor metodológico e a capacidade de entrega de um Product Designer em menos de 5 minutos, sem ruído visual ou textos inflados.
 * **Usuário-Alvo:** Hiring Managers, Diretores de Design/Produto e Recrutadores técnicos.
 * **3 a 5 Funcionalidades Obrigatórias (Must-Have):**
-  1. *Hero & Proof Strip Escaneável:* Proposta de valor em 5 segundos com dados reais (+1.048% de engajamento, Portaria SPA/MF 1.231).
+  1. *Hero & Proof Strip Escaneável:* Proposta de valor em 5 segundos com dados reais (470 apostas/rodada — 6,5x a R1, Portaria SPA/MF 1.231).
   2. *Cards de Estudos de Caso Direcionados:* Acesso rápido aos 3 cases principais com problema, decisões e métricas.
   3. *Páginas Individuais de Case Study:* Estrutura de narrativa em blocos (Contexto → Problema Real → Decisões/Trade-offs → Solução Visual → Impacto Longitudinal).
   4. *Página Sobre Mim & Princípios:* Os 3 pilares operacionais (Prova sobre Promessa, Método sobre Ruído, Escuta Ativa).
@@ -81,8 +81,8 @@
 * `/` — **Home:** Hero, Proof Strip, Featured Work (3 cards), Sobre Mim Preview, Contato.
 * `/work` — **Índice de Projetos:** Lista completa de cases com tags de setor e contexto de entrega.
 * `/work/:slug` — **Estudo de Caso Individual:**
-  * `/work/artilheiro-da-casa` — Mecânica de Cartas Colecionáveis (+1.048% de engajamento).
-  * `/work/limites-prudenciais` — Jogo Responsável e Proteção do Jogador (Portaria SPA/MF 1.231).
+  * `/work/artilheiro-da-casa` — Cards de atleta no lugar do regulamento (470 apostas/rodada — 6,5x).
+  * `/work/limites-prudenciais` — Saída responsável: pausa e autoexclusão sob as regras da SPA/MF.
   * `/work/pagina-transacoes` — Extrato de 36 meses e autosserviço financeiro.
 * `/about` — **Sobre Mim Completo:** Filosofia profissional, 3 pilares de atuação e trajetória.
 * `/contact` — **Contato:** E-mail direto, perfil do LinkedIn e download de Currículo (PDF).

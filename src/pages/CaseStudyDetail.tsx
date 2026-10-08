@@ -1,11 +1,13 @@
-import React, { useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import { CASES_DATA } from '../data/cases';
-import { ArrowLeft, ArrowRight, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Badge } from '../components/ui/Badge';
+import { ImageLightbox } from '../components/ui/ImageLightbox';
+import { ArrowLeft, ArrowRight, CheckCircle2, AlertCircle, ZoomIn } from 'lucide-react';
 
 export default function CaseStudyDetail() {
   const { slug } = useParams<{ slug: string }>();
-  const navigate = useNavigate();
+  const [activeImage, setActiveImage] = useState<{ url: string; caption: string } | null>(null);
 
   const caseItem = CASES_DATA.find((c) => c.slug === slug);
 
@@ -44,8 +46,11 @@ export default function CaseStudyDetail() {
 
       {/* Case Header */}
       <header className="space-y-6">
-        <div className="inline-block px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 text-xs font-semibold uppercase tracking-wider rounded">
-          {caseItem.category} · {caseItem.tags.join(' · ')}
+        <div className="flex flex-wrap gap-2">
+          <Badge variant="default">{caseItem.category}</Badge>
+          {caseItem.tags.map((tag, idx) => (
+            <Badge key={idx} variant="outline">{tag}</Badge>
+          ))}
         </div>
         <h1 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-zinc-900 dark:text-zinc-50">
           {caseItem.title}
@@ -118,6 +123,45 @@ export default function CaseStudyDetail() {
         )}
       </section>
 
+      {/* Benchmark Audit */}
+      {caseItem.benchmark && (
+        <section className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900">
+          <div>
+            <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
+              {caseItem.benchmark.title}
+            </h2>
+            <p className="text-sm text-zinc-500 mt-1">
+              {caseItem.benchmark.description}
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-2 items-center">
+            <span className="text-xs uppercase tracking-wider font-semibold text-zinc-500 mr-1">
+              Plataformas Auditadas:
+            </span>
+            {caseItem.benchmark.competitors.map((comp, idx) => (
+              <Badge key={idx} variant="outline">
+                {comp}
+              </Badge>
+            ))}
+          </div>
+
+          <div className="p-6 bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800 rounded-lg space-y-3">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-600 dark:text-zinc-400">
+              Achados Críticos de Benchmark:
+            </h3>
+            <ul className="space-y-2">
+              {caseItem.benchmark.findings.map((finding, idx) => (
+                <li key={idx} className="flex items-start gap-2.5 text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                  <span className="w-1.5 h-1.5 rounded-full bg-zinc-900 dark:bg-zinc-100 mt-2 flex-shrink-0" />
+                  <span>{finding}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
       {/* Decisions */}
       <section className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900">
         <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
@@ -136,6 +180,35 @@ export default function CaseStudyDetail() {
           ))}
         </div>
       </section>
+
+      {/* Key Metrics Grid */}
+      {caseItem.keyMetrics && caseItem.keyMetrics.length > 0 && (
+        <section className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900">
+          <div>
+            <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
+              Métricas Chave & Critérios de Sucesso
+            </h2>
+            <p className="text-sm text-zinc-500 mt-1">
+              Impacto mensurável acordado e validado em produção.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {caseItem.keyMetrics.map((km, idx) => (
+              <div key={idx} className="p-6 bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800 rounded-lg">
+                <span className="text-3xl font-bold font-mono text-emerald-600 dark:text-emerald-400 block mb-1">
+                  {km.value}
+                </span>
+                <span className="text-xs uppercase tracking-wider text-zinc-500 font-semibold block mb-2">
+                  {km.label}
+                </span>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  {km.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Metrics Table */}
       {caseItem.metricsTable && (
@@ -191,16 +264,27 @@ export default function CaseStudyDetail() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {caseItem.screenshots.map((screen, idx) => (
-              <figure key={idx} className="border border-zinc-200 dark:border-zinc-800 rounded-lg overflow-hidden bg-zinc-50 dark:bg-zinc-900">
-                <img
-                  src={screen.url}
-                  alt={screen.caption}
-                  className="w-full h-auto object-cover"
-                  loading="lazy"
-                  onError={(e) => {
-                    (e.target as HTMLElement).style.display = 'none';
-                  }}
-                />
+              <figure key={idx} className="border border-zinc-200 dark:border-zinc-800 rounded-lg overflow-hidden bg-zinc-50 dark:bg-zinc-900 group">
+                <button
+                  type="button"
+                  onClick={() => setActiveImage({ url: screen.url, caption: screen.caption })}
+                  className="w-full relative overflow-hidden block text-left focus:outline-none focus:ring-2 focus:ring-zinc-400"
+                  aria-label={`Ampliar imagem: ${screen.caption}`}
+                >
+                  <img
+                    src={screen.url}
+                    alt={screen.caption}
+                    className="w-full h-auto object-cover group-hover:scale-102 transition duration-300"
+                    loading="lazy"
+                    onError={(e) => {
+                      (e.target as HTMLElement).style.display = 'none';
+                    }}
+                  />
+                  <div className="absolute bottom-2 right-2 p-1.5 bg-zinc-900/70 text-white rounded opacity-0 group-hover:opacity-100 transition flex items-center gap-1 text-[11px]">
+                    <ZoomIn className="w-3.5 h-3.5" aria-hidden="true" />
+                    <span>Zoom</span>
+                  </div>
+                </button>
                 <figcaption className="p-4 text-xs text-zinc-600 dark:text-zinc-400 border-t border-zinc-100 dark:border-zinc-800 leading-relaxed">
                   {screen.caption}
                 </figcaption>
@@ -242,6 +326,17 @@ export default function CaseStudyDetail() {
           Próximo: {nextCase.title} <ArrowRight className="w-4 h-4" />
         </Link>
       </nav>
+
+      {/* Image Lightbox Modal */}
+      {activeImage && (
+        <ImageLightbox
+          isOpen={!!activeImage}
+          onClose={() => setActiveImage(null)}
+          imageUrl={activeImage.url}
+          imageAlt={activeImage.caption}
+          caption={activeImage.caption}
+        />
+      )}
     </article>
   );
 }

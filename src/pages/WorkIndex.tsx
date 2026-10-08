@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CASES_DATA } from '../data/cases';
+import { Badge } from '../components/ui/Badge';
 import { ArrowUpRight, Search } from 'lucide-react';
 
 export default function WorkIndex() {
   const [selectedCategory, setSelectedCategory] = useState<string>('Todos');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
-  const categories = ['Todos', 'Gamificação', 'Compliance', 'Autosserviço'];
+  const categories = ['Todos', 'Sportsbook UX', 'Compliance', 'Autosserviço'];
 
   const filteredCases = CASES_DATA.filter((caseItem) => {
     const matchesCategory =
       selectedCategory === 'Todos' ||
-      caseItem.category.toLowerCase().includes(selectedCategory.toLowerCase());
+      caseItem.category.toLowerCase().includes(selectedCategory.toLowerCase()) ||
+      caseItem.tags.some((t) => t.toLowerCase().includes(selectedCategory.toLowerCase()));
     const matchesSearch =
       caseItem.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       caseItem.subtitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -43,7 +45,7 @@ export default function WorkIndex() {
               key={cat}
               onClick={() => setSelectedCategory(cat)}
               aria-pressed={selectedCategory === cat}
-              className={`px-3.5 py-2 rounded text-xs font-medium transition min-h-[40px] inline-flex items-center ${
+              className={`px-3.5 py-2 rounded text-xs font-medium transition min-h-[44px] inline-flex items-center ${
                 selectedCategory === cat
                   ? 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 font-semibold shadow-sm'
                   : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700'
@@ -67,6 +69,19 @@ export default function WorkIndex() {
         </div>
       </div>
 
+      {/* Filter count and reset */}
+      <div className="flex justify-between items-center text-xs text-zinc-500 -mt-6">
+        <span>Mostrando {filteredCases.length} de {CASES_DATA.length} estudos de caso</span>
+        {(selectedCategory !== 'Todos' || searchQuery) && (
+          <button
+            onClick={() => { setSelectedCategory('Todos'); setSearchQuery(''); }}
+            className="text-xs text-zinc-900 dark:text-zinc-100 hover:underline font-semibold min-h-[32px] inline-flex items-center"
+          >
+            Limpar filtros
+          </button>
+        )}
+      </div>
+
       {/* Cases Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredCases.map((caseItem) => (
@@ -88,11 +103,11 @@ export default function WorkIndex() {
                 />
               </div>
               <div className="p-5">
-                <div className="flex flex-wrap gap-1.5 mb-2.5">
+                <div className="flex flex-wrap gap-2 mb-3">
                   {caseItem.tags.slice(0, 2).map((tag, idx) => (
-                    <span key={idx} className="text-xs font-semibold tracking-wider text-zinc-500 uppercase">
-                      {tag} {idx < 1 && '·'}
-                    </span>
+                    <Badge key={idx} variant="default">
+                      {tag}
+                    </Badge>
                   ))}
                 </div>
                 <h2 className="text-lg font-semibold mb-2 group-hover:underline text-zinc-900 dark:text-zinc-100">

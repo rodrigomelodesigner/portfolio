@@ -16,6 +16,17 @@ export interface CaseStudy {
     reframed: string;
   };
   hypothesis?: string;
+  benchmark?: {
+    title: string;
+    description: string;
+    competitors: string[];
+    findings: string[];
+  };
+  keyMetrics?: {
+    value: string;
+    label: string;
+    description: string;
+  }[];
   decisions: {
     title: string;
     description: string;
@@ -35,47 +46,47 @@ export const CASES_DATA: CaseStudy[] = [
   {
     id: "artilheiro-da-casa",
     slug: "artilheiro-da-casa",
-    title: "Retenção Longitudinal através de Cartas Colecionáveis",
-    subtitle: "A transição de uma regra promocional textual para uma mecânica visual inspirada em card games esportivos. Salto de 72 para 827 apostas (+1.048%) no Brasileirão.",
-    category: "Gamificação",
-    tags: ["GAMIFICAÇÃO", "VALIDAÇÃO DATA-FIRST", "IGAMING"],
+    title: "Artilheiro da Casa: cards de atleta no lugar do regulamento",
+    subtitle: "470 apostas por rodada em média com cards, contra 72 com regulamento em texto, sem verba de mídia adicional.",
+    category: "Sportsbook UX",
+    tags: ["SPORTSBOOK UX", "CONVERSÃO", "PRODUTO"],
     company: "Casa de Apostas",
     role: "Product Designer (UX/UI & Mecânica)",
-    squad: "Gabriel Nascimento (PM), Lucca Schramm (Dev), Paulo Ricardo",
+    squad: "Gabriel Nascimento (Produto), Lucca Schramm (Engenharia)",
     timeline: "Março a Maio / 2025 (7 Rodadas)",
-    highlightMetric: "+1.048% Apostas / +727% Volume",
+    highlightMetric: "470 apostas/rodada (6,5x) · R$ 4.039 stake médio",
     coverImage: "/images/covers/artilheiro_showcase_cover.png",
     problem: {
-      briefing: "Divulgar a promoção do Artilheiro com mais banners na Home e enviar e-mails com as regras da rodada.",
-      reframed: "O problema não era falta de canais de mídia, mas sim a fricção cognitiva de exigir leitura regulamentar densa para uma ação lúdica. Era necessário transformar o modelo mental em uma experiência visual imediata."
+      briefing: "Na estreia do Brasileirão 2025 (R1, 30/03), a promoção Artilheiro da Casa foi publicada na Home como um regulamento de 15 linhas em texto corrido. Resultado: 72 apostas e R$ 821,07 de stake nos cinco mercados de artilheiro. Marketing relatou baixa adesão e pediu mais banners e e-mails.",
+      reframed: "A leitura foi outra: as pessoas já viam a oferta, mas ela não virava aposta porque exigia interpretar regras antes de chegar ao mercado. A barreira era o atrito entre ler a regra e encontrar a aposta no Sportsbook."
     },
-    hypothesis: "Testar a mecânica comercial antes do pixel: Rodada 1 como baseline textual (72 apostas) e introdução da interface visual de cartas esportivas a partir da Rodada 2.",
+    hypothesis: "A partir da R2, no mesmo espaço da Home, troquei o texto por um card por atleta, com partida, odd e multiplicador visíveis. Um toque no card já colocava a odd no boletim de aposta, sem passar pela navegação de esportes. A verba de mídia e os canais continuaram os mesmos. Projeto feito com Gabriel Nascimento (Produto) e Lucca Schramm (Engenharia). A validação foi sequencial, comparando rodada com rodada, sem teste A/B.",
     decisions: [
       {
-        title: "Modelo Mental de Cartas Colecionáveis",
-        description: "Adoção da linguagem visual de cards esportivos (estilo FIFA Ultimate Team), onde o atleta, a partida e o multiplicador de odd estão imediatamente legíveis sem necessidade de ler termos e condições."
+        title: "Atalho Transacional Direto na Home",
+        description: "Em vez de exigir que o usuário lesse termos e depois procurasse a partida na árvore de esportes, o card exibiu odd e atleta com inserção direta no boletim de aposta em um toque."
       },
       {
-        title: "Mecânica Transparente de Recompensa",
-        description: "Aposta mínima de R$ 10 gerando R$ 10 de aposta grátis (freebet) para cada gol real marcado pelo atleta escolhido."
+        title: "Linguagem Visual de Cards Esportivos",
+        description: "5 mercados de artilheiros da rodada destacados com fotos dos atletas, confronto e multiplicadores imediatamente escaneáveis, sem parágrafos de regras."
       }
     ],
     metricsTable: {
-      headers: ["Rodada", "Data", "Formato / Evento", "Apostas", "Volume (R$)"],
+      headers: ["Rodada", "Data", "Formato / Contexto", "Apostas", "Stake (R$)", "Ticket Médio"],
       rows: [
-        ["Rodada 1", "30/03/2025", "MVP Textual (Baseline)", 72, "R$ 821,07"],
-        ["Rodada 2", "06/04/2025", "Lançamento da Interface Visual", 590, "R$ 6.128,37"],
-        ["Rodada 3", "13/04/2025", "Pico de Engajamento Retido", 827, "R$ 6.790,55"],
-        ["Rodada 4", "16/04/2025", "Instabilidade técnica de provedor externo", 345, "R$ 2.521,71"],
-        ["Rodada 5", "20/04/2025", "Atletas com menor apelo popular", 212, "R$ 2.270,83"],
-        ["Rodada 6", "27/04/2025", "Recuperação com craques em destaque", 628, "R$ 4.383,39"],
-        ["Rodada 7", "04/05/2025", "Fechamento de ciclo de temporada", 221, "R$ 2.139,81"]
+        ["R1", "30/03/2025", "MVP Textual (Baseline)", 72, "R$ 821,07", "R$ 11,40"],
+        ["R2", "06/04/2025", "Lançamento dos Cards Visuais", 590, "R$ 6.128,37", "R$ 10,38"],
+        ["R3", "13/04/2025", "Pico de Engajamento", 827, "R$ 6.790,55", "R$ 8,21"],
+        ["R4", "16/04/2025", "Quarta-feira (meio de semana) + instabilidade de provedor", 345, "R$ 2.521,71", "R$ 7,30"],
+        ["R5", "20/04/2025", "Atletas com menor apelo popular", 212, "R$ 2.270,83", "R$ 10,71"],
+        ["R6", "27/04/2025", "Recuperação com craques em destaque (Pedro, Hulk)", 628, "R$ 4.383,39", "R$ 6,98"],
+        ["R7", "04/05/2025", "Fechamento de ciclo / normalização da novidade", 221, "R$ 2.139,81", "R$ 9,68"]
       ]
     },
     learnings: [
-      "O design visual gerou um salto de +1.048% sem alteração na verba de marketing.",
-      "A experiência depende de alinhamento estreito com curadoria esportiva (queda na Rodada 5 por falta de apelo dos atletas).",
-      "Resiliência técnica e empty states claros são fundamentais quando integrações de terceiros oscilam (Rodada 4)."
+      "Média de 470 apostas e R$ 4.039 de stake por rodada com cards, contra 72 apostas e R$ 821,07 na R1 (6,5x as apostas e 4,9x o stake).",
+      "O ticket médio caiu de R$ 11,40 para R$ 8,58 porque o card virou atalho para apostar direto no atleta, atraindo apostas menores nos mercados elegíveis.",
+      "Limites de atribuição: teste sem grupo controle, relatório do provedor sem separação de usuários únicos e volume sensível ao apelo do atleta, estabilidade do provedor e dia da semana (quarta-feira na R4)."
     ],
     screenshots: [
       {
@@ -101,39 +112,104 @@ export const CASES_DATA: CaseStudy[] = [
     ]
   },
   {
-    id: "limites-prudenciais",
-    slug: "limites-prudenciais",
-    title: "Redesign do Fluxo de Autoexclusão & Proteção Financeira",
-    subtitle: "Conversão de um requisito regulatório compulsório (Portaria SPA/MF nº 1.231) em uma experiência ética de acolhimento. Inversão de CTAs e veto a padrões escuros.",
-    category: "Jogo Responsável",
-    tags: ["JOGO RESPONSÁVEL", "COMPLIANCE SPA/MF", "DESIGN ÉTICO"],
+    id: "bolao-da-copa",
+    slug: "bolao-da-copa",
+    title: "Bolão da Copa: predição social, testes internos e adesão orgânica",
+    subtitle: "9.035 participantes em 25 dias sem mídia paga, testes com colaboradores internos e a realidade da adesão aos grupos privados.",
+    category: "Social Gaming & Aquisição",
+    tags: ["SOCIAL GAMING", "AQUISIÇÃO ORGÂNICA", "TESTES INTERNOS"],
     company: "Casa de Apostas",
-    role: "Product Designer (UX, Benchmark & Ética)",
-    squad: "Tamille Ramos (PM), Luedy Costa (Design Supervisor), Jimmy",
-    timeline: "Junho a Julho / 2025",
-    highlightMetric: "100% Conformidade Regulatória SPA/MF",
-    coverImage: "/images/covers/limites_showcase_cover.png",
+    role: "Product Designer (UX/UI & Descoberta)",
+    squad: "Tamille Rocha (PM), Gabriel Nascimento (Marketing), Wesley Dias (Engenharia/Zizy)",
+    timeline: "Maio a Julho / 2026",
+    highlightMetric: "9.035 participantes · 81 grupos privados",
+    coverImage: "/images/covers/bolao_showcase_cover.png",
     problem: {
-      briefing: "Atender a Portaria 1.231 inserindo os limites obrigatórios de apostas e perdas no sistema.",
-      reframed: "O fluxo anterior oferecia apenas um botão nuclear de encerramento irreversível de conta. Era indispensável criar um painel preventivo graduado de proteção ao jogador com fricções éticas."
+      briefing: "Durante a Copa do Mundo de 2026, a operação precisava atrair e reativar usuários sem depender de campanhas pagas de aquisição, cujos custos sobem no torneio. A proposta foi criar um bolão esportivo gratuito (fantasy social), onde o público pudesse palpitar nos placares dos jogos e competir tanto em um ranking geral quanto em grupos privados de amigos. O prazo de entrega era de quatro semanas entre o briefing e o pontapé inicial da Copa.",
+      reframed: "O desafio foi desenhar uma mecânica de engajamento diário sem dinheiro real capaz de atrair participantes organicamente, avaliando se grupos fechados de amigos funcionariam como motor viral de aquisição."
     },
+    hypothesis: "Como Product Designer, em parceria com a PM Tamille Rocha e o time de marketing, desenhei o fluxo completo de navegação e palpite para mobile. Na abertura da Copa (11 de junho), conduzi uma rodada de testes de usabilidade no escritório com 6 colaboradores internos de outras áreas (CRM, Live Marketing e Design) para observar o primeiro uso. O teste apontou que a estrela no 'Palpite Dobrado' era confundida com um botão de favoritar partida e que inputs de placar vazios geravam dúvida sobre o formato aceito. Substituí a estrela pela tag explícita '2x Pontos em dobro' e adicionei formato nos campos de placar na Sprint 2. O fluxo foi bifurcado para permitir que o usuário entrasse sozinho pelo ranking geral ou recebesse um convite via link para um grupo fechado com ranking próprio.",
     decisions: [
       {
-        title: "Inversão da Hierarquia de CTAs",
-        description: "Transformar a Pausa Temporária (1, 7 ou 30 dias) na ação primária, evitando o rage quit irreversível e acolhendo o usuário em sofrimento."
+        title: "Tag Visual Explícita '2x' no Lugar da Estrela",
+        description: "Eliminação da ambiguidade identificada nos testes internos, deixando claro que a ação dobra a pontuação do acerto em vez de favoritar a partida."
       },
       {
-        title: "Veto a Padrões Escuros no Onboarding (Flow 1)",
-        description: "Rejeição ao pré-preenchimento sugestivo de valores altos no cadastro, garantindo inputs neutros com conformidade ética estrita."
+        title: "Fluxo de Entrada Bifurcado (Convite vs. Orgânico)",
+        description: "Quem recebia deep link entrava direto no grupo fechado com tela de aceite e ranking privado; quem acessava pela plataforma caía na central geral de palpites."
       },
       {
-        title: "Fricção Assimétrica (Flow 2)",
-        description: "Reduções de limite são imediatas; aumentos de limite exigem carência legal de 24 horas para reconfirmação consciente."
+        title: "Interface de Palpites em Scroll com Bloqueio Automático",
+        description: "Cards com confrontos, bandeiras e inputs estruturados, com trava automática no apito inicial do jogo e timestamp de desempate."
       }
     ],
     learnings: [
-      "Benchmark em 6 plataformas concorrentes revelou que padrões escuros eram predominantes no setor.",
-      "O design orientado a compliance protege tanto o usuário vulnerável quanto a empresa contra autuações federais."
+      "Do lançamento, em 11/06, até 06/07/2026, o bolão teve 9.035 participantes inscritos, sem mídia paga, segundo o sistema Zizy.",
+      "A hipótese de crescimento pelos grupos de amigos não se confirmou: foram criados só 81 grupos privados para 9.035 participantes.",
+      "Minha leitura é que o prêmio do ranking geral atraía mais do que a disputa entre amigos, e que convidar alguém exigia que essa pessoa tivesse ou criasse uma conta na plataforma.",
+      "O aprendizado é que um mecanismo de convite precisa de um incentivo próprio, forte o bastante para compensar o trabalho de trazer outra pessoa."
+    ],
+    screenshots: [
+      {
+        url: "/images/04_bolao_copa/bolao_fluxo_mapeamento.png",
+        caption: "Mapeamento do fluxo de entrada bifurcado: convite com deep link para grupo fechado vs. entrada orgânica pela plataforma."
+      },
+      {
+        url: "/images/04_bolao_copa/bolao_palpites_rodada.png",
+        caption: "Interface de palpites por rodada com confrontos e multiplicador de pontos."
+      },
+      {
+        url: "/images/04_bolao_copa/bolao_antes_depois_rodadas.png",
+        caption: "Evolução visual da interface de rodadas e consolidação dos cards de confronto."
+      }
+    ]
+  },
+  {
+    id: "limites-prudenciais",
+    slug: "limites-prudenciais",
+    title: "Saída responsável: pausa e autoexclusão sob as regras da SPA/MF",
+    subtitle: "Reconstrução da jornada de afastamento com pausa temporária, autoavaliação voluntária e autoexclusão definitiva em 3 etapas sem labirinto de menus.",
+    category: "Compliance & Jogo Responsável",
+    tags: ["JOGO RESPONSÁVEL", "COMPLIANCE SPA/MF", "DESIGN ÉTICO"],
+    company: "Casa de Apostas",
+    role: "Product Designer (UX, Benchmark & Ética)",
+    squad: "Tamille Rocha (PM), Diego Batista (Produto), Hans Schleier (Compliance), Luedy Costa (Design)",
+    timeline: "Maio a Julho / 2025",
+    highlightMetric: "Homologado em Staging (28/07) · 3 Etapas Sem Obstrução",
+    coverImage: "/images/covers/limites_showcase_cover.png",
+    problem: {
+      briefing: "Em abril de 2025, já sob as regras de jogo responsável da SPA/MF, a única saída da plataforma era um botão 'Fechar conta' com o aviso 'esta ação é irreversível'. Não havia pausa temporária nem encaminhamento para apoio, então quem queria se afastar por um tempo só podia se excluir de forma definitiva. O ticket #1992, aberto pela PM Tamille Rocha em 29/04/2025, pediu a adequação do fluxo.",
+      reframed: "O problema não era apenas adicionar telas, mas evitar dois extremos éticos: não tornar a saída um labirinto obstrutivo (como os 4 a 5 níveis de menu vistos no benchmark da concorrência), nem induzir o usuário com textos persuasivos de retenção. O papel do design foi construir um fluxo sóbrio e direto."
+    },
+    hypothesis: "No painel de Jogo Responsável, a pausa temporária de 1, 7 ou 30 dias aparece primeiro e a autoexclusão definitiva fica logo abaixo, na mesma tela, sem submenu. A autoexclusão leva três etapas: pedir a exclusão, ler os efeitos (bloqueio de apostas, saque do saldo e canais de apoio) e confirmar com a senha, para impedir que outra pessoa exclua a conta num aparelho compartilhado. A autoavaliação baseada no CPGI é um link opcional, nunca uma etapa obrigatória. A v1 tinha um texto persuasivo e ilustrações emotivas, e a supervisão de design (Luedy Costa) reprovou essa versão em 07/07/2025 porque ela soava como retenção disfarçada. A v2, aprovada em 10/07, trocou isso por texto factual e cores neutras. No benchmark, os operadores analisados exigiam de 4 a 5 níveis de menu para chegar à autoexclusão. Como a API do provedor exige login vinculado ao CPF, quem está deslogado encontra na tela de login um atalho para o chat de suporte 24h, onde pode pedir a exclusão a um atendente.",
+    benchmark: {
+      title: "Auditoria Comparativa no FigJam",
+      description: "Mapeamento de boas práticas e armadilhas de UX em operadores do mercado antes de iniciar os wireframes.",
+      competitors: ["Operadores líderes do mercado nacional analisados no benchmark"],
+      findings: [
+        "A maioria dos operadores analisados escondia a autoexclusão atrás de 4 a 5 níveis de menus (padrão obstrutivo deliberado).",
+        "Ausência de alternativas graduadas: o usuário era forçado a escolher entre continuar vulnerável ou rescindir a conta para sempre.",
+        "Fluxos deslogados quebravam sem alternativas de suporte para quem havia esquecido a credencial."
+      ]
+    },
+    decisions: [
+      {
+        title: "Pausa e Autoexclusão na Mesma Tela (Sem Submenus)",
+        description: "A pausa temporária (1, 7 ou 30 dias) fica no topo e a autoexclusão logo abaixo. Diferente dos operadores que escondiam a saída em 4 a 5 níveis de menu, o encerramento ficou a um scroll de distância."
+      },
+      {
+        title: "Autoexclusão Definitiva em 3 Etapas Transparentes",
+        description: "1. Pedido no painel; 2. Esclarecimento sóbrio dos efeitos legais (saque do saldo remanescente e canais de ajuda); 3. Confirmação por senha para segurança em dispositivos compartilhados."
+      },
+      {
+        title: "Neutralidade Verbal e CPGI Opcional (v2)",
+        description: "Rejeição da v1 persuasiva. Adoção de linguagem estritamente neutra e factual, sem ilustrações emotivas, com o questionário de autopercepção CPGI como link voluntário."
+      }
+    ],
+    learnings: [
+      "O fluxo foi validado por Compliance (Hans Schleier), Produto (Diego Batista) e Conteúdo/Jurídico (Priscila Santiago e Natália Gomes), e foi para staging em 28/07/2025. Não acompanhei a entrada em produção porque meu ciclo no ticket #1992 terminou nessa homologação.",
+      "Não houve teste A/B por escolha ética: testar variantes de interface para ver qual faz menos pessoas saírem seria manipular usuários em momento de vulnerabilidade.",
+      "Métricas a acompanhar em produção: proporção entre pausa e autoexclusão, retorno pós-pausa, tempo de conclusão da exclusão e solicitações manuais via chat de suporte, sem meta de conter saídas."
     ],
     screenshots: [
       {
@@ -155,64 +231,6 @@ export const CASES_DATA: CaseStudy[] = [
       {
         url: "/images/01_limites_autoexclusao/limites_tela_tempo_sessao.png",
         caption: "Configuração de tempo máximo de sessão diária com notificações de alerta."
-      }
-    ]
-  },
-  {
-    id: "pagina-transacoes",
-    slug: "pagina-transacoes",
-    title: "Painel Gráfico de Extrato e Autosserviço Financeiro",
-    subtitle: "Arquitetura mobile-first de extrato de 36 meses segregando apostas esportivas de cassino em conformidade com a Portaria SPA/MF 1.231.",
-    category: "Transparência Financeira",
-    tags: ["TRANSPARÊNCIA FINANCEIRA", "REGULAÇÃO", "SELF-SERVICE UX"],
-    company: "Casa de Apostas",
-    role: "Product Designer (IA Pipeline & UX Lead)",
-    squad: "Tamille Ramos (PM), Luedy Costa, Verônica Lima",
-    timeline: "Agosto a Setembro / 2025",
-    highlightMetric: "-40% Tickets de Suporte / 36 Meses de Histórico",
-    coverImage: "/images/covers/transacoes_showcase_cover.png",
-    problem: {
-      briefing: "Atualizar a tela de Minhas Transações para cumprir a nova portaria do Ministério da Fazenda.",
-      reframed: "A ausência de filtros e o extrato misturado sobrecarregavam o SAC Nível 1 com pedidos manuais de planilha. Era preciso transformar o extrato em uma ferramenta de autoauditoria pelo usuário."
-    },
-    decisions: [
-      {
-        title: "Segregação Esportes vs Cassino",
-        description: "Abas dedicadas que separam as métricas de partidas esportivas do volume de giros de cassino, com cálculo de P&L líquido em tempo real."
-      },
-      {
-        title: "Filtros Temporais Modulares (7d, 30d, 12m e Custom)",
-        description: "Seletores intuitivos para auditoria pessoal e suporte a exportação compatível com declarações fiscais."
-      },
-      {
-        title: "Indicador de Tempo de Uso",
-        description: "Contador de horas ativas na semana como guardrail de jogo consciente integrado ao fluxo de limites."
-      }
-    ],
-    learnings: [
-      "A transparência de dados reduz drasticamente o custo operacional de suporte.",
-      "Interfaces reguladas exigem performance extrema (< 1.5s em mobile 4G) para garantir confiabilidade de auditoria."
-    ],
-    screenshots: [
-      {
-        url: "/images/03_transacoes_onboarding/transacoes_dashboard_desktop_1920x1440.png",
-        caption: "Visão consolidada desktop do extrato financeiro com métricas de P&L líquido e histórico estendido."
-      },
-      {
-        url: "/images/03_transacoes_onboarding/transacoes_mobile_esportes_aba.png",
-        caption: "Extrato segregado de apostas esportivas no mobile com status em tempo real."
-      },
-      {
-        url: "/images/03_transacoes_onboarding/transacoes_mobile_cassino_aba.png",
-        caption: "Extrato segregado de sessões e giros de cassino com saldo resultante."
-      },
-      {
-        url: "/images/03_transacoes_onboarding/transacoes_mobile_seletor_periodo.png",
-        caption: "Filtros temporais dinâmicos (7d, 30d, 90d, custom) para auditoria e histórico de até 36 meses."
-      },
-      {
-        url: "/images/03_transacoes_onboarding/transacoes_mobile_detalhe_aposta.png",
-        caption: "Detalhamento individual da aposta com comprovante e ID de transação para SAC e conformidade."
       }
     ]
   }

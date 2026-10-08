@@ -1,6 +1,7 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { CASES_DATA } from '../data/cases';
+import { ProofTicker } from '../components/ui/ProofTicker';
+import { Badge } from '../components/ui/Badge';
 import { 
   ArrowDown, 
   ArrowRight, 
@@ -15,36 +16,39 @@ export default function Home() {
     <div className="space-y-16 py-6 md:py-12">
       {/* Hero Section */}
       <header>
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 mb-6 border border-zinc-200 dark:border-zinc-700">
+          <span className="w-2 h-2 rounded-full bg-emerald-500" />
+          <span>Product Designer Pleno · Operação Regulada SPA/MF</span>
+        </div>
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-6 max-w-2xl text-zinc-900 dark:text-zinc-50">
-          Sistemas que sustentam decisões.
+          Clareza na decisão, proteção sem obstáculo.
         </h1>
         <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed mb-8">
-          Sou Product Designer focado em operações reguladas e plataformas de alta escala. Traduzo requisitos de compliance e fricções de negócio em interfaces praticáveis e documentadas.
+          Desenho fluxos de produto numa operação de apostas regulada pela SPA/MF: conversão, aquisição sem mídia paga e proteção do consumidor. Cada case mostra o dado, o método e o que não deu certo.
         </p>
-        <div className="flex gap-4">
+        <div className="flex flex-wrap gap-4 items-center">
           <Link
             to="/work"
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 font-medium rounded hover:opacity-90 transition"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 font-medium rounded hover:opacity-90 transition min-h-[44px]"
           >
             Ver Projetos <ArrowDown className="w-4 h-4" />
           </Link>
           <Link
             to="/about"
-            className="inline-flex items-center gap-2 px-5 py-2.5 border border-zinc-200 dark:border-zinc-800 font-medium rounded hover:bg-zinc-50 dark:hover:bg-zinc-900 transition text-zinc-900 dark:text-zinc-100"
+            className="inline-flex items-center gap-2 px-5 py-2.5 border border-zinc-200 dark:border-zinc-800 font-medium rounded hover:bg-zinc-50 dark:hover:bg-zinc-900 transition text-zinc-900 dark:text-zinc-100 min-h-[44px]"
           >
             Sobre mim <ArrowRight className="w-4 h-4" />
           </Link>
+          <a
+            href="/assets/rodrigo-melo-curriculo.pdf"
+            download="rodrigo-melo-curriculo.pdf"
+            className="inline-flex items-center gap-2 px-4 py-2.5 text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition min-h-[44px]"
+          >
+            Baixar Currículo (PDF) &darr;
+          </a>
         </div>
 
-        <div className="mt-16 pt-6 border-t border-zinc-100 dark:border-zinc-900">
-          <p className="text-xs font-semibold tracking-wider uppercase text-zinc-500 dark:text-zinc-400 flex flex-wrap gap-4">
-            <span>Conformidade SPA/MF Nº 1.231</span>
-            <span>•</span>
-            <span>+1.048% engajamento gamificado</span>
-            <span>•</span>
-            <span>+237% aquisição B2C</span>
-          </p>
-        </div>
+        <ProofTicker className="mt-12" />
       </header>
 
       {/* Featured Work Section */}
@@ -86,11 +90,11 @@ export default function Home() {
                   />
                 </div>
                 <div className="p-5">
-                  <div className="flex flex-wrap gap-1.5 mb-2.5">
+                  <div className="flex flex-wrap gap-2 mb-3">
                     {caseItem.tags.slice(0, 2).map((tag, idx) => (
-                      <span key={idx} className="text-xs font-semibold tracking-wider text-zinc-500 uppercase">
-                        {tag} {idx < 1 && '·'}
-                      </span>
+                      <Badge key={idx} variant="default">
+                        {tag}
+                      </Badge>
                     ))}
                   </div>
                   <h3 className="text-lg font-semibold mb-2 group-hover:underline text-zinc-900 dark:text-zinc-100">
@@ -102,9 +106,12 @@ export default function Home() {
                 </div>
               </div>
               <div className="p-5 pt-0">
-                <span className="inline-flex items-center gap-1 text-xs font-semibold text-zinc-900 dark:text-zinc-100">
-                  Ver Estudo de Caso <ArrowUpRight className="w-3.5 h-3.5" />
-                </span>
+                <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800/80 flex justify-between items-center text-xs">
+                  <span className="font-mono font-medium text-emerald-600 dark:text-emerald-400">{caseItem.highlightMetric}</span>
+                  <span className="inline-flex items-center gap-1 font-semibold text-zinc-900 dark:text-zinc-100 group-hover:translate-x-0.5 transition-transform">
+                    Ver Estudo <ArrowUpRight className="w-3.5 h-3.5" />
+                  </span>
+                </div>
               </div>
             </Link>
           ))}
@@ -133,23 +140,23 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="p-6 border border-zinc-200 dark:border-zinc-800 rounded-lg bg-zinc-50/50 dark:bg-zinc-900/30">
             <ShieldCheck className="w-6 h-6 mb-4 text-zinc-800 dark:text-zinc-200" />
-            <h3 className="font-semibold text-base mb-2 text-zinc-900 dark:text-zinc-100">Fricção como Proteção</h3>
+            <h3 className="font-semibold text-base mb-2 text-zinc-900 dark:text-zinc-100">1. Clareza e Proteção</h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              Em mercados regulados, facilidade cega gera dano financeiro e passivo jurídico. Projetar atrito consciente é um dever ético de design.
+              No Artilheiro, troquei 15 linhas de regulamento por um card que já leva a odd ao boletim. Na Saída responsável, a autoexclusão fica na mesma tela da pausa, a 3 etapas.
             </p>
           </div>
           <div className="p-6 border border-zinc-200 dark:border-zinc-800 rounded-lg bg-zinc-50/50 dark:bg-zinc-900/30">
             <Layers className="w-6 h-6 mb-4 text-zinc-800 dark:text-zinc-200" />
-            <h3 className="font-semibold text-base mb-2 text-zinc-900 dark:text-zinc-100">Sistemas sobre Artefatos</h3>
+            <h3 className="font-semibold text-base mb-2 text-zinc-900 dark:text-zinc-100">2. Hipótese e Resultado</h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              Telas individuais envelhecem rápido. Regras de negócio tipadas, tokens semânticos e documentação viva escalam a maturidade do produto.
+              No Bolão, a aposta nos grupos de amigos não se confirmou: foram 81 grupos para 9.035 participantes, e o case declara isso. No Artilheiro, declaro o que o teste sequencial não isola.
             </p>
           </div>
           <div className="p-6 border border-zinc-200 dark:border-zinc-800 rounded-lg bg-zinc-50/50 dark:bg-zinc-900/30">
             <FileCheck className="w-6 h-6 mb-4 text-zinc-800 dark:text-zinc-200" />
-            <h3 className="font-semibold text-base mb-2 text-zinc-900 dark:text-zinc-100">Evidência sobre Opinião</h3>
+            <h3 className="font-semibold text-base mb-2 text-zinc-900 dark:text-zinc-100">3. Regulação no Começo</h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              Toda hipótese estética deve ser submetida a teste empírico (ADR 005). Menos conjecturas subjetivas, mais métricas longitudinais rastreáveis.
+              A v1 da Saída responsável foi reprovada por soar como retenção disfarçada. A v2 foi desenhada com texto neutro e validada por Compliance, Produto e Jurídico antes de ir para staging.
             </p>
           </div>
         </div>

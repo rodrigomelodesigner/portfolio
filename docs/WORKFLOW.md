@@ -78,7 +78,7 @@ Todas as IAs devem recusar código ou texto que viole os seguintes princípios:
 
 1. **Voz e Conteúdo (ADR 005):**
    - 🚫 **Nunca:** "Apaixonado por inovação", "Design centrado no ser humano que transforma vidas", textos genéricos sem números.
-   - ✅ **Sempre:** Dados auditáveis (ex: "+1.048% engajamento", "Conformidade Portaria SPA/MF 1.231", "Zero multas regulatórias").
+   - ✅ **Sempre:** Dados auditáveis (ex: "470 apostas/rodada (6,5x)", "Conformidade Portaria SPA/MF 1.231", "Zero multas regulatórias").
 2. **Estética Swiss / Modern Flat:**
    - Cores: Monocromático Zinc (cinzas neutros), preto puro e branco.
    - Tipografia: Neo-grotesca (`Inter`).
