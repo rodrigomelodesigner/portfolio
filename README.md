@@ -59,6 +59,7 @@ Este repositório possui uma arquitetura documentada para colaboração contínu
 - **[Decisões de Arquitetura (ADRs)](docs/adr/):** Registros formais de decisões arquiteturais (ADR 0001 a 0006).
 - **[Auditoria de Mídia & Imagens](docs/reports/image-inventory.md):** Diagnóstico contínuo de peso de assets e Core Web Vitals (`npm run optimize-images`).
 - **[Gate Estático de Acessibilidade](tools/verify-a11y.mjs):** Validador automatizado de regras A11Y (`npm run verify-a11y`).
+- **[Catálogo de Recursos de Vibe Coding & UI](docs/resources/vibe-coding-design-catalog.md):** 25 ferramentas e bibliotecas de UI curadas sob as diretrizes do ADR 005 e A11Y.md.
 
 ---
 
