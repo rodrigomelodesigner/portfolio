@@ -92,6 +92,7 @@
 ## 5. Regras Técnicas de Engenharia
 
 1. **HTML Semântico:** Sempre utilizar `<main id="main-content">`, `<header>`, `<nav>`, `<article>`, `<section>`, `<footer>`.
-2. **Acessibilidade Canônica (A11Y.md v2.2.0):** Seguir estritamente as regras de [`docs/a11y/A11Y.md`](./docs/a11y/A11Y.md). Conformidade WCAG 2.2 Nível AA com aspiração Shield (AAA) em contrastes e touch targets (mínimo 44×44px). Proibido `onClick` em `div`/`span`, proibido ocultar anéis de foco, e proibido `alt=""` em mockups informativos. Skip link obrigatório para `#main-content`.
+2. **Acessibilidade Canônica (A11Y.md v2.2.0):** Seguir estritamente as regras de [`docs/a11y/A11Y.md`](./docs/a11y/A11Y.md). Conformidade WCAG 2.2 Nível AA com aspiração Shield (AAA) em contrastes e touch targets (mínimo 44×44px). Proibido `onClick` em `div`/`span`, proibido ocultar anéis de foco, e proibido `alt=""` em mockups informativos. Skip link obrigatório para `#main-content` no topo do body.
 3. **Mobile-First:** Testar rigidez em 375px. Botões com área de toque mínima de 44×44px.
 4. **Isolamento de Mudanças:** Nunca quebrar componentes ou páginas funcionais ao aplicar novas alterações.
+5. **Componentes e Animações (Vibe Coding):** Baseie-se na arquitetura limpa de **shadcn/ui** e em padrões extraídos do catálogo **21st.dev**. Ao adicionar animações, siga a metodologia **Scrolltide** (animações guiadas por scroll suaves e cinematográficas para contar histórias de dados), mantendo-as **estritamente informativas** e garantindo respeito absoluto à preferência `prefers-reduced-motion` no CSS/Tailwind (WCAG SC 2.3.3). Zero animações lúdicas (partículas, 3D exagerado).
