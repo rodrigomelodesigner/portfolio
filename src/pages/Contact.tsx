@@ -67,65 +67,75 @@ export default function Contact() {
         </h2>
 
         {submitted ? (
-          <div className="p-6 bg-zinc-100 dark:bg-zinc-800 rounded-lg text-center space-y-2">
-            <CheckCircle className="w-8 h-8 text-emerald-500 mx-auto" />
+          <div
+            role="status"
+            aria-live="polite"
+            className="p-6 bg-zinc-100 dark:bg-zinc-800 rounded-lg text-center space-y-2 border border-zinc-200 dark:border-zinc-700"
+          >
+            <CheckCircle className="w-8 h-8 text-emerald-500 mx-auto" aria-hidden="true" />
             <h3 className="font-semibold text-base text-zinc-900 dark:text-zinc-100">Mensagem Registrada</h3>
             <p className="text-xs text-zinc-600 dark:text-zinc-400">
               Obrigado pelo contato! Retornarei em até 24 horas úteis.
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4" noValidate={false}>
             <div>
-              <label htmlFor="name" className="block text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-1">
-                Nome Completo
+              <label htmlFor="name" className="block text-xs font-semibold uppercase tracking-wider text-zinc-600 dark:text-zinc-400 mb-1">
+                Nome Completo <span className="text-rose-500" aria-hidden="true">*</span>
               </label>
               <input
                 id="name"
+                name="name"
                 type="text"
                 required
+                aria-required="true"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Ex: Gabriel Nascimento"
-                className="w-full px-3.5 py-2.5 text-sm bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded focus:outline-none focus:ring-1 focus:ring-zinc-400 text-zinc-900 dark:text-zinc-100"
+                className="w-full px-3.5 py-2.5 min-h-[44px] text-sm bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded focus:outline-none focus:ring-2 focus:ring-zinc-400 text-zinc-900 dark:text-zinc-100"
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-1">
-                E-mail Corporativo
+              <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-zinc-600 dark:text-zinc-400 mb-1">
+                E-mail Corporativo <span className="text-rose-500" aria-hidden="true">*</span>
               </label>
               <input
                 id="email"
+                name="email"
                 type="email"
                 required
+                aria-required="true"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="seu.nome@empresa.com"
-                className="w-full px-3.5 py-2.5 text-sm bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded focus:outline-none focus:ring-1 focus:ring-zinc-400 text-zinc-900 dark:text-zinc-100"
+                className="w-full px-3.5 py-2.5 min-h-[44px] text-sm bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded focus:outline-none focus:ring-2 focus:ring-zinc-400 text-zinc-900 dark:text-zinc-100"
               />
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-1">
-                Contexto / Oportunidade
+              <label htmlFor="message" className="block text-xs font-semibold uppercase tracking-wider text-zinc-600 dark:text-zinc-400 mb-1">
+                Contexto / Oportunidade <span className="text-rose-500" aria-hidden="true">*</span>
               </label>
               <textarea
                 id="message"
+                name="message"
                 required
+                aria-required="true"
                 rows={4}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Descreva brevemente o projeto, squad ou desafio de produto..."
-                className="w-full px-3.5 py-2.5 text-sm bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded focus:outline-none focus:ring-1 focus:ring-zinc-400 text-zinc-900 dark:text-zinc-100 resize-none"
+                className="w-full px-3.5 py-2.5 text-sm bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded focus:outline-none focus:ring-2 focus:ring-zinc-400 text-zinc-900 dark:text-zinc-100 resize-none"
               />
             </div>
 
             <button
               type="submit"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 text-sm font-medium rounded hover:opacity-90 transition w-full justify-center"
+              className="inline-flex items-center gap-2 px-5 py-2.5 min-h-[44px] bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 text-sm font-medium rounded hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-900 transition w-full justify-center"
             >
-              <Send className="w-4 h-4" /> Enviar Mensagem
+              <Send className="w-4 h-4" aria-hidden="true" /> Enviar Mensagem
             </button>
           </form>
         )}

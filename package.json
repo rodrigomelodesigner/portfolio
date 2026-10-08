@@ -8,7 +8,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "optimize-images": "node scripts/optimize-images.mjs"
+    "optimize-images": "node scripts/optimize-images.mjs",
+    "verify-a11y": "node tools/verify-a11y.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

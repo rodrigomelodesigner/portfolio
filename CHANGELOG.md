@@ -5,6 +5,29 @@ O formato é baseado no [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.
 
 ---
 
+## [Unreleased] — Integração do Protocolo A11Y.md, Skill Accessibility e ADR 0006
+
+### ♿ Acessibilidade Canônica & Protocolo A11Y.md v2.2.0
+- **Núcleo Normativo e Governança (`docs/a11y/`):**
+  - Integração do [`A11Y.md`](docs/a11y/A11Y.md) (v2.2.0 por Felipe Carrico) estabelecendo o Princípio Zero e as 19 regras do AI Behavior Contract.
+  - Criação de [`docs/a11y/A11Y-DECISIONS.md`](docs/a11y/A11Y-DECISIONS.md) (memória de decisões técnicas e conformidade WCAG 2.2 AA / Shield AAA).
+  - Criação de [`docs/a11y/EXCEPTIONS.md`](docs/a11y/EXCEPTIONS.md) (registro de desvios com status zero exceções ativas).
+  - Criação de [`docs/a11y/REPORT.md`](docs/a11y/REPORT.md) (relatório oficial de release evidence com status PASS).
+- **ADR 0006 Registrado:**
+  - [`ADR 0006`](docs/adr/0006-a11ymd-persistent-accessibility-contract.md): Persistent Accessibility Protocol (A11Y.md v2.2.0) and Automated Verification Gates.
+- **Implementações na Interface:**
+  - Adição de Skip Link para `#main-content` no topo do `src/App.tsx` (SC 2.4.1).
+  - Landmark `<main id="main-content" tabIndex={-1}>` para foco acessível em transição de SPA.
+  - Diálogo acessível WAI-ARIA no Command Palette (`role="dialog"`, `aria-modal="true"`).
+  - Estados `aria-pressed` no botão de alternância de tema e filtros de categoria.
+  - Acessibilidade semântica de formulário com `aria-required="true"` e feedback `role="status"` no `Contact.tsx`.
+  - Cabeçalhos `scope="col"` e `<caption>` descritiva nas tabelas de métricas do `CaseStudyDetail.tsx`.
+- **Automação e Nova Skill (`.agents/skills/accessibility`):**
+  - Instalação da skill `accessibility` (`addyosmani/web-quality-skills`) travada no `skills-lock.json` (20 skills no total).
+  - Criação de `tools/verify-a11y.mjs` com script `npm run verify-a11y` no `package.json`.
+
+---
+
 ## [v1.2.0] — 2026-10-08 — Rotas Modulares React, Suíte Completa de 19 Skills, Manual In-Repo & Pipeline de Mídia
 
 ### 🚀 Visão Geral da Versão

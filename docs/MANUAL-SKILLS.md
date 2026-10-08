@@ -1,6 +1,6 @@
 # Manual Definitivo de Skills do Workspace — Portfólio Rodrigo Melo
 
-Este manual fornece o guia de referência operacional para as **19 agent skills** instaladas em `.agents/skills/`. Cada skill foi selecionada para transformar este repositório em um ambiente de engenharia de design de alto padrão, compatível com **Lovable.dev, Cursor, Claude Code e Antigravity**.
+Este manual fornece o guia de referência operacional para as **20 agent skills** instaladas em `.agents/skills/`. Cada skill foi selecionada para transformar este repositório em um ambiente de engenharia de design de alto padrão, compatível com **Lovable.dev, Cursor, Claude Code e Antigravity**, e agora com o protocolo de acessibilidade persistente **A11Y.md**.
 
 ---
 
@@ -8,7 +8,7 @@ Este manual fornece o guia de referência operacional para as **19 agent skills*
 
 1. [Categorias de Skills](#-categorias-de-skills)
 2. [Matriz de Decisão: Qual Skill Usar Agora?](#-matriz-de-decisão)
-3. [Catálogo Detalhado das 19 Skills](#-catálogo-detalhado)
+3. [Catálogo Detalhado das 20 Skills](#-catálogo-detalhado)
    - [Design, Frontend & UI/UX](#1-design-frontend--uiux)
    - [Arquitetura, Código & Desempenho](#2-arquitetura-código--desempenho)
    - [Revisão, Desafio & Governança](#3-revisão-desafio--governança)
@@ -84,6 +84,13 @@ flowchart TD
 - **Exemplo de Prompt:**
   > *"Revise o componente `CaseStudyDetail.tsx` com `web-design-guidelines` e verifique contraste, foco de teclado e acessibilidade para leitores de tela."*
 - **Dica Prática:** Essencial para o portfólio de um designer sênior — demonstra na prática o domínio de usabilidade inclusiva.
+
+#### 🛡️ `accessibility` (a11y)
+- **Origem:** Addy Osmani (`addyosmani/web-quality-skills`)
+- **Quando Usar:** Auditoria e implementação aprofundada de acessibilidade segundo o WCAG 2.2 e princípios POUR (Perceivable, Operable, Understandable, Robust). Use quando pedir "auditoria a11y", "suporte a leitor de tela", "navegação por teclado" ou "conformidade WCAG".
+- **Exemplo de Prompt:**
+  > *"Use a skill `accessibility` para auditar a árvore de acessibilidade do formulário de contato e do Command Palette."*
+- **Dica Prática:** Funciona em perfeita sincronia com o protocolo [`A11Y.md`](../a11y/A11Y.md), garantindo alvos mínimos de 44×44px, contraste semântico e anéis de foco visíveis.
 
 ---
 

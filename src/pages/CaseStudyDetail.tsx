@@ -149,11 +149,14 @@ export default function CaseStudyDetail() {
             </p>
           </div>
           <div className="overflow-x-auto border border-zinc-200 dark:border-zinc-800 rounded-lg">
-            <table className="w-full text-left text-xs">
-              <thead className="bg-zinc-50 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800 uppercase tracking-wider text-zinc-500">
+            <table className="w-full text-left text-xs" aria-label={`Métricas de impacto para ${caseItem.title}`}>
+              <caption className="sr-only">
+                Tabela de validação longitudinal e métricas reais de operação para o estudo de caso {caseItem.title}
+              </caption>
+              <thead className="bg-zinc-50 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800 uppercase tracking-wider text-zinc-600 dark:text-zinc-400">
                 <tr>
                   {caseItem.metricsTable.headers.map((h, idx) => (
-                    <th key={idx} className="py-3 px-4 font-semibold">
+                    <th key={idx} scope="col" className="py-3 px-4 font-semibold">
                       {h}
                     </th>
                   ))}

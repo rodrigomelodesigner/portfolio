@@ -51,12 +51,14 @@ Abra `http://localhost:5173` no navegador para visualizar.
 
 Este repositório possui uma arquitetura documentada para colaboração contínua entre humanos e agentes de inteligência artificial (**Lovable.dev, Cursor, Claude Code e Antigravity**):
 
-- **[Manual de Skills de Agentes](docs/MANUAL-SKILLS.md):** Guia detalhado de uso, prompts e combos para as 19 skills instaladas em `.agents/skills/`.
+- **[Protocolo de Acessibilidade Persistente (A11Y.md)](docs/a11y/A11Y.md):** Sistema normativo e persistente para agentes de IA garantirem conformidade WCAG 2.2 Nível AA antes de gerar código.
+- **[Manual de Skills de Agentes](docs/MANUAL-SKILLS.md):** Guia detalhado de uso, prompts e combos para as 20 skills instaladas em `.agents/skills/`.
 - **[Workflow Operacional Multi-IA](docs/WORKFLOW.md):** Fluxo de trabalho integrado entre Lovable, Cursor, Claude e Antigravity, handoffs e quality gates.
 - **[Instruções Globais de IA](AGENTS.md):** Regras de operação, princípios da marca e compatibilidade entre plataformas.
 - **[Glossário de Domínio](GLOSSARY.md):** Dicionário semântico unificado para termos de iGaming regulado, compliance e design systems.
-- **[Decisões de Arquitetura (ADRs)](docs/adr/):** Registros formais de decisões arquiteturais (ADR 0001 a 0005).
+- **[Decisões de Arquitetura (ADRs)](docs/adr/):** Registros formais de decisões arquiteturais (ADR 0001 a 0006).
 - **[Auditoria de Mídia & Imagens](docs/reports/image-inventory.md):** Diagnóstico contínuo de peso de assets e Core Web Vitals (`npm run optimize-images`).
+- **[Gate Estático de Acessibilidade](tools/verify-a11y.mjs):** Validador automatizado de regras A11Y (`npm run verify-a11y`).
 
 ---
 

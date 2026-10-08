@@ -91,7 +91,7 @@
 
 ## 5. Regras Técnicas de Engenharia
 
-1. **HTML Semântico:** Sempre utilizar `<main>`, `<header>`, `<nav>`, `<article>`, `<section>`, `<footer>`.
-2. **Acessibilidade:** Contraste mínimo 4.5:1, foco visível via teclado (`focus-visible:ring-2 focus-visible:ring-zinc-400`), alt text descritivo em imagens.
+1. **HTML Semântico:** Sempre utilizar `<main id="main-content">`, `<header>`, `<nav>`, `<article>`, `<section>`, `<footer>`.
+2. **Acessibilidade Canônica (A11Y.md v2.2.0):** Seguir estritamente as regras de [`docs/a11y/A11Y.md`](./docs/a11y/A11Y.md). Conformidade WCAG 2.2 Nível AA com aspiração Shield (AAA) em contrastes e touch targets (mínimo 44×44px). Proibido `onClick` em `div`/`span`, proibido ocultar anéis de foco, e proibido `alt=""` em mockups informativos. Skip link obrigatório para `#main-content`.
 3. **Mobile-First:** Testar rigidez em 375px. Botões com área de toque mínima de 44×44px.
 4. **Isolamento de Mudanças:** Nunca quebrar componentes ou páginas funcionais ao aplicar novas alterações.

@@ -19,6 +19,18 @@ Todas as inteligências artificiais atuando neste workspace devem seguir estrita
 
 ---
 
+## ♿ Acessibilidade Canônica (A11Y.md v2.2.0)
+
+> **Regra de Ouro:** Ao desenvolver o frontend, siga estritamente as regras de acessibilidade do arquivo [`docs/a11y/A11Y.md`](./docs/a11y/A11Y.md).
+
+1. **Princípio Zero:** Acessibilidade é pré-condição para o uso. Uma barreira que bloqueia a conclusão da tarefa torna a funcionalidade tecnicamente quebrada.
+2. **Perfil de Conformidade:** Standard (WCAG 2.2 AA) com metas do perfil Shield (AAA) para operações reguladas (Fintech / iGaming - Portaria SPA/MF 1.231).
+3. **Memória de Padrões:** Consulte e registre decisões técnicas em [`docs/a11y/A11Y-DECISIONS.md`](./docs/a11y/A11Y-DECISIONS.md).
+4. **Veto a Anti-Patterns:** Proibido `onClick` em divs/spans, anéis de foco invisíveis, e `alt=""` silencioso em mockups informativos.
+5. **Gate Estático:** Valide sempre via `npm run verify-a11y` antes de releases.
+
+---
+
 ## 💻 Compatibilidade Multi-Plataforma
 
 ### 1. Lovable.dev
