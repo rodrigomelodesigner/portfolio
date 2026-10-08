@@ -1,0 +1,163 @@
+export interface CaseStudy {
+  id: string;
+  slug: string;
+  title: string;
+  subtitle: string;
+  category: string;
+  tags: string[];
+  company: string;
+  role: string;
+  squad: string;
+  timeline: string;
+  highlightMetric: string;
+  coverImage: string;
+  problem: {
+    briefing: string;
+    reframed: string;
+  };
+  hypothesis?: string;
+  decisions: {
+    title: string;
+    description: string;
+  }[];
+  metricsTable?: {
+    headers: string[];
+    rows: (string | number)[][];
+  };
+  learnings: string[];
+  screenshots?: {
+    url: string;
+    caption: string;
+  }[];
+}
+
+export const CASES_DATA: CaseStudy[] = [
+  {
+    id: "artilheiro-da-casa",
+    slug: "artilheiro-da-casa",
+    title: "Retenção Longitudinal através de Cartas Colecionáveis",
+    subtitle: "A transição de uma regra promocional textual para uma mecânica visual inspirada em card games esportivos. Salto de 72 para 827 apostas (+1.048%) no Brasileirão.",
+    category: "Gamificação",
+    tags: ["GAMIFICAÇÃO", "VALIDAÇÃO DATA-FIRST", "IGAMING"],
+    company: "Casa de Apostas",
+    role: "Product Designer (UX/UI & Mecânica)",
+    squad: "Gabriel Nascimento (PM), Lucca Schramm (Dev), Paulo Ricardo",
+    timeline: "Março a Maio / 2025 (7 Rodadas)",
+    highlightMetric: "+1.048% Apostas / +727% Volume",
+    coverImage: "/images/00_covers/artilheiro_thumb.png",
+    problem: {
+      briefing: "Divulgar a promoção do Artilheiro com mais banners na Home e enviar e-mails com as regras da rodada.",
+      reframed: "O problema não era falta de canais de mídia, mas sim a fricção cognitiva de exigir leitura regulamentar densa para uma ação lúdica. Era necessário transformar o modelo mental em uma experiência visual imediata."
+    },
+    hypothesis: "Testar a mecânica comercial antes do pixel: Rodada 1 como baseline textual (72 apostas) e introdução da interface visual de cartas esportivas a partir da Rodada 2.",
+    decisions: [
+      {
+        title: "Modelo Mental de Cartas Colecionáveis",
+        description: "Adoção da linguagem visual de cards esportivos (estilo FIFA Ultimate Team), onde o atleta, a partida e o multiplicador de odd estão imediatamente legíveis sem necessidade de ler termos e condições."
+      },
+      {
+        title: "Mecânica Transparente de Recompensa",
+        description: "Aposta mínima de R$ 10 gerando R$ 10 de aposta grátis (freebet) para cada gol real marcado pelo atleta escolhido."
+      }
+    ],
+    metricsTable: {
+      headers: ["Rodada", "Data", "Formato / Evento", "Apostas", "Volume (R$)"],
+      rows: [
+        ["Rodada 1", "30/03/2025", "MVP Textual (Baseline)", 72, "R$ 821,07"],
+        ["Rodada 2", "06/04/2025", "Lançamento da Interface Visual", 590, "R$ 6.128,37"],
+        ["Rodada 3", "13/04/2025", "Pico de Engajamento Retido", 827, "R$ 6.790,55"],
+        ["Rodada 4", "16/04/2025", "Instabilidade técnica de provedor externo", 345, "R$ 2.521,71"],
+        ["Rodada 5", "20/04/2025", "Atletas com menor apelo popular", 212, "R$ 2.270,83"],
+        ["Rodada 6", "27/04/2025", "Recuperação com craques em destaque", 628, "R$ 4.383,39"],
+        ["Rodada 7", "04/05/2025", "Fechamento de ciclo de temporada", 221, "R$ 2.139,81"]
+      ]
+    },
+    learnings: [
+      "O design visual gerou um salto de +1.048% sem alteração na verba de marketing.",
+      "A experiência depende de alinhamento estreito com curadoria esportiva (queda na Rodada 5 por falta de apelo dos atletas).",
+      "Resiliência técnica e empty states claros são fundamentais quando integrações de terceiros oscilam (Rodada 4)."
+    ]
+  },
+  {
+    id: "limites-prudenciais",
+    slug: "limites-prudenciais",
+    title: "Redesign do Fluxo de Autoexclusão & Proteção Financeira",
+    subtitle: "Conversão de um requisito regulatório compulsório (Portaria SPA/MF nº 1.231) em uma experiência ética de acolhimento. Inversão de CTAs e veto a padrões escuros.",
+    category: "Jogo Responsável",
+    tags: ["JOGO RESPONSÁVEL", "COMPLIANCE SPA/MF", "DESIGN ÉTICO"],
+    company: "Casa de Apostas",
+    role: "Product Designer (UX, Benchmark & Ética)",
+    squad: "Tamille Ramos (PM), Luedy Costa (Design Supervisor), Jimmy",
+    timeline: "Junho a Julho / 2025",
+    highlightMetric: "100% Conformidade Regulatória SPA/MF",
+    coverImage: "/images/00_covers/autoexclusao_thumb.png",
+    problem: {
+      briefing: "Atender a Portaria 1.231 inserindo os limites obrigatórios de apostas e perdas no sistema.",
+      reframed: "O fluxo anterior oferecia apenas um botão nuclear de encerramento irreversível de conta. Era indispensável criar um painel preventivo graduado de proteção ao jogador com fricções éticas."
+    },
+    decisions: [
+      {
+        title: "Inversão da Hierarquia de CTAs",
+        description: "Transformar a Pausa Temporária (1, 7 ou 30 dias) na ação primária, evitando o rage quit irreversível e acolhendo o usuário em sofrimento."
+      },
+      {
+        title: "Veto a Padrões Escuros no Onboarding (Flow 1)",
+        description: "Rejeição ao pré-preenchimento sugestivo de valores altos no cadastro, garantindo inputs neutros com conformidade ética estrita."
+      },
+      {
+        title: "Fricção Assimétrica (Flow 2)",
+        description: "Reduções de limite são imediatas; aumentos de limite exigem carência legal de 24 horas para reconfirmação consciente."
+      }
+    ],
+    learnings: [
+      "Benchmark em 6 plataformas concorrentes revelou que padrões escuros eram predominantes no setor.",
+      "O design orientado a compliance protege tanto o usuário vulnerável quanto a empresa contra autuações federais."
+    ],
+    screenshots: [
+      {
+        url: "/images/01_limites_autoexclusao/autoexclusao_08_1041KB.png",
+        caption: "Tela de Limite de Perdas Líquidas (Apostas vs Ganhos) com granularidade diária, semanal e mensal."
+      },
+      {
+        url: "/images/01_limites_autoexclusao/autoexclusao_10_912KB.png",
+        caption: "Painel de Proteção do Jogador com limites de tempo de sessão e carência regulatória."
+      }
+    ]
+  },
+  {
+    id: "pagina-transacoes",
+    slug: "pagina-transacoes",
+    title: "Painel Gráfico de Extrato e Autosserviço Financeiro",
+    subtitle: "Arquitetura mobile-first de extrato de 36 meses segregando apostas esportivas de cassino em conformidade com a Portaria SPA/MF 1.231.",
+    category: "Transparência Financeira",
+    tags: ["TRANSPARÊNCIA FINANCEIRA", "REGULAÇÃO", "SELF-SERVICE UX"],
+    company: "Casa de Apostas",
+    role: "Product Designer (IA Pipeline & UX Lead)",
+    squad: "Tamille Ramos (PM), Luedy Costa, Verônica Lima",
+    timeline: "Agosto a Setembro / 2025",
+    highlightMetric: "-40% Tickets de Suporte / 36 Meses de Histórico",
+    coverImage: "/images/00_covers/transacoes_thumb.png",
+    problem: {
+      briefing: "Atualizar a tela de Minhas Transações para cumprir a nova portaria do Ministério da Fazenda.",
+      reframed: "A ausência de filtros e o extrato misturado sobrecarregavam o SAC Nível 1 com pedidos manuais de planilha. Era preciso transformar o extrato em uma ferramenta de autoauditoria pelo usuário."
+    },
+    decisions: [
+      {
+        title: "Segregação Esportes vs Cassino",
+        description: "Abas dedicadas que separam as métricas de partidas esportivas do volume de giros de cassino, com cálculo de P&L líquido em tempo real."
+      },
+      {
+        title: "Filtros Temporais Modulares (7d, 30d, 12m e Custom)",
+        description: "Seletores intuitivos para auditoria pessoal e suporte a exportação compatível com declarações fiscais."
+      },
+      {
+        title: "Indicador de Tempo de Uso",
+        description: "Contador de horas ativas na semana como guardrail de jogo consciente integrado ao fluxo de limites."
+      }
+    ],
+    learnings: [
+      "A transparência de dados reduz drasticamente o custo operacional de suporte.",
+      "Interfaces reguladas exigem performance extrema (< 1.5s em mobile 4G) para garantir confiabilidade de auditoria."
+    ]
+  }
+];

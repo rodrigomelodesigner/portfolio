@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Transações — Estudo de Caso · Rodrigo Melo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-200">
+
+    <!-- Navbar -->
+    <nav class="max-w-4xl mx-auto p-6 md:px-12 md:py-8 flex justify-between items-center border-b border-zinc-100 dark:border-zinc-900">
+        <a href="../index.html" class="font-bold text-xl tracking-tight">Rodrigo Melo.</a>
+        <div class="flex gap-6 items-center text-sm font-medium">
+            <a href="../index.html#work" class="hover:text-zinc-600 dark:hover:text-zinc-400">Work</a>
+            <a href="../index.html#about" class="hover:text-zinc-600 dark:hover:text-zinc-400">About</a>
+            <a href="../index.html#contact" class="hover:text-zinc-600 dark:hover:text-zinc-400">Contact</a>
+            <button onclick="document.documentElement.classList.toggle('dark')" class="p-2 bg-zinc-100 dark:bg-zinc-800 rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-700 transition" aria-label="Toggle Theme">
+                <svg class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                <svg class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Case Container -->
+    <main class="max-w-4xl mx-auto p-6 md:px-12 md:py-12">
+        
+        <!-- Breadcrumbs -->
+        <div class="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-zinc-500 mb-8">
+            <a href="../index.html" class="hover:underline">Home</a>
+            <span>/</span>
+            <a href="../index.html#work" class="hover:underline">Work</a>
+            <span>/</span>
+            <span class="text-zinc-900 dark:text-zinc-100">Página de Transações</span>
+        </div>
+
+        <!-- Case Header -->
+        <header class="mb-12">
+            <div class="inline-block px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 text-xs font-semibold uppercase tracking-wider rounded mb-4">
+                Transparência Financeira · Regulação · Self-Service UX
+            </div>
+            <h1 class="text-3xl md:text-5xl font-bold tracking-tight leading-tight mb-4">
+                Painel Gráfico de Extrato e Autosserviço Financeiro
+            </h1>
+            <p class="text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-3xl">
+                Arquitetura de informação e prototipação mobile-first da conta gráfica da Casa de Apostas em conformidade compulsória com a Portaria SPA/MF nº 1.231. Como a transparência segregada mitigou o volume de suporte Nível 1.
+            </p>
+
+            <!-- Metadata Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 py-8 my-8 border-y border-zinc-100 dark:border-zinc-900 text-sm">
+                <div>
+                    <span class="block text-xs uppercase tracking-wider text-zinc-500 font-semibold mb-1">Empresa</span>
+                    <span class="font-medium">Casa de Apostas</span>
+                </div>
+                <div>
+                    <span class="block text-xs uppercase tracking-wider text-zinc-500 font-semibold mb-1">Meu Papel</span>
+                    <span class="font-medium">Product Designer (IA Pipeline & UX Lead)</span>
+                </div>
+                <div>
+                    <span class="block text-xs uppercase tracking-wider text-zinc-500 font-semibold mb-1">Squad</span>
+                    <span class="font-medium">Tamille A. (PM), Luedy C., Verônica L.</span>
+                </div>
+                <div>
+                    <span class="block text-xs uppercase tracking-wider text-zinc-500 font-semibold mb-1">Meta Principal</span>
+                    <span class="font-bold text-emerald-600 dark:text-emerald-400">-40% Tickets de Extrato / 36 Meses</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Cover Image -->
+        <div class="rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 mb-16 bg-zinc-100 dark:bg-zinc-900">
+            <img src="../public/images/00_covers/transacoes_thumb.png" alt="Página de Transações Capa" class="w-full object-cover">
+        </div>
+
+        <!-- Section 1: O Problema Real de Suporte e Auditoria -->
+        <section class="space-y-6 mb-16">
+            <h2 class="text-2xl font-bold tracking-tight">1. O Problema: Sobrecarga de Suporte & Assimetria de Informação</h2>
+            <p class="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                Antes do projeto, os apostadores da Casa de Apostas não possuíam visibilidade clara de lucros e prejuízos consolidados. As transações esportivas apareciam misturadas com giros de cassino em uma lista bruta sem categorização ou filtros temporais avançados.
+            </p>
+            <p class="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                O resultado eram dois problemas simultâneos: <strong>(1) Risco regulatório</strong> imediato frente aos prazos da Secretaria de Prêmios e Apostas (SPA/MF), que exige histórico auditável de até 36 meses; e <strong>(2) Sobrecarga massiva da equipe de atendimento</strong>, que passava horas gerando extratos manuais em planilhas para atender solicitações no SAC.
+            </p>
+        </section>
+
+        <!-- Section 2: Arquitetura de Informação & Decisões de Design -->
+        <section class="space-y-6 mb-16">
+            <h2 class="text-2xl font-bold tracking-tight">2. Decisões de Arquitetura de Informação</h2>
+            <div class="space-y-6 text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                <div class="border-l-2 border-zinc-900 dark:border-zinc-100 pl-4">
+                    <h3 class="font-bold mb-1">A. Segregação Mandatória: Apostas Esportivas vs Cassino</h3>
+                    <p class="text-sm text-zinc-600 dark:text-zinc-400">
+                        O usuário de apostas pensa por partida e odd; o jogador de cassino pensa por volume de giros e sessões. Criamos abas segregadas que discriminam com exatidão: <em>Apostas Realizadas</em>, <em>Ganhos Obtidos</em> e <em>Resultado Líquido</em>, com semântica de cores auditável (verde para positivo / vermelho para negativo com alto contraste).
+                    </p>
+                </div>
+
+                <div class="border-l-2 border-zinc-900 dark:border-zinc-100 pl-4">
+                    <h3 class="font-bold mb-1">B. Filtros Temporais Modulares</h3>
+                    <p class="text-sm text-zinc-600 dark:text-zinc-400">
+                        Implementação de seletores rápidos de <strong>7 Dias</strong>, <strong>30 Dias</strong>, <strong>12 Meses</strong> e seletor com calendário personalizado para intervalos históricos específicos, permitindo exportação em formato padrão compatível com declarações fiscais e auditoria pessoal.
+                    </p>
+                </div>
+
+                <div class="border-l-2 border-zinc-900 dark:border-zinc-100 pl-4">
+                    <h3 class="font-bold mb-1">C. Métrica de Tempo de Uso (Guardrail de Jogo Consciente)</h3>
+                    <p class="text-sm text-zinc-600 dark:text-zinc-400">
+                        Integração de um card permanente indicando as horas ativas de navegação na plataforma na semana corrente, servindo como gatilho contextual para os Limites Prudenciais caso o tempo exceda o padrão de jogo recreativo.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Resultados e KRs -->
+        <section class="space-y-6 mb-16">
+            <h2 class="text-2xl font-bold tracking-tight">3. Critérios de Sucesso e Impacto de Negócio</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-6 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg">
+                    <span class="text-2xl font-bold font-mono text-emerald-600 dark:text-emerald-400 block mb-1">100%</span>
+                    <span class="text-xs uppercase tracking-wider text-zinc-500 font-semibold block mb-2">Conformidade SPA</span>
+                    <p class="text-xs text-zinc-600 dark:text-zinc-400">Aderência integral aos requisitos da Portaria 1.231 para licenciamento.</p>
+                </div>
+                <div class="p-6 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg">
+                    <span class="text-2xl font-bold font-mono text-emerald-600 dark:text-emerald-400 block mb-1">-40%</span>
+                    <span class="text-xs uppercase tracking-wider text-zinc-500 font-semibold block mb-2">Tickets de Suporte</span>
+                    <p class="text-xs text-zinc-600 dark:text-zinc-400">Redução projetada em chamados de solicitação manual de extrato.</p>
+                </div>
+                <div class="p-6 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg">
+                    <span class="text-2xl font-bold font-mono text-emerald-600 dark:text-emerald-400 block mb-1">&lt; 1.5s</span>
+                    <span class="text-xs uppercase tracking-wider text-zinc-500 font-semibold block mb-2">Latência Mobile</span>
+                    <p class="text-xs text-zinc-600 dark:text-zinc-400">Renderização ultrarrápida do extrato transacional em conexões 4G.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation Footer -->
+        <div class="pt-12 border-t border-zinc-100 dark:border-zinc-900 flex justify-between items-center text-sm font-medium">
+            <a href="limites-prudenciais.html" class="inline-flex items-center gap-2 hover:text-zinc-600 dark:hover:text-zinc-400">
+                &larr; Case Anterior: Limites Prudenciais
+            </a>
+            <a href="../index.html#work" class="inline-flex items-center gap-2 hover:text-zinc-600 dark:hover:text-zinc-400">
+                Voltar ao Início &uarr;
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="max-w-4xl mx-auto p-6 md:px-12 py-8 border-t border-zinc-100 dark:border-zinc-900 mt-16 text-sm text-zinc-500 dark:text-zinc-400 flex justify-between">
+        <span>&copy; 2026 Rodrigo Melo.</span>
+        <span>Prova sobre Promessa.</span>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artilheiro da Casa — Estudo de Caso · Rodrigo Melo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-200">
+
+    <!-- Navbar -->
+    <nav class="max-w-4xl mx-auto p-6 md:px-12 md:py-8 flex justify-between items-center border-b border-zinc-100 dark:border-zinc-900">
+        <a href="../index.html" class="font-bold text-xl tracking-tight">Rodrigo Melo.</a>
+        <div class="flex gap-6 items-center text-sm font-medium">
+            <a href="../index.html#work" class="hover:text-zinc-600 dark:hover:text-zinc-400">Work</a>
+            <a href="../index.html#about" class="hover:text-zinc-600 dark:hover:text-zinc-400">About</a>
+            <a href="../index.html#contact" class="hover:text-zinc-600 dark:hover:text-zinc-400">Contact</a>
+            <button onclick="document.documentElement.classList.toggle('dark')" class="p-2 bg-zinc-100 dark:bg-zinc-800 rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-700 transition" aria-label="Toggle Theme">
+                <svg class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                <svg class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Case Article Container -->
+    <main class="max-w-4xl mx-auto p-6 md:px-12 md:py-12">
+        
+        <!-- Breadcrumbs -->
+        <div class="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-zinc-500 mb-8">
+            <a href="../index.html" class="hover:underline">Home</a>
+            <span>/</span>
+            <a href="../index.html#work" class="hover:underline">Work</a>
+            <span>/</span>
+            <span class="text-zinc-900 dark:text-zinc-100">Artilheiro da Casa</span>
+        </div>
+
+        <!-- Case Header -->
+        <header class="mb-12">
+            <div class="inline-block px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 text-xs font-semibold uppercase tracking-wider rounded mb-4">
+                Gamificação · Validação Data-First · iGaming
+            </div>
+            <h1 class="text-3xl md:text-5xl font-bold tracking-tight leading-tight mb-4">
+                Retenção Longitudinal através de Cartas Colecionáveis
+            </h1>
+            <p class="text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-3xl">
+                A transição de uma regra promocional textual para uma mecânica visual inspirada em card games esportivos. Como um MVP textual validou o modelo e gerou um salto de 72 para 827 apostas (+1.048%) no Brasileirão.
+            </p>
+
+            <!-- Metadata Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 py-8 my-8 border-y border-zinc-100 dark:border-zinc-900 text-sm">
+                <div>
+                    <span class="block text-xs uppercase tracking-wider text-zinc-500 font-semibold mb-1">Empresa</span>
+                    <span class="font-medium">Casa de Apostas</span>
+                </div>
+                <div>
+                    <span class="block text-xs uppercase tracking-wider text-zinc-500 font-semibold mb-1">Meu Papel</span>
+                    <span class="font-medium">Product Designer (UX/UI & Mecânica)</span>
+                </div>
+                <div>
+                    <span class="block text-xs uppercase tracking-wider text-zinc-500 font-semibold mb-1">Squad</span>
+                    <span class="font-medium">Gabriel N. (PM), Lucca S. (Dev), Paulo R.</span>
+                </div>
+                <div>
+                    <span class="block text-xs uppercase tracking-wider text-zinc-500 font-semibold mb-1">Impacto Central</span>
+                    <span class="font-bold text-emerald-600 dark:text-emerald-400">+1.048% Apostas / +727% Volume</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Cover Image -->
+        <div class="rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 mb-16 bg-zinc-100 dark:bg-zinc-900">
+            <img src="../public/images/00_covers/artilheiro_thumb.png" alt="Artilheiro da Casa Capa Oficial" class="w-full object-cover">
+        </div>
+
+        <!-- Section 1: Contexto e O Problema Real -->
+        <section class="space-y-6 mb-16">
+            <h2 class="text-2xl font-bold tracking-tight">1. O Contexto & O Problema Real</h2>
+            <p class="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                A Casa de Apostas enfrentava um desafio crônico de retenção entre as partidas do Campeonato Brasileiro. A plataforma possuía promoções semanais, mas elas eram apresentadas como <strong>listas textuais densas de termos e condições</strong>. O apostador precisava ler parágrafos de regras para entender como participar de uma odd promocional.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg">
+                <div>
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-zinc-500 mb-2">O Briefing Original</h3>
+                    <p class="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">"Divulgar a promoção do Artilheiro com mais banners na Home e enviar e-mails com as regras da rodada."</p>
+                </div>
+                <div>
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-2">O Reframing de Design</h3>
+                    <p class="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">O problema não era falta de canais de mídia, mas sim a <strong>fricção cognitiva</strong> de exigir leitura regulamentar para uma ação lúdica. Era preciso transformar o modelo mental em uma experiência visual imediata.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: A Mecânica & O Teste A/B Longitudinal -->
+        <section class="space-y-6 mb-16">
+            <h2 class="text-2xl font-bold tracking-tight">2. A Hipótese: Validar a Mecânica Antes do Pixel (MVP Textual)</h2>
+            <p class="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                Fiel ao princípio de <em>"Dado antes de adjetivo, método antes de pixel"</em>, não desenhamos a interface completa antes de testar a aceitação da regra comercial. Definimos a mecânica:
+            </p>
+            <ul class="list-disc list-outside ml-6 space-y-2 text-zinc-700 dark:text-zinc-300">
+                <li>O usuário seleciona um atacante artilheiro da rodada.</li>
+                <li>Aposta <strong>R$ 10 ou mais</strong> na odd turbinada do jogador.</li>
+                <li>Recebe <strong>R$ 10 de aposta grátis (freebet)</strong> para cada gol real que o atleta marcar na partida.</li>
+            </ul>
+            <p class="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                Rodamos a <strong>Rodada 1 (30/03/2025)</strong> no formato textual tradicional como nosso baseline de controle. O resultado foi de 72 apostas (R$ 821,07). A partir da Rodada 2, introduzimos a interface visual de cartas colecionáveis inspiradas no FIFA Ultimate Team.
+            </p>
+        </section>
+
+        <!-- Section 3: Resultados Longitudinais das 7 Rodadas -->
+        <section class="space-y-6 mb-16">
+            <h2 class="text-2xl font-bold tracking-tight">3. Dados Empíricos: O Histórico das 7 Rodadas</h2>
+            <p class="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                A documentação longitudinal do projeto permitiu rastrear não apenas os picos de sucesso, mas também diagnosticar causas externas de queda com total transparência:
+            </p>
+
+            <div class="overflow-x-auto border border-zinc-200 dark:border-zinc-800 rounded-lg">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-zinc-50 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800 text-xs font-semibold uppercase tracking-wider text-zinc-500">
+                        <tr>
+                            <th class="p-4">Rodada</th>
+                            <th class="p-4">Data</th>
+                            <th class="p-4">Formato / Evento</th>
+                            <th class="p-4">Apostas</th>
+                            <th class="p-4">Volume (R$)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-zinc-100 dark:divide-zinc-900">
+                        <tr>
+                            <td class="p-4 font-medium">Rodada 1</td>
+                            <td class="p-4 text-zinc-500">30/03/2025</td>
+                            <td class="p-4"><span class="px-2 py-0.5 bg-zinc-100 dark:bg-zinc-800 rounded text-xs">MVP Textual (Baseline)</span></td>
+                            <td class="p-4 font-mono">72</td>
+                            <td class="p-4 font-mono">R$ 821,07</td>
+                        </tr>
+                        <tr class="bg-emerald-50/50 dark:bg-emerald-950/20">
+                            <td class="p-4 font-medium">Rodada 2</td>
+                            <td class="p-4 text-zinc-500">06/04/2025</td>
+                            <td class="p-4 font-medium text-emerald-600 dark:text-emerald-400">Lançamento da Interface Visual</td>
+                            <td class="p-4 font-mono font-bold text-emerald-600 dark:text-emerald-400">590 (+719%)</td>
+                            <td class="p-4 font-mono">R$ 6.128,37</td>
+                        </tr>
+                        <tr class="bg-emerald-50/50 dark:bg-emerald-950/20">
+                            <td class="p-4 font-medium">Rodada 3</td>
+                            <td class="p-4 text-zinc-500">13/04/2025</td>
+                            <td class="p-4 font-medium text-emerald-600 dark:text-emerald-400">Pico de Engajamento</td>
+                            <td class="p-4 font-mono font-bold text-emerald-600 dark:text-emerald-400">827 (+1.048%)</td>
+                            <td class="p-4 font-mono font-bold">R$ 6.790,55</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-medium">Rodada 4</td>
+                            <td class="p-4 text-zinc-500">16/04/2025</td>
+                            <td class="p-4 text-zinc-500">Instabilidade técnica do provedor externo</td>
+                            <td class="p-4 font-mono">345</td>
+                            <td class="p-4 font-mono">R$ 2.521,71</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-medium">Rodada 5</td>
+                            <td class="p-4 text-zinc-500">20/04/2025</td>
+                            <td class="p-4 text-zinc-500">Atletas escalados com menor apelo popular</td>
+                            <td class="p-4 font-mono">212</td>
+                            <td class="p-4 font-mono">R$ 2.270,83</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-medium">Rodada 6</td>
+                            <td class="p-4 text-zinc-500">27/04/2025</td>
+                            <td class="p-4">Recuperação com craques em destaque</td>
+                            <td class="p-4 font-mono">628</td>
+                            <td class="p-4 font-mono">R$ 4.383,39</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-medium">Rodada 7</td>
+                            <td class="p-4 text-zinc-500">04/05/2025</td>
+                            <td class="p-4 text-zinc-500">Fechamento de ciclo de temporada</td>
+                            <td class="p-4 font-mono">221</td>
+                            <td class="p-4 font-mono">R$ 2.139,81</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 4: Aprendizados & Trade-offs -->
+        <section class="space-y-6 mb-16">
+            <h2 class="text-2xl font-bold tracking-tight">4. Aprendizados & Trade-offs</h2>
+            <div class="space-y-4 text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                <p>
+                    <strong>1. O Design é Dependente da Curadoria Esportiva:</strong> A queda de desempenho na Rodada 5 provou que uma interface excelente não compensa a falta de atratividade do conteúdo. A escolha dos atletas precisa de alinhamento estreito entre Design, CRM e Traders esportivos.
+                </p>
+                <p>
+                    <strong>2. Resiliência a Falhas de Engenharia:</strong> A falha da Rodada 4 demonstrou a importância de estados vazios (*empty states*) informativos e comunicação de fallback quando a integração de odds do provedor falha.
+                </p>
+                <p>
+                    <strong>3. O Efeito Multiplicador do Visual:</strong> O salto de 72 para 827 participações não exigiu aumento de verba de marketing; decorreu exclusivamente da redução drástica do tempo de entendimento da mecânica através de modelos mentais conhecidos (cards esportivos).
+                </p>
+            </div>
+        </section>
+
+        <!-- Navigation Footer -->
+        <div class="pt-12 border-t border-zinc-100 dark:border-zinc-900 flex justify-between items-center text-sm font-medium">
+            <a href="../index.html#work" class="inline-flex items-center gap-2 hover:text-zinc-600 dark:hover:text-zinc-400">
+                &larr; Voltar para Projetos
+            </a>
+            <a href="limites-prudenciais.html" class="inline-flex items-center gap-2 hover:text-zinc-600 dark:hover:text-zinc-400">
+                Próximo Case: Limites Prudenciais &rarr;
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="max-w-4xl mx-auto p-6 md:px-12 py-8 border-t border-zinc-100 dark:border-zinc-900 mt-16 text-sm text-zinc-500 dark:text-zinc-400 flex justify-between">
+        <span>&copy; 2026 Rodrigo Melo.</span>
+        <span>Prova sobre Promessa.</span>
+    </footer>
+
+</body>
+</html>
