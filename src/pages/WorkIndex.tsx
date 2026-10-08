@@ -8,7 +8,7 @@ export default function WorkIndex() {
   const [selectedCategory, setSelectedCategory] = useState<string>('Todos');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
-  const categories = ['Todos', 'Sportsbook UX', 'Compliance', 'Autosserviço'];
+  const categories = ['Todos', 'Sportsbook UX', 'Social Gaming', 'Compliance'];
 
   const filteredCases = CASES_DATA.filter((caseItem) => {
     const matchesCategory =
@@ -119,9 +119,9 @@ export default function WorkIndex() {
               </div>
             </div>
             <div className="p-5 pt-0">
-              <div className="pt-4 border-t border-zinc-100 dark:border-zinc-900/80 flex justify-between items-center text-xs font-semibold text-zinc-900 dark:text-zinc-100">
+              <div className="pt-4 border-t border-zinc-100 dark:border-zinc-900/80 flex flex-wrap gap-2 justify-between items-center text-xs font-semibold text-zinc-900 dark:text-zinc-100">
                 <span className="text-zinc-500 font-normal">{caseItem.highlightMetric}</span>
-                <span className="inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                <span className="inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform shrink-0">
                   Ver Estudo <ArrowUpRight className="w-3.5 h-3.5" />
                 </span>
               </div>

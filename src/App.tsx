@@ -59,7 +59,7 @@ function Layout({ children }: { children: React.ReactNode }) {
   );
 
   return (
-    <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-200 flex flex-col justify-between">
+    <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-200 flex flex-col justify-between overflow-x-hidden">
       {/* Skip Link para Acessibilidade (WCAG 2.2 SC 2.4.1) */}
       <a
         href="#main-content"
@@ -70,18 +70,18 @@ function Layout({ children }: { children: React.ReactNode }) {
 
       {/* Navbar */}
       <nav aria-label="Navegação Principal" className="border-b border-zinc-100 dark:border-zinc-900 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md sticky top-0 z-40">
-        <div className="max-w-4xl mx-auto p-4 md:px-12 md:py-6 flex justify-between items-center">
+        <div className="max-w-4xl mx-auto px-4 py-3 md:px-12 md:py-6 flex justify-between items-center gap-2">
           <Link
             to="/"
-            className="font-bold text-xl tracking-tight hover:opacity-80 transition min-h-[44px] min-w-[44px] inline-flex items-center"
+            className="font-bold text-lg sm:text-xl tracking-tight hover:opacity-80 transition min-h-[44px] inline-flex items-center shrink-0"
             aria-label="Rodrigo Melo - Página Inicial"
           >
             Rodrigo Melo.
           </Link>
-          <div className="flex gap-2 md:gap-4 items-center text-sm font-medium">
+          <div className="flex gap-1 sm:gap-3 items-center text-xs sm:text-sm font-medium">
             <Link
               to="/work"
-              className={`transition hover:text-zinc-950 dark:hover:text-zinc-100 px-2.5 py-2 rounded min-h-[44px] min-w-[44px] inline-flex items-center ${
+              className={`transition hover:text-zinc-950 dark:hover:text-zinc-100 px-2 sm:px-2.5 py-2 rounded min-h-[44px] inline-flex items-center ${
                 location.pathname.startsWith('/work') ? 'text-zinc-950 dark:text-zinc-50 font-semibold' : 'text-zinc-600 dark:text-zinc-400'
               }`}
             >
@@ -89,7 +89,7 @@ function Layout({ children }: { children: React.ReactNode }) {
             </Link>
             <Link
               to="/about"
-              className={`transition hover:text-zinc-950 dark:hover:text-zinc-100 px-2.5 py-2 rounded min-h-[44px] min-w-[44px] inline-flex items-center ${
+              className={`transition hover:text-zinc-950 dark:hover:text-zinc-100 px-2 sm:px-2.5 py-2 rounded min-h-[44px] inline-flex items-center ${
                 location.pathname === '/about' ? 'text-zinc-950 dark:text-zinc-50 font-semibold' : 'text-zinc-600 dark:text-zinc-400'
               }`}
             >
@@ -97,7 +97,7 @@ function Layout({ children }: { children: React.ReactNode }) {
             </Link>
             <Link
               to="/contact"
-              className={`transition hover:text-zinc-950 dark:hover:text-zinc-100 px-2.5 py-2 rounded min-h-[44px] min-w-[44px] inline-flex items-center ${
+              className={`transition hover:text-zinc-950 dark:hover:text-zinc-100 px-2 sm:px-2.5 py-2 rounded min-h-[44px] inline-flex items-center ${
                 location.pathname === '/contact' ? 'text-zinc-950 dark:text-zinc-50 font-semibold' : 'text-zinc-600 dark:text-zinc-400'
               }`}
             >
@@ -113,7 +113,7 @@ function Layout({ children }: { children: React.ReactNode }) {
             </button>
             <button
               onClick={toggleTheme}
-              className="p-2.5 bg-zinc-100 dark:bg-zinc-800 rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-700 transition min-h-[44px] min-w-[44px] flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-zinc-400"
+              className="p-2 sm:p-2.5 bg-zinc-100 dark:bg-zinc-800 rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-700 transition min-h-[44px] min-w-[44px] flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-zinc-400"
               aria-label={isDark ? "Alternar para tema claro" : "Alternar para tema escuro"}
               aria-pressed={isDark}
             >
@@ -128,19 +128,19 @@ function Layout({ children }: { children: React.ReactNode }) {
       </nav>
 
       {/* Main Page Area com Landmark Acessível */}
-      <main id="main-content" tabIndex={-1} className="max-w-4xl mx-auto p-4 md:px-12 w-full flex-1 focus:outline-none">
+      <main id="main-content" tabIndex={-1} className="max-w-4xl mx-auto p-4 md:px-12 w-full flex-1 focus:outline-none overflow-x-hidden">
         {children}
       </main>
 
       {/* Unified Footer */}
       <footer className="border-t border-zinc-100 dark:border-zinc-900 text-xs text-zinc-500 py-8 bg-zinc-50/50 dark:bg-zinc-950">
-        <div className="max-w-4xl mx-auto px-4 md:px-12 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="max-w-4xl mx-auto px-4 md:px-12 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
           <span>© {new Date().getFullYear()} Rodrigo Melo. Todos os direitos reservados.</span>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
             <Link to="/about" className="hover:underline">Metodologia</Link>
-            <span>·</span>
+            <span aria-hidden="true">·</span>
             <span>Prova sobre Promessa (ADR 005)</span>
-            <span>·</span>
+            <span aria-hidden="true">·</span>
             <span className="text-zinc-600 dark:text-zinc-400">WCAG 2.2 AA (A11Y.md)</span>
           </div>
         </div>

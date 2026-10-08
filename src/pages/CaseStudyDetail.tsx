@@ -48,9 +48,11 @@ export default function CaseStudyDetail() {
       <header className="space-y-6">
         <div className="flex flex-wrap gap-2">
           <Badge variant="default">{caseItem.category}</Badge>
-          {caseItem.tags.map((tag, idx) => (
-            <Badge key={idx} variant="outline">{tag}</Badge>
-          ))}
+          {caseItem.tags
+            .filter((tag) => tag.toLowerCase() !== caseItem.category.toLowerCase())
+            .map((tag, idx) => (
+              <Badge key={idx} variant="outline">{tag}</Badge>
+            ))}
         </div>
         <h1 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight text-zinc-900 dark:text-zinc-50">
           {caseItem.title}

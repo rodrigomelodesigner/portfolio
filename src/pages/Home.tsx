@@ -16,14 +16,14 @@ export default function Home() {
     <div className="space-y-16 py-6 md:py-12">
       {/* Hero Section */}
       <header>
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 mb-6 border border-zinc-200 dark:border-zinc-700">
-          <span className="w-2 h-2 rounded-full bg-emerald-500" />
-          <span>Product Designer Pleno · Operação Regulada SPA/MF</span>
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 mb-6 border border-zinc-200 dark:border-zinc-700 max-w-full">
+          <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
+          <span className="truncate sm:overflow-visible">Product Designer Pleno · Operação Regulada SPA/MF</span>
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-6 max-w-2xl text-zinc-900 dark:text-zinc-50">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-6 max-w-2xl text-zinc-900 dark:text-zinc-50">
           Clareza na decisão, proteção sem obstáculo.
         </h1>
-        <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed mb-8">
+        <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed mb-8">
           Desenho fluxos de produto numa operação de apostas regulada pela SPA/MF: conversão, aquisição sem mídia paga e proteção do consumidor. Cada case mostra o dado, o método e o que não deu certo.
         </p>
         <div className="flex flex-wrap gap-4 items-center">
@@ -106,9 +106,9 @@ export default function Home() {
                 </div>
               </div>
               <div className="p-5 pt-0">
-                <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800/80 flex justify-between items-center text-xs">
+                <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800/80 flex flex-wrap gap-2 justify-between items-center text-xs">
                   <span className="font-mono font-medium text-emerald-600 dark:text-emerald-400">{caseItem.highlightMetric}</span>
-                  <span className="inline-flex items-center gap-1 font-semibold text-zinc-900 dark:text-zinc-100 group-hover:translate-x-0.5 transition-transform">
+                  <span className="inline-flex items-center gap-1 font-semibold text-zinc-900 dark:text-zinc-100 group-hover:translate-x-0.5 transition-transform shrink-0">
                     Ver Estudo <ArrowUpRight className="w-3.5 h-3.5" />
                   </span>
                 </div>
