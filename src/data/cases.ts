@@ -11,6 +11,7 @@ export interface CaseStudy {
   timeline: string;
   highlightMetric: string;
   coverImage: string;
+  coverAlt: string;
   problem: {
     briefing: string;
     reframed: string;
@@ -56,6 +57,7 @@ export const CASES_DATA: CaseStudy[] = [
     timeline: "Março a Maio / 2025 (7 Rodadas)",
     highlightMetric: "470 apostas/rodada (6,5x) · R$ 4.039 stake médio",
     coverImage: "/images/covers/artilheiro_showcase_cover.png",
+    coverAlt: "Pedro, atacante do Flamengo, com os braços abertos em campo. Capa do estudo Artilheiro da Casa: 470 apostas por rodada.",
     problem: {
       briefing: "Na estreia do Brasileirão 2025 (R1, 30/03), a promoção Artilheiro da Casa foi publicada na Home como um regulamento de 15 linhas em texto corrido. Resultado: 72 apostas e R$ 821,07 de stake nos cinco mercados de artilheiro. Marketing relatou baixa adesão e pediu mais banners e e-mails.",
       reframed: "A leitura foi outra: as pessoas já viam a oferta, mas ela não virava aposta porque exigia interpretar regras antes de chegar ao mercado. A barreira era o atrito entre ler a regra e encontrar a aposta no Sportsbook."
@@ -124,6 +126,7 @@ export const CASES_DATA: CaseStudy[] = [
     timeline: "Maio a Julho / 2026",
     highlightMetric: "9.035 participantes · 81 grupos privados",
     coverImage: "/images/covers/bolao_showcase_cover.png",
+    coverAlt: "Capa do estudo Bolão GOAT por CDA: feature da Copa do Mundo 2026 com grupos privados, ranking competitivo e R$ 500.000 em prêmios. Resultado: 9.035 participantes.",
     problem: {
       briefing: "Durante a Copa do Mundo de 2026, a operação precisava atrair e reativar usuários sem depender de campanhas pagas de aquisição, cujos custos sobem no torneio. A proposta foi criar um bolão esportivo gratuito (fantasy social), onde o público pudesse palpitar nos placares dos jogos e competir tanto em um ranking geral quanto em grupos privados de amigos. O prazo de entrega era de quatro semanas entre o briefing e o pontapé inicial da Copa.",
       reframed: "O desafio foi desenhar uma mecânica de engajamento diário sem dinheiro real capaz de atrair participantes organicamente, avaliando se grupos fechados de amigos funcionariam como motor viral de aquisição."
@@ -177,6 +180,7 @@ export const CASES_DATA: CaseStudy[] = [
     timeline: "Maio a Julho / 2025",
     highlightMetric: "Homologado em Staging (28/07) · 3 Etapas Sem Obstrução",
     coverImage: "/images/covers/limites_showcase_cover.png",
+    coverAlt: "Tela inicial do aplicativo da casa de apostas, com saldo de R$ 5,00, banners promocionais e ligas de futebol. Estudo de saída responsável: pausa e autoexclusão em 3 etapas.",
     problem: {
       briefing: "Em abril de 2025, já sob as regras de jogo responsável da SPA/MF, a única saída da plataforma era um botão 'Fechar conta' com o aviso 'esta ação é irreversível'. Não havia pausa temporária nem encaminhamento para apoio, então quem queria se afastar por um tempo só podia se excluir de forma definitiva. O ticket #1992, aberto pela PM Tamille Rocha em 29/04/2025, pediu a adequação do fluxo.",
       reframed: "O problema não era apenas adicionar telas, mas evitar dois extremos éticos: não tornar a saída um labirinto obstrutivo (como os 4 a 5 níveis de menu vistos no benchmark da concorrência), nem induzir o usuário com textos persuasivos de retenção. O papel do design foi construir um fluxo sóbrio e direto."
