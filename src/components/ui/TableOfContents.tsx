@@ -20,7 +20,9 @@ export function TableOfContents({ items, layout }: TableOfContentsProps) {
 
   useEffect(() => {
     const syncActiveSection = () => {
-      const marker = 96;
+      // scroll-mt-24 (96px) plus the section's top padding, so a heading
+      // that has just cleared the sticky nav counts as the current section.
+      const marker = 128;
       let next = items[0]?.id ?? '';
       for (const item of items) {
         const section = document.getElementById(item.id);
@@ -66,7 +68,10 @@ export function TableOfContents({ items, layout }: TableOfContentsProps) {
               <a
                 href={`#${item.id}`}
                 aria-current={isActive ? 'location' : undefined}
-                onClick={() => focusSection(item.id)}
+                onClick={() => {
+                  setActiveId(item.id);
+                  focusSection(item.id);
+                }}
                 className={`${linkClassName} ${isScroll ? 'whitespace-nowrap' : 'w-full'} ${
                   isActive
                     ? 'bg-zinc-900 font-semibold text-white dark:bg-zinc-100 dark:text-zinc-900'
