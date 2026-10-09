@@ -2,10 +2,12 @@ import { Link } from 'react-router-dom';
 import { CASES_DATA } from '../data/cases';
 import { ProofTicker } from '../components/ui/ProofTicker';
 import { Badge } from '../components/ui/Badge';
+import { buttonClassName } from '../components/ui/Button';
 import { 
   ArrowDown, 
   ArrowRight, 
   ArrowUpRight, 
+  Download, 
   ShieldCheck, 
   Layers, 
   FileCheck 
@@ -16,8 +18,8 @@ export default function Home() {
     <div className="space-y-16 py-6 md:py-12">
       {/* Hero Section */}
       <header>
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 mb-6 border border-zinc-200 dark:border-zinc-700 max-w-full">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
+        <div className="inline-flex w-fit max-w-full items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 mb-6 border border-zinc-200 dark:border-zinc-700">
+          <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" aria-hidden="true" />
           <span className="truncate sm:overflow-visible">Product Designer Pleno · Operação Regulada SPA/MF</span>
         </div>
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-6 max-w-2xl text-zinc-900 dark:text-zinc-50">
@@ -26,25 +28,28 @@ export default function Home() {
         <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-prose leading-relaxed mb-8">
           Desenho fluxos de produto numa operação de apostas regulada pela SPA/MF: conversão, aquisição sem mídia paga e proteção do consumidor. Cada case mostra o dado, o método e o que não deu certo.
         </p>
-        <div className="flex flex-wrap gap-3 sm:gap-4 items-center">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3">
           <a
             href="#work"
-            className="inline-flex items-center gap-2 px-6 py-2.5 bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 font-medium rounded hover:opacity-90 transition min-h-[44px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-950 dark:focus:ring-zinc-50"
+            className={buttonClassName('primary', 'lg')}
           >
-            Explorar Projetos <ArrowDown className="w-4 h-4" aria-hidden="true" />
+            Explorar Projetos
+            <ArrowDown className="w-4 h-4" aria-hidden="true" />
           </a>
           <Link
             to="/about"
-            className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-50 transition min-h-[44px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-400"
+            className={buttonClassName('outline', 'md')}
           >
-            Sobre mim <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+            Sobre mim
+            <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
           </Link>
           <a
             href="/assets/rodrigo-melo-curriculo.pdf"
             download="rodrigo-melo-curriculo.pdf"
-            className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition min-h-[44px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-400"
+            className={buttonClassName('ghost', 'md')}
           >
-            Baixar Currículo (PDF) &darr;
+            Baixar Currículo (PDF)
+            <Download className="w-3.5 h-3.5" aria-hidden="true" />
           </a>
         </div>
 
@@ -52,7 +57,7 @@ export default function Home() {
       </header>
 
       {/* Featured Work Section */}
-      <section id="work" className="pt-8">
+      <section id="work" className="scroll-mt-24 pt-8">
         <div className="flex justify-between items-end mb-8">
           <div>
             <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
