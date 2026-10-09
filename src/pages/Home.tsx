@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CASES_DATA } from '../data/cases';
 import { ProofTicker } from '../components/ui/ProofTicker';
@@ -8,23 +9,103 @@ import {
   ArrowUpRight, 
   ShieldCheck, 
   Layers, 
-  FileCheck 
+  FileCheck,
+  Sparkles
 } from 'lucide-react';
 
+interface HeroShowcaseItem {
+  id: string;
+  label: string;
+  slug: string;
+  title: string;
+  subtitle: string;
+  category: string;
+  description: string;
+  metric: string;
+  image: string;
+}
+
+const HERO_SHOWCASE_DATA: HeroShowcaseItem[] = [
+  {
+    id: 'artilheiro',
+    label: 'Sportsbook UX',
+    slug: 'artilheiro-da-casa',
+    title: 'Artilheiro da Casa',
+    subtitle: 'Cards de Atleta & Injeção de Odd no Boletim',
+    category: 'Sportsbook UX & Conversão',
+    description: 'Substituição de regulamento de 15 linhas em texto por cards colecionáveis acionáveis com odd em tempo real.',
+    metric: '470 apostas/rodada (6,5x) · R$ 4.039 stake médio',
+    image: '/images/02_artilheiros_casa/artilheiro_ui_hero_3000x2000.png'
+  },
+  {
+    id: 'bolao',
+    label: 'Social Gaming',
+    slug: 'bolao-da-copa',
+    title: 'Bolão da Copa',
+    subtitle: 'Predição Esportiva & Aquisição Orgânica',
+    category: 'Social Gaming & Aquisição',
+    description: 'Interface mobile de palpites diários, refinamento de inputs com colaboradores e teste de motor viral de grupos.',
+    metric: '9.035 participantes em 25 dias · Sem mídia paga',
+    image: '/images/04_bolao_copa/bolao_fluxo_mapeamento.png'
+  },
+  {
+    id: 'limites',
+    label: 'Compliance SPA/MF',
+    slug: 'limites-prudenciais',
+    title: 'Saída Responsável',
+    subtitle: 'Pausa Graduada & Autoexclusão em 3 Etapas',
+    category: 'Compliance Ético · Portaria SPA/MF 1.231',
+    description: 'Reconstrução da jornada de afastamento com neutralidade verbal absoluta e eliminação de 4 a 5 níveis de menu obstrutivos.',
+    metric: 'Homologado em Staging · Zero Labirinto Obstrutivo',
+    image: '/images/01_limites_autoexclusao/limites_tela_pausa_temporaria.png'
+  }
+];
+
 export default function Home() {
+  const [activeHeroTab, setActiveHeroTab] = useState<string>('artilheiro');
+
+  const currentHeroShowcase = HERO_SHOWCASE_DATA.find((item) => item.id === activeHeroTab) || HERO_SHOWCASE_DATA[0];
+
   return (
     <div className="space-y-16 py-6 md:py-12">
       {/* Hero Section */}
       <header>
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 mb-6 border border-zinc-200 dark:border-zinc-700 max-w-full">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
-          <span className="truncate sm:overflow-visible">Product Designer Pleno · Operação Regulada SPA/MF</span>
+        {/* Author & Community Identity Strip */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-6 border-b border-zinc-100 dark:border-zinc-900">
+          <div className="flex items-center gap-3.5">
+            <img
+              src="/images/rodrigo/rodrigo_melo_profile.png"
+              alt="Foto de perfil de Rodrigo Melo"
+              className="w-12 h-12 rounded-full object-cover border border-zinc-200 dark:border-zinc-800 shadow-sm shrink-0"
+              loading="eager"
+            />
+            <div>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="font-bold text-sm text-zinc-900 dark:text-zinc-100">Rodrigo Melo</span>
+                <span className="inline-flex items-center gap-1 text-[11px] font-medium text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-800">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  Disponível para novas oportunidades
+                </span>
+              </div>
+              <p className="text-xs text-zinc-500 dark:text-zinc-400 flex items-center gap-1.5 mt-0.5">
+                <span>Product Designer & Interface</span>
+                <span>·</span>
+                <span className="font-medium text-zinc-700 dark:text-zinc-300">Local Leader @ IxDF Salvador</span>
+              </p>
+            </div>
+          </div>
+
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700 max-w-fit">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
+            <span>Operação Regulada SPA/MF · Sportsbook & Fintech</span>
+          </div>
         </div>
+
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-6 max-w-2xl text-zinc-900 dark:text-zinc-50">
           Clareza na decisão, proteção sem obstáculo.
         </h1>
         <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-prose leading-relaxed mb-8">
-          Desenho fluxos de produto numa operação de apostas regulada pela SPA/MF: conversão, aquisição sem mídia paga e proteção do consumidor. Cada case mostra o dado, o método e o que não deu certo.
+          Desenho fluxos e sistemas de interface em operações reguladas de alto volume: conversão no sportsbook, aquisição orgânica e conformidade ética (SPA/MF). Cada estudo de caso documenta a causa raiz, as decisões de UI e o impacto mensurável.
         </p>
         <div className="flex flex-wrap gap-3 sm:gap-4 items-center">
           <a
@@ -49,6 +130,80 @@ export default function Home() {
         </div>
 
         <ProofTicker className="mt-12" />
+
+        {/* Hero Interface Showcase (Visual Craft Anchor) */}
+        <div className="mt-14 pt-8 border-t border-zinc-100 dark:border-zinc-900" aria-label="Vitrine de Interface em Destaque">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+            <div>
+              <div className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-1">
+                <Sparkles className="w-3.5 h-3.5 text-zinc-700 dark:text-zinc-300" />
+                Craft de Interface em Produção
+              </div>
+              <h2 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-zinc-100">
+                Interfaces Reais · Detalhe & Precisão
+              </h2>
+            </div>
+            
+            <div className="flex gap-1 p-1 bg-zinc-100 dark:bg-zinc-800 rounded-lg text-xs" role="tablist" aria-label="Seletor de interfaces em destaque">
+              {HERO_SHOWCASE_DATA.map((tab) => (
+                <button
+                  key={tab.id}
+                  role="tab"
+                  aria-selected={activeHeroTab === tab.id}
+                  onClick={() => setActiveHeroTab(tab.id)}
+                  className={`px-3 py-1.5 rounded-md font-medium transition min-h-[36px] flex items-center gap-1.5 ${
+                    activeHeroTab === tab.id
+                      ? 'bg-white dark:bg-zinc-900 text-zinc-950 dark:text-zinc-50 shadow-sm font-semibold'
+                      : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Showcase Window Frame */}
+          <div className="border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden bg-zinc-50 dark:bg-zinc-900/60 shadow-sm">
+            <div className="px-4 py-2.5 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-100/70 dark:bg-zinc-900 flex items-center justify-between text-xs">
+              <div className="flex items-center gap-2 text-zinc-500 font-mono">
+                <span className="inline-block w-2.5 h-2.5 rounded-full bg-zinc-300 dark:bg-zinc-700" />
+                <span className="truncate max-w-[220px] sm:max-w-none">{currentHeroShowcase.category}</span>
+              </div>
+              <Link
+                to={`/work/${currentHeroShowcase.slug}`}
+                className="font-medium text-zinc-900 dark:text-zinc-100 hover:underline flex items-center gap-1 shrink-0"
+              >
+                Abrir estudo completo <ArrowUpRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+
+            <div className="relative group overflow-hidden bg-zinc-950/5 dark:bg-black/40 flex items-center justify-center p-3 sm:p-6">
+              <img
+                src={currentHeroShowcase.image}
+                alt={currentHeroShowcase.title}
+                className="w-full max-h-[460px] object-contain rounded-lg border border-zinc-200/80 dark:border-zinc-800 shadow-md group-hover:scale-[1.01] transition-transform duration-300"
+                loading="eager"
+              />
+            </div>
+
+            <div className="p-4 sm:p-5 bg-white dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+              <div>
+                <span className="font-semibold text-zinc-900 dark:text-zinc-100 block sm:inline mr-2">
+                  {currentHeroShowcase.subtitle}
+                </span>
+                <span className="text-zinc-500 dark:text-zinc-400">
+                  {currentHeroShowcase.description}
+                </span>
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                <span className="font-mono font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-2.5 py-1 rounded border border-emerald-200 dark:border-emerald-800">
+                  {currentHeroShowcase.metric}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
       </header>
 
       {/* Featured Work Section */}
@@ -122,6 +277,55 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Craft & Design System Foundation Section */}
+      <section className="pt-8 border-t border-zinc-100 dark:border-zinc-900" aria-label="Fundação de Craft & Engenharia de Interface">
+        <div className="max-w-2xl mb-8">
+          <div className="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-2">
+            Rigor Técnico & Design System
+          </div>
+          <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
+            Fundação de Craft & Engenharia de Interface
+          </h2>
+          <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed">
+            Como Product Designer focado em Interface, meu método une estética tipográfica suíça, conformidade estrita de acessibilidade (WCAG 2.2 AA) e especificação semântica para engenharia.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="p-5 border border-zinc-200 dark:border-zinc-800 rounded-lg bg-zinc-50/50 dark:bg-zinc-900/30 space-y-2">
+            <span className="font-mono text-xs font-bold text-zinc-500 block">01 / TOKENS & TIPOGRAFIA</span>
+            <h3 className="font-semibold text-sm text-zinc-900 dark:text-zinc-100">Escala Modular & Contraste AAA</h3>
+            <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              Grid de 4px, fontes Inter neo-grotescas, linha máxima em 65 caracteres (`max-w-prose`) e contraste nítido em light e dark mode.
+            </p>
+          </div>
+
+          <div className="p-5 border border-zinc-200 dark:border-zinc-800 rounded-lg bg-zinc-50/50 dark:bg-zinc-900/30 space-y-2">
+            <span className="font-mono text-xs font-bold text-zinc-500 block">02 / ACESSIBILIDADE WCAG</span>
+            <h3 className="font-semibold text-sm text-zinc-900 dark:text-zinc-100">Touch Targets & Foco Visível</h3>
+            <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              Área de toque mínima de 44×44px em mobile (SC 2.5.8), foco navegável por teclado sem supressão de outline e suporte a reduced-motion.
+            </p>
+          </div>
+
+          <div className="p-5 border border-zinc-200 dark:border-zinc-800 rounded-lg bg-zinc-50/50 dark:bg-zinc-900/30 space-y-2">
+            <span className="font-mono text-xs font-bold text-zinc-500 block">03 / DESIGN ÉTICO</span>
+            <h3 className="font-semibold text-sm text-zinc-900 dark:text-zinc-100">Zero Padrões Obstrutivos</h3>
+            <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              Rejeição de dark patterns de retenção. Em fluxos de encerramento e jogo responsável, o usuário encontra saída sóbria em 3 etapas.
+            </p>
+          </div>
+
+          <div className="p-5 border border-zinc-200 dark:border-zinc-800 rounded-lg bg-zinc-50/50 dark:bg-zinc-900/30 space-y-2">
+            <span className="font-mono text-xs font-bold text-zinc-500 block">04 / HANDOFF TÉCNICO</span>
+            <h3 className="font-semibold text-sm text-zinc-900 dark:text-zinc-100">Alinhamento com Engenharia</h3>
+            <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              Documentação de regras de negócio, contratos de dados e componentes tipados no Figma, eliminando atrito e retrabalho de sprint.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* About Principles Preview */}
       <section className="pt-8 border-t border-zinc-100 dark:border-zinc-900">
         <div className="flex justify-between items-end mb-8">
@@ -171,12 +375,12 @@ export default function Home() {
         <div className="max-w-xl">
           <h2 className="text-2xl font-bold tracking-tight mb-4 text-zinc-900 dark:text-zinc-50">Contato</h2>
           <p className="text-zinc-600 dark:text-zinc-400 mb-6 leading-relaxed">
-            Disponível para posições sênior de Product Design em fintechs, scale-ups de tecnologia e ambientes de operação regulada.
+            Disponível para posições de Product Design em fintechs, scale-ups de tecnologia e ambientes de operação regulada.
           </p>
           <div className="flex flex-wrap gap-4 text-sm font-medium">
             <Link
               to="/contact"
-              className="px-4 py-2 bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 rounded hover:opacity-90 transition"
+              className="px-4 py-2 bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 rounded hover:opacity-90 transition min-h-[44px] inline-flex items-center"
             >
               Falar comigo &rarr;
             </Link>
@@ -184,7 +388,7 @@ export default function Home() {
               href="https://linkedin.com/in/rodrigomelodesigner"
               target="_blank"
               rel="noreferrer"
-              className="px-4 py-2 border border-zinc-200 dark:border-zinc-800 rounded hover:bg-zinc-50 dark:hover:bg-zinc-900 transition text-zinc-900 dark:text-zinc-100"
+              className="px-4 py-2 border border-zinc-200 dark:border-zinc-800 rounded hover:bg-zinc-50 dark:hover:bg-zinc-900 transition text-zinc-900 dark:text-zinc-100 min-h-[44px] inline-flex items-center"
             >
               LinkedIn
             </a>

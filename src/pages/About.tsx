@@ -1,40 +1,113 @@
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Layers, FileCheck, ArrowRight, Compass, Cpu } from 'lucide-react';
+import { 
+  ShieldCheck, 
+  Layers, 
+  FileCheck, 
+  ArrowRight, 
+  Compass, 
+  Cpu, 
+  Users2, 
+  ExternalLink 
+} from 'lucide-react';
 
 export default function About() {
   return (
     <div className="py-6 md:py-12 space-y-16">
-      {/* Header */}
-      <header className="space-y-4">
+      {/* Header & Editorial Hero with Photo */}
+      <header className="space-y-6">
         <div className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
-          Trajetória & Filosofia
+          Trajetória, Método & Liderança
         </div>
-        <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-          Sobre Rodrigo Melo
-        </h1>
-        <p className="text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
-          Desenho fluxos de produto numa operação de apostas regulada pela SPA/MF.
-        </p>
+
+        <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-8 items-start">
+          {/* Editorial Portrait Column */}
+          <div className="space-y-3">
+            <div className="rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 shadow-sm">
+              <img
+                src="/images/rodrigo/rodrigo_melo_editorial.png"
+                alt="Retrato profissional de Rodrigo Melo"
+                className="w-full h-auto object-cover max-h-[380px]"
+                loading="eager"
+              />
+            </div>
+            <div className="p-3 border border-zinc-200 dark:border-zinc-800 rounded-lg bg-zinc-50/60 dark:bg-zinc-900/40 text-xs space-y-1">
+              <span className="font-bold text-zinc-900 dark:text-zinc-100 block">Rodrigo Melo</span>
+              <p className="text-zinc-500 dark:text-zinc-400 text-[11px] leading-relaxed">
+                Product Designer & Local Leader @ IxDF Salvador
+              </p>
+              <div className="pt-2 border-t border-zinc-200/60 dark:border-zinc-800/60 flex items-center gap-1.5 text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                Disponível para posições CLT / PJ
+              </div>
+            </div>
+          </div>
+
+          {/* Bio & Philosophy Column */}
+          <div className="space-y-6">
+            <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 leading-tight">
+              Design que transforma regras severas em clareza de uso.
+            </h1>
+            <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-prose">
+              Atuo na intersecção entre arquitetura de informação, Design Systems, acessibilidade (WCAG 2.2 AA) e usabilidade de produto em setores regulados de alto volume.
+            </p>
+            <div className="space-y-4 text-zinc-700 dark:text-zinc-300 leading-relaxed text-sm sm:text-base max-w-prose">
+              <p>
+                Trabalho com design de produto numa operação de apostas esportivas regulada pela SPA/MF. Meus projetos vão da conversão no sportsbook e da aquisição sem mídia paga até fluxos de jogo responsável. Também desenhei a tela de saque via Pix com checagem de titularidade do CPF, em produção desde agosto de 2026.
+              </p>
+              <p>
+                Acredito que o papel do design em setores complexos não é adicionar ornamentos vazios, mas sim <strong>tornar visível a lógica do produto</strong>. Elimino a distância cognitiva entre regulamentações compulsórias (como a Portaria SPA/MF nº 1.231) e o modelo mental do usuário, sem recorrer a padrões escuros de retenção.
+              </p>
+            </div>
+          </div>
+        </div>
       </header>
 
-      {/* Main Narrative */}
-      <section className="space-y-6 text-zinc-700 dark:text-zinc-300 leading-relaxed text-base max-w-prose">
-        <p>
-          Trabalho com design de produto numa operação de apostas esportivas regulada pela SPA/MF. Meus projetos vão da conversão no sportsbook e da aquisição sem mídia paga até fluxos de jogo responsável. Também desenhei a tela de saque via Pix com checagem de titularidade do CPF, em produção desde agosto de 2026.
-        </p>
-        <p>
-          Acredito que o papel do design em setores complexos não é adicionar ornamentos, mas sim <strong>tornar visível a lógica do produto</strong>. Elimino a distância cognitiva entre regulamentações compulsórias (como a Portaria SPA/MF nº 1.231) e o modelo mental do usuário, sem recorrer a padrões escuros de retenção.
-        </p>
+      {/* Community Leadership (IxDF Salvador) */}
+      <section className="pt-8 border-t border-zinc-100 dark:border-zinc-900" aria-label="Liderança Comunitária no IxDF Salvador">
+        <div className="p-6 md:p-8 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-zinc-50/50 dark:bg-zinc-900/30 flex flex-col md:flex-row gap-6 items-start justify-between">
+          <div className="space-y-3 max-w-2xl">
+            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-zinc-500">
+              <Users2 className="w-4 h-4 text-zinc-800 dark:text-zinc-200" />
+              Comunidade & Cultura de Design
+            </div>
+            <h2 className="text-xl md:text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
+              Local Leader @ Interaction Design Foundation (IxDF Salvador)
+            </h2>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              Lidero o capítulo de Salvador do IxDF, organizando encontros presenciais, debates de casos reais e nivelamento técnico para a comunidade local. Defendo uma prática de design generosa e sem barreiras de status: conhecimento só gera valor quando vira sistema compartilhado.
+            </p>
+            <div className="flex flex-wrap gap-2 pt-1 text-xs">
+              <span className="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-medium">
+                Encontros Mensais Presenciais
+              </span>
+              <span className="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-medium">
+                Ergonomia Cognitiva & Acessibilidade
+              </span>
+              <span className="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-medium">
+                Mentoria e Nivelamento Técnico
+              </span>
+            </div>
+          </div>
+
+          <a
+            href="https://www.interaction-design.org"
+            target="_blank"
+            rel="noreferrer"
+            className="px-4 py-2 border border-zinc-200 dark:border-zinc-800 rounded text-xs font-semibold text-zinc-900 dark:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition shrink-0 inline-flex items-center gap-1.5 min-h-[44px]"
+          >
+            Conhecer o IxDF <ExternalLink className="w-3.5 h-3.5" />
+          </a>
+        </div>
       </section>
 
       {/* The 3 Pillars */}
       <section className="space-y-8 pt-8 border-t border-zinc-100 dark:border-zinc-900">
         <div>
           <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-            Os Três Princípios
+            Os Três Princípios Operacionais
           </h2>
           <p className="text-sm text-zinc-500 mt-1">
-            Princípios comprovados pelas evidências de cada estudo de caso.
+            Princípios comprovados pelas evidências e dados de cada estudo de caso.
           </p>
         </div>
 
@@ -47,7 +120,7 @@ export default function About() {
               1. Clareza e Proteção
             </h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              No Artilheiro, troquei 15 linhas de regulamento por um card que já leva a odd ao boletim. Na Saída responsável, a autoexclusão fica na mesma tela da pausa, a 3 etapas.
+              No Artilheiro, troquei 15 linhas de regulamento por um card que já leva a odd ao boletim. Na Saída responsável, a autoexclusão fica na mesma tela da pausa, a 3 etapas transparentes.
             </p>
           </div>
 
@@ -59,7 +132,7 @@ export default function About() {
               2. Hipótese e Resultado
             </h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              No Bolão, a aposta nos grupos de amigos não se confirmou: foram 81 grupos para 9.035 participantes, e o case diz isso. No Artilheiro, o case declara o que o teste sequencial não consegue separar.
+              No Bolão, a aposta nos grupos de amigos não se confirmou: foram 81 grupos para 9.035 participantes, e o case declara isso. No Artilheiro, o case declara o que o teste sequencial não isola.
             </p>
           </div>
 
@@ -71,7 +144,7 @@ export default function About() {
               3. Regulação no Começo
             </h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              A v1 da Saída responsável foi reprovada por soar como retenção disfarçada. A v2 foi desenhada já com texto neutro e validada por Compliance, Produto e Jurídico antes de ir para staging.
+              A v1 da Saída responsável foi reprovada por soar como retenção disfarçada. A v2 foi desenhada com texto neutro e validada por Compliance, Produto e Jurídico antes de ir para staging.
             </p>
           </div>
         </div>
