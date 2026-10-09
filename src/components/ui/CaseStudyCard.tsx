@@ -21,7 +21,7 @@ export function CaseStudyCard({ caseItem, titleAs }: CaseStudyCardProps) {
       aria-label={`Acessar estudo de caso: ${caseItem.title}`}
       className="group flex h-full flex-col overflow-hidden rounded-md border border-zinc-200 bg-white transition-colors hover:border-zinc-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 dark:border-zinc-800 dark:bg-zinc-900/40 dark:hover:border-zinc-600 dark:focus-visible:ring-zinc-50 dark:focus-visible:ring-offset-zinc-950"
     >
-      <p className="px-5 pt-4 font-mono text-sm font-semibold leading-snug text-emerald-600 dark:text-emerald-400 lg:min-h-[4.75rem]">
+      <p className="px-5 pt-4 font-mono text-sm font-semibold leading-snug text-emerald-600 dark:text-emerald-400 md:h-24">
         {caseItem.highlightMetric}
       </p>
       <div className="mt-3 h-48 shrink-0 overflow-hidden bg-zinc-100 dark:bg-zinc-900">
