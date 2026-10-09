@@ -18,7 +18,7 @@ export default function About() {
       </header>
 
       {/* Main Narrative */}
-      <section className="space-y-6 text-zinc-700 dark:text-zinc-300 leading-relaxed text-base max-w-3xl">
+      <section className="space-y-6 text-zinc-700 dark:text-zinc-300 leading-relaxed text-base max-w-prose">
         <p>
           Trabalho com design de produto numa operação de apostas esportivas regulada pela SPA/MF. Meus projetos vão da conversão no sportsbook e da aquisição sem mídia paga até fluxos de jogo responsável. Também desenhei a tela de saque via Pix com checagem de titularidade do CPF, em produção desde agosto de 2026.
         </p>

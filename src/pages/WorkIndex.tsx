@@ -88,13 +88,15 @@ export default function WorkIndex() {
           <Link
             key={caseItem.id}
             to={`/work/${caseItem.slug}`}
-            className="group block border border-zinc-200 dark:border-zinc-800 rounded-lg overflow-hidden hover:border-zinc-400 dark:hover:border-zinc-600 transition flex flex-col justify-between bg-white dark:bg-zinc-900/40"
+            aria-label={`Acessar estudo de caso: ${caseItem.title}`}
+            className="group block border border-zinc-200 dark:border-zinc-800 rounded-lg overflow-hidden hover:border-zinc-400 dark:hover:border-zinc-600 transition flex flex-col justify-between bg-white dark:bg-zinc-900/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 dark:focus-visible:ring-zinc-50 focus-visible:ring-offset-2"
           >
             <div>
               <div className="h-48 bg-zinc-100 dark:bg-zinc-900 relative overflow-hidden">
                 <img
                   src={caseItem.coverImage}
-                  alt={caseItem.title}
+                  alt=""
+                  aria-hidden="true"
                   className="object-cover w-full h-full group-hover:scale-105 transition duration-500"
                   loading="lazy"
                   onError={(e) => {
@@ -120,9 +122,11 @@ export default function WorkIndex() {
             </div>
             <div className="p-5 pt-0">
               <div className="pt-4 border-t border-zinc-100 dark:border-zinc-900/80 flex flex-wrap gap-2 justify-between items-center text-xs font-semibold text-zinc-900 dark:text-zinc-100">
-                <span className="text-zinc-500 font-normal">{caseItem.highlightMetric}</span>
+                <span className="font-mono text-emerald-600 dark:text-emerald-400 font-normal" aria-label={`Métrica de destaque: ${caseItem.highlightMetric}`}>
+                  {caseItem.highlightMetric}
+                </span>
                 <span className="inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform shrink-0">
-                  Ver Estudo <ArrowUpRight className="w-3.5 h-3.5" />
+                  Acessar estudo <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
                 </span>
               </div>
             </div>

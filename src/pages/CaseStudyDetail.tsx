@@ -3,6 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import { CASES_DATA } from '../data/cases';
 import { Badge } from '../components/ui/Badge';
 import { ImageLightbox } from '../components/ui/ImageLightbox';
+import { CaseImpactCard } from '../components/ui/CaseImpactCard';
+import { TableOfContents } from '../components/ui/TableOfContents';
 import { ArrowLeft, ArrowRight, CheckCircle2, AlertCircle, ZoomIn } from 'lucide-react';
 
 export default function CaseStudyDetail() {
@@ -33,8 +35,18 @@ export default function CaseStudyDetail() {
   const currentIndex = CASES_DATA.findIndex((c) => c.slug === slug);
   const nextCase = CASES_DATA[(currentIndex + 1) % CASES_DATA.length];
 
+  const tocItems = [
+    { id: 'problema', label: 'Problema & Reframing' },
+    ...(caseItem.benchmark ? [{ id: 'benchmark', label: 'Benchmark Audit' }] : []),
+    { id: 'decisoes', label: 'Decisões de Design' },
+    ...(caseItem.keyMetrics && caseItem.keyMetrics.length > 0 ? [{ id: 'metricas', label: 'Critérios de Sucesso' }] : []),
+    ...(caseItem.metricsTable ? [{ id: 'validacao', label: 'Validação Longitudinal' }] : []),
+    ...(caseItem.screenshots && caseItem.screenshots.length > 0 ? [{ id: 'interface', label: 'Interface & Telas' }] : []),
+    ...(caseItem.learnings && caseItem.learnings.length > 0 ? [{ id: 'aprendizados', label: 'Aprendizados' }] : []),
+  ];
+
   return (
-    <article className="py-6 md:py-12 space-y-12">
+    <article className="py-6 md:py-12 space-y-10">
       {/* Breadcrumbs */}
       <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-zinc-500">
         <Link to="/" className="hover:underline">Home</Link>
@@ -92,42 +104,53 @@ export default function CaseStudyDetail() {
         />
       </div>
 
-      {/* Problem & Reframing */}
-      <section className="space-y-6 pt-6">
-        <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-          O Problema & O Reframing
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="p-6 border border-zinc-200 dark:border-zinc-800 rounded-lg bg-zinc-50 dark:bg-zinc-900/40">
-            <div className="flex items-center gap-2 font-semibold text-xs uppercase tracking-wider text-zinc-500 mb-3">
-              <AlertCircle className="w-4 h-4 text-zinc-400" />
-              Briefing Inicial (Sintoma)
-            </div>
-            <p className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
-              {caseItem.problem.briefing}
-            </p>
-          </div>
-          <div className="p-6 border border-zinc-900 dark:border-zinc-700 rounded-lg bg-zinc-900 text-white dark:bg-zinc-800">
-            <div className="flex items-center gap-2 font-semibold text-xs uppercase tracking-wider text-zinc-400 mb-3">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-              Problema Real Refatorado (Causa Raiz)
-            </div>
-            <p className="text-sm text-zinc-200 leading-relaxed">
-              {caseItem.problem.reframed}
-            </p>
-          </div>
-        </div>
+      {/* Ficha de Impacto Executiva (Tempo 1: 45s de leitura) */}
+      <CaseImpactCard caseItem={caseItem} />
 
-        {caseItem.hypothesis && (
-          <div className="p-5 border-l-2 border-zinc-900 dark:border-zinc-100 bg-zinc-50 dark:bg-zinc-900/30 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
-            <strong>Hipótese de Design:</strong> {caseItem.hypothesis}
-          </div>
-        )}
-      </section>
+      {/* Sumário Mobile Inline */}
+      <div className="lg:hidden">
+        <TableOfContents items={tocItems} />
+      </div>
+
+      {/* Layout de Leitura em Dois Tempos (Grid com Sumário Lateral no Desktop) */}
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_200px] gap-10 items-start">
+        <div className="space-y-12 min-w-0">
+          {/* Problem & Reframing */}
+          <section id="problema" className="space-y-6 scroll-mt-24">
+            <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
+              O Problema & O Reframing
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="p-6 border border-zinc-200 dark:border-zinc-800 rounded-lg bg-zinc-50 dark:bg-zinc-900/40">
+                <div className="flex items-center gap-2 font-semibold text-xs uppercase tracking-wider text-zinc-500 mb-3">
+                  <AlertCircle className="w-4 h-4 text-zinc-400" />
+                  Briefing Inicial (Sintoma)
+                </div>
+                <p className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                  {caseItem.problem.briefing}
+                </p>
+              </div>
+              <div className="p-6 border border-zinc-900 dark:border-zinc-700 rounded-lg bg-zinc-900 text-white dark:bg-zinc-800">
+                <div className="flex items-center gap-2 font-semibold text-xs uppercase tracking-wider text-zinc-400 mb-3">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  Problema Real Refatorado (Causa Raiz)
+                </div>
+                <p className="text-sm text-zinc-200 leading-relaxed">
+                  {caseItem.problem.reframed}
+                </p>
+              </div>
+            </div>
+
+            {caseItem.hypothesis && (
+              <div className="p-5 border-l-2 border-zinc-900 dark:border-zinc-100 bg-zinc-50 dark:bg-zinc-900/30 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
+                <strong>Hipótese de Design:</strong> {caseItem.hypothesis}
+              </div>
+            )}
+          </section>
 
       {/* Benchmark Audit */}
       {caseItem.benchmark && (
-        <section className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900">
+        <section id="benchmark" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24">
           <div>
             <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
               {caseItem.benchmark.title}
@@ -165,7 +188,7 @@ export default function CaseStudyDetail() {
       )}
 
       {/* Decisions */}
-      <section className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900">
+      <section id="decisoes" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24">
         <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
           Decisões de Design & Trade-offs
         </h2>
@@ -185,7 +208,7 @@ export default function CaseStudyDetail() {
 
       {/* Key Metrics Grid */}
       {caseItem.keyMetrics && caseItem.keyMetrics.length > 0 && (
-        <section className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900">
+        <section id="metricas" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24">
           <div>
             <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
               Métricas Chave & Critérios de Sucesso
@@ -214,7 +237,7 @@ export default function CaseStudyDetail() {
 
       {/* Metrics Table */}
       {caseItem.metricsTable && (
-        <section className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900">
+        <section id="validacao" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24">
           <div>
             <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
               Validação Longitudinal & Métricas
@@ -255,7 +278,7 @@ export default function CaseStudyDetail() {
 
       {/* Visual Showcase / Screenshots */}
       {caseItem.screenshots && caseItem.screenshots.length > 0 && (
-        <section className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900">
+        <section id="interface" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24">
           <div>
             <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
               Interface & Execução Visual
@@ -298,7 +321,7 @@ export default function CaseStudyDetail() {
 
       {/* Learnings */}
       {caseItem.learnings && caseItem.learnings.length > 0 && (
-        <section className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900">
+        <section id="aprendizados" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24">
           <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
             Aprendizados & Rigor Operacional
           </h2>
@@ -312,6 +335,13 @@ export default function CaseStudyDetail() {
           </ul>
         </section>
       )}
+        </div>
+
+        {/* Aside Sticky com ToC no Desktop */}
+        <aside className="hidden lg:block sticky top-24">
+          <TableOfContents items={tocItems} />
+        </aside>
+      </div>
 
       {/* Next Case Footer Nav */}
       <nav aria-label="Navegação entre casos" className="pt-12 border-t border-zinc-200 dark:border-zinc-800 flex justify-between items-center">

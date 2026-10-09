@@ -23,26 +23,26 @@ export default function Home() {
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-6 max-w-2xl text-zinc-900 dark:text-zinc-50">
           Clareza na decisão, proteção sem obstáculo.
         </h1>
-        <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed mb-8">
+        <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-prose leading-relaxed mb-8">
           Desenho fluxos de produto numa operação de apostas regulada pela SPA/MF: conversão, aquisição sem mídia paga e proteção do consumidor. Cada case mostra o dado, o método e o que não deu certo.
         </p>
-        <div className="flex flex-wrap gap-4 items-center">
-          <Link
-            to="/work"
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 font-medium rounded hover:opacity-90 transition min-h-[44px]"
+        <div className="flex flex-wrap gap-3 sm:gap-4 items-center">
+          <a
+            href="#work"
+            className="inline-flex items-center gap-2 px-6 py-2.5 bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 font-medium rounded hover:opacity-90 transition min-h-[44px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-950 dark:focus:ring-zinc-50"
           >
-            Ver Projetos <ArrowDown className="w-4 h-4" />
-          </Link>
+            Explorar Projetos <ArrowDown className="w-4 h-4" aria-hidden="true" />
+          </a>
           <Link
             to="/about"
-            className="inline-flex items-center gap-2 px-5 py-2.5 border border-zinc-200 dark:border-zinc-800 font-medium rounded hover:bg-zinc-50 dark:hover:bg-zinc-900 transition text-zinc-900 dark:text-zinc-100 min-h-[44px]"
+            className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-50 transition min-h-[44px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-400"
           >
-            Sobre mim <ArrowRight className="w-4 h-4" />
+            Sobre mim <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
           </Link>
           <a
             href="/assets/rodrigo-melo-curriculo.pdf"
             download="rodrigo-melo-curriculo.pdf"
-            className="inline-flex items-center gap-2 px-4 py-2.5 text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition min-h-[44px]"
+            className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition min-h-[44px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-400"
           >
             Baixar Currículo (PDF) &darr;
           </a>
@@ -75,13 +75,15 @@ export default function Home() {
             <Link
               key={caseItem.id}
               to={`/work/${caseItem.slug}`}
-              className="group block border border-zinc-200 dark:border-zinc-800 rounded-lg overflow-hidden hover:border-zinc-400 dark:hover:border-zinc-600 transition flex flex-col justify-between bg-white dark:bg-zinc-900/40"
+              aria-label={`Acessar estudo de caso: ${caseItem.title}`}
+              className="group block border border-zinc-200 dark:border-zinc-800 rounded-lg overflow-hidden hover:border-zinc-400 dark:hover:border-zinc-600 transition flex flex-col justify-between bg-white dark:bg-zinc-900/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 dark:focus-visible:ring-zinc-50 focus-visible:ring-offset-2"
             >
               <div>
                 <div className="h-48 bg-zinc-100 dark:bg-zinc-900 relative overflow-hidden">
                   <img
                     src={caseItem.coverImage}
-                    alt={caseItem.title}
+                    alt=""
+                    aria-hidden="true"
                     className="object-cover w-full h-full group-hover:scale-105 transition duration-500"
                     loading="lazy"
                     onError={(e) => {
@@ -107,9 +109,11 @@ export default function Home() {
               </div>
               <div className="p-5 pt-0">
                 <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800/80 flex flex-wrap gap-2 justify-between items-center text-xs">
-                  <span className="font-mono font-medium text-emerald-600 dark:text-emerald-400">{caseItem.highlightMetric}</span>
+                  <span className="font-mono font-medium text-emerald-600 dark:text-emerald-400" aria-label={`Métrica de destaque: ${caseItem.highlightMetric}`}>
+                    {caseItem.highlightMetric}
+                  </span>
                   <span className="inline-flex items-center gap-1 font-semibold text-zinc-900 dark:text-zinc-100 group-hover:translate-x-0.5 transition-transform shrink-0">
-                    Ver Estudo <ArrowUpRight className="w-3.5 h-3.5" />
+                    Acessar estudo <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
                   </span>
                 </div>
               </div>
