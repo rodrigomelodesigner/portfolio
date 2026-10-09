@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { CASES_DATA } from '../data/cases';
-import { Badge } from '../components/ui/Badge';
-import { ArrowUpRight, Search } from 'lucide-react';
+import { CaseStudyCard } from '../components/ui/CaseStudyCard';
+import { Search } from 'lucide-react';
 
 export default function WorkIndex() {
   const [selectedCategory, setSelectedCategory] = useState<string>('Todos');
@@ -85,52 +84,7 @@ export default function WorkIndex() {
       {/* Cases Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredCases.map((caseItem) => (
-          <Link
-            key={caseItem.id}
-            to={`/work/${caseItem.slug}`}
-            aria-label={`Acessar estudo de caso: ${caseItem.title}`}
-            className="group block border border-zinc-200 dark:border-zinc-800 rounded-lg overflow-hidden hover:border-zinc-400 dark:hover:border-zinc-600 transition flex flex-col justify-between bg-white dark:bg-zinc-900/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 dark:focus-visible:ring-zinc-50 focus-visible:ring-offset-2"
-          >
-            <div>
-              <div className="h-48 bg-zinc-100 dark:bg-zinc-900 relative overflow-hidden">
-                <img
-                  src={caseItem.coverImage}
-                  alt=""
-                  aria-hidden="true"
-                  className="object-cover w-full h-full group-hover:scale-105 transition duration-500"
-                  loading="lazy"
-                  onError={(e) => {
-                    (e.target as HTMLElement).style.display = 'none';
-                  }}
-                />
-              </div>
-              <div className="p-5">
-                <div className="flex flex-wrap gap-2 mb-3">
-                  {caseItem.tags.slice(0, 2).map((tag, idx) => (
-                    <Badge key={idx} variant="default">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-                <h2 className="text-lg font-semibold mb-2 group-hover:underline text-zinc-900 dark:text-zinc-100">
-                  {caseItem.title}
-                </h2>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-3 leading-relaxed">
-                  {caseItem.subtitle || caseItem.problem.reframed}
-                </p>
-              </div>
-            </div>
-            <div className="p-5 pt-0">
-              <div className="pt-4 border-t border-zinc-100 dark:border-zinc-900/80 flex flex-wrap gap-2 justify-between items-center text-xs font-semibold text-zinc-900 dark:text-zinc-100">
-                <span className="font-mono text-emerald-600 dark:text-emerald-400 font-normal" aria-label={`Métrica de destaque: ${caseItem.highlightMetric}`}>
-                  {caseItem.highlightMetric}
-                </span>
-                <span className="inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform shrink-0">
-                  Acessar estudo <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
-                </span>
-              </div>
-            </div>
-          </Link>
+          <CaseStudyCard key={caseItem.id} caseItem={caseItem} titleAs="h2" />
         ))}
       </div>
 
