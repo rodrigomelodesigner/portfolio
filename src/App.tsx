@@ -59,7 +59,7 @@ function Layout({ children }: { children: React.ReactNode }) {
   );
 
   return (
-    <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-200 flex flex-col justify-between overflow-x-hidden">
+    <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-200 flex flex-col justify-between overflow-x-clip">
       {/* Skip Link para Acessibilidade (WCAG 2.2 SC 2.4.1) */}
       <a
         href="#main-content"
@@ -128,7 +128,7 @@ function Layout({ children }: { children: React.ReactNode }) {
       </nav>
 
       {/* Main Page Area com Landmark Acessível */}
-      <main id="main-content" tabIndex={-1} className="max-w-4xl mx-auto p-4 md:px-12 w-full flex-1 focus:outline-none overflow-x-hidden">
+      <main id="main-content" tabIndex={-1} className="max-w-4xl mx-auto p-4 md:px-12 w-full flex-1 focus:outline-none overflow-x-clip">
         {children}
       </main>
 

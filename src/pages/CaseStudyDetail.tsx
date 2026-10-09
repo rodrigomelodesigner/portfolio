@@ -117,7 +117,7 @@ export default function CaseStudyDetail() {
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_200px] gap-10 items-start">
         <div className="space-y-12 min-w-0">
           {/* Problem & Reframing */}
-          <section tabIndex={-1} id="problema" className="space-y-6 scroll-mt-24 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 dark:focus-visible:ring-zinc-50 dark:focus-visible:ring-offset-zinc-950">
+          <section tabIndex={-1} id="problema" className="space-y-6 scroll-mt-24 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-2 dark:focus:ring-zinc-50 dark:focus:ring-offset-zinc-950">
             <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
               O Problema & O Reframing
             </h2>
@@ -147,7 +147,7 @@ export default function CaseStudyDetail() {
             <section
               tabIndex={-1}
               id="hipotese"
-              className="space-y-6 scroll-mt-24 border-t border-zinc-100 pt-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 dark:border-zinc-900 dark:focus-visible:ring-zinc-50 dark:focus-visible:ring-offset-zinc-950"
+              className="space-y-6 scroll-mt-24 border-t border-zinc-100 pt-6 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-2 dark:border-zinc-900 dark:focus:ring-zinc-50 dark:focus:ring-offset-zinc-950"
             >
               <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
                 Hipótese
@@ -160,7 +160,7 @@ export default function CaseStudyDetail() {
 
       {/* Benchmark Audit */}
       {caseItem.benchmark && (
-        <section tabIndex={-1} id="benchmark" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 dark:focus-visible:ring-zinc-50 dark:focus-visible:ring-offset-zinc-950">
+        <section tabIndex={-1} id="benchmark" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-2 dark:focus:ring-zinc-50 dark:focus:ring-offset-zinc-950">
           <div>
             <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
               {caseItem.benchmark.title}
@@ -198,7 +198,7 @@ export default function CaseStudyDetail() {
       )}
 
       {/* Decisions */}
-      <section tabIndex={-1} id="decisoes" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 dark:focus-visible:ring-zinc-50 dark:focus-visible:ring-offset-zinc-950">
+      <section tabIndex={-1} id="decisoes" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-2 dark:focus:ring-zinc-50 dark:focus:ring-offset-zinc-950">
         <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
           Decisões de Design & Trade-offs
         </h2>
@@ -218,7 +218,7 @@ export default function CaseStudyDetail() {
 
       {/* Key Metrics Grid */}
       {caseItem.keyMetrics && caseItem.keyMetrics.length > 0 && (
-        <section tabIndex={-1} id="metricas" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 dark:focus-visible:ring-zinc-50 dark:focus-visible:ring-offset-zinc-950">
+        <section tabIndex={-1} id="metricas" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-2 dark:focus:ring-zinc-50 dark:focus:ring-offset-zinc-950">
           <div>
             <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
               Métricas Chave & Critérios de Sucesso
@@ -247,7 +247,7 @@ export default function CaseStudyDetail() {
 
       {/* Metrics Table */}
       {caseItem.metricsTable && (
-        <section tabIndex={-1} id={caseItem.keyMetrics && caseItem.keyMetrics.length > 0 ? 'validacao' : 'metricas'} className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 dark:focus-visible:ring-zinc-50 dark:focus-visible:ring-offset-zinc-950">
+        <section tabIndex={-1} id={caseItem.keyMetrics && caseItem.keyMetrics.length > 0 ? 'validacao' : 'metricas'} className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-2 dark:focus:ring-zinc-50 dark:focus:ring-offset-zinc-950">
           <div>
             <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
               Validação Longitudinal & Métricas
@@ -287,7 +287,7 @@ export default function CaseStudyDetail() {
       )}
 
       {!caseItem.keyMetrics?.length && !caseItem.metricsTable && (
-        <section tabIndex={-1} id="metricas" className="space-y-4 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 dark:focus-visible:ring-zinc-50 dark:focus-visible:ring-offset-zinc-950">
+        <section tabIndex={-1} id="metricas" className="space-y-4 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-2 dark:focus:ring-zinc-50 dark:focus:ring-offset-zinc-950">
           <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
             Métricas
           </h2>
@@ -299,7 +299,7 @@ export default function CaseStudyDetail() {
 
       {/* Visual Showcase / Screenshots */}
       {caseItem.screenshots && caseItem.screenshots.length > 0 && (
-        <section tabIndex={-1} id="interface" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 dark:focus-visible:ring-zinc-50 dark:focus-visible:ring-offset-zinc-950">
+        <section tabIndex={-1} id="interface" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-2 dark:focus:ring-zinc-50 dark:focus:ring-offset-zinc-950">
           <div>
             <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
               Interface & Execução Visual
@@ -342,7 +342,7 @@ export default function CaseStudyDetail() {
 
       {/* Learnings */}
       {caseItem.learnings && caseItem.learnings.length > 0 && (
-        <section tabIndex={-1} id="aprendizados" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 dark:focus-visible:ring-zinc-50 dark:focus-visible:ring-offset-zinc-950">
+        <section tabIndex={-1} id="aprendizados" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-2 dark:focus:ring-zinc-50 dark:focus:ring-offset-zinc-950">
           <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
             Aprendizados & Rigor Operacional
           </h2>

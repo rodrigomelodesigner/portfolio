@@ -4,7 +4,21 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    {
+      name: 'spa-case-routes',
+      configureServer(server) {
+        server.middlewares.use((req, _res, next) => {
+          const path = req.url?.split('?')[0] ?? '';
+          if (/^\/work\/[^/]+$/.test(path) && !path.endsWith('.html')) {
+            req.url = '/index.html';
+          }
+          next();
+        });
+      },
+    },
+  ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
