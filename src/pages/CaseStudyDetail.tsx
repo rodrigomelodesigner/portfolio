@@ -5,6 +5,7 @@ import { Badge } from '../components/ui/Badge';
 import { ImageLightbox } from '../components/ui/ImageLightbox';
 import { CaseImpactCard } from '../components/ui/CaseImpactCard';
 import { TableOfContents } from '../components/ui/TableOfContents';
+import { ArtilheiroCardAnatomy } from '../components/ui/ArtilheiroCardAnatomy';
 import { ArrowLeft, ArrowRight, CheckCircle2, AlertCircle, ZoomIn } from 'lucide-react';
 
 export default function CaseStudyDetail() {
@@ -39,6 +40,7 @@ export default function CaseStudyDetail() {
     { id: 'problema', label: 'Problema & Reframing' },
     ...(caseItem.benchmark ? [{ id: 'benchmark', label: 'Benchmark Audit' }] : []),
     { id: 'decisoes', label: 'Decisões de Design' },
+    ...(caseItem.id === 'artilheiro-da-casa' ? [{ id: 'anatomia-card', label: 'Anatomia do Card' }] : []),
     ...(caseItem.keyMetrics && caseItem.keyMetrics.length > 0 ? [{ id: 'metricas', label: 'Critérios de Sucesso' }] : []),
     ...(caseItem.metricsTable ? [{ id: 'validacao', label: 'Validação Longitudinal' }] : []),
     ...(caseItem.screenshots && caseItem.screenshots.length > 0 ? [{ id: 'interface', label: 'Interface & Telas' }] : []),
@@ -205,6 +207,13 @@ export default function CaseStudyDetail() {
           ))}
         </div>
       </section>
+
+      {/* Interactive Anatomy for Artilheiro case */}
+      {caseItem.id === 'artilheiro-da-casa' && (
+        <section id="anatomia-card" className="pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24">
+          <ArtilheiroCardAnatomy />
+        </section>
+      )}
 
       {/* Key Metrics Grid */}
       {caseItem.keyMetrics && caseItem.keyMetrics.length > 0 && (

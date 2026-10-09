@@ -88,28 +88,7 @@ export const CASES_DATA: CaseStudy[] = [
       "O ticket médio caiu de R$ 11,40 para R$ 8,58 porque o card virou atalho para apostar direto no atleta, atraindo apostas menores nos mercados elegíveis.",
       "Limites de atribuição: teste sem grupo controle, relatório do provedor sem separação de usuários únicos e volume sensível ao apelo do atleta, estabilidade do provedor e dia da semana (quarta-feira na R4)."
     ],
-    screenshots: [
-      {
-        url: "/images/02_artilheiros_casa/artilheiro_cards_spread_showcase.png",
-        caption: "Composição visual de cards colecionáveis inspirada em card games esportivos com odds e metas legíveis."
-      },
-      {
-        url: "/images/02_artilheiros_casa/card_pedro_flamengo_2048x1365.png",
-        caption: "Card individual do atleta Pedro (Flamengo) com multiplicadores e regras de freebet."
-      },
-      {
-        url: "/images/02_artilheiros_casa/card_hulk_atletico_2048x1365.png",
-        caption: "Card individual do atleta Hulk (Atlético-MG) em alta definição para grid promocional."
-      },
-      {
-        url: "/images/02_artilheiros_casa/card_raphael_veiga_2048x1365.png",
-        caption: "Card individual do atleta Raphael Veiga (Palmeiras) detalhando mecânica de bônus por gol."
-      },
-      {
-        url: "/images/02_artilheiros_casa/card_estevao_palmeiras_2048x1365.png",
-        caption: "Card individual da revelação Estêvão (Palmeiras) com odd turbinada e CTA direto."
-      }
-    ]
+    screenshots: []
   },
   {
     id: "bolao-da-copa",
