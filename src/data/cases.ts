@@ -10,6 +10,7 @@ export interface CaseStudy {
   squad: string;
   timeline: string;
   highlightMetric: string;
+  constraint: string;
   coverImage: string;
   problem: {
     briefing: string;
@@ -55,6 +56,7 @@ export const CASES_DATA: CaseStudy[] = [
     squad: "Gabriel Nascimento (Produto), Lucca Schramm (Engenharia)",
     timeline: "Março a Maio / 2025 (7 Rodadas)",
     highlightMetric: "470 apostas/rodada (6,5x) · R$ 4.039 stake médio",
+    constraint: "A odd entra no boletim em um toque. A comparação foi rodada a rodada, sem teste A/B e sem mídia adicional.",
     coverImage: "/images/covers/artilheiro_showcase_cover.png",
     problem: {
       briefing: "Na estreia do Brasileirão 2025 (R1, 30/03), a promoção Artilheiro da Casa foi publicada na Home como um regulamento de 15 linhas em texto corrido. Resultado: 72 apostas e R$ 821,07 de stake nos cinco mercados de artilheiro. Marketing relatou baixa adesão e pediu mais banners e e-mails.",
@@ -123,6 +125,7 @@ export const CASES_DATA: CaseStudy[] = [
     squad: "Tamille Rocha (PM), Gabriel Nascimento (Marketing), Wesley Dias (Engenharia/Zizy)",
     timeline: "Maio a Julho / 2026",
     highlightMetric: "9.035 participantes · 81 grupos privados",
+    constraint: "Sem verba de mídia paga. O convite para um grupo privado exige conta na plataforma.",
     coverImage: "/images/covers/bolao_showcase_cover.png",
     problem: {
       briefing: "Durante a Copa do Mundo de 2026, a operação precisava atrair e reativar usuários sem depender de campanhas pagas de aquisição, cujos custos sobem no torneio. A proposta foi criar um bolão esportivo gratuito (fantasy social), onde o público pudesse palpitar nos placares dos jogos e competir tanto em um ranking geral quanto em grupos privados de amigos. O prazo de entrega era de quatro semanas entre o briefing e o pontapé inicial da Copa.",
@@ -176,6 +179,7 @@ export const CASES_DATA: CaseStudy[] = [
     squad: "Tamille Rocha (PM), Diego Batista (Produto), Hans Schleier (Compliance), Luedy Costa (Design)",
     timeline: "Maio a Julho / 2025",
     highlightMetric: "Homologado em Staging (28/07) · 3 Etapas Sem Obstrução",
+    constraint: "Jogo responsável sob a Portaria SPA/MF nº 1.231. Sem teste A/B na jornada de saída.",
     coverImage: "/images/covers/limites_showcase_cover.png",
     problem: {
       briefing: "Em abril de 2025, já sob as regras de jogo responsável da SPA/MF, a única saída da plataforma era um botão 'Fechar conta' com o aviso 'esta ação é irreversível'. Não havia pausa temporária nem encaminhamento para apoio, então quem queria se afastar por um tempo só podia se excluir de forma definitiva. O ticket #1992, aberto pela PM Tamille Rocha em 29/04/2025, pediu a adequação do fluxo.",

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { CASES_DATA } from '../data/cases';
 import { Badge } from '../components/ui/Badge';
@@ -12,6 +12,19 @@ export default function CaseStudyDetail() {
   const [activeImage, setActiveImage] = useState<{ url: string; caption: string } | null>(null);
 
   const caseItem = CASES_DATA.find((c) => c.slug === slug);
+
+  const tocItems = useMemo(() => {
+    if (!caseItem) return [];
+    return [
+      { id: 'problema', label: 'Problema' },
+      ...(caseItem.hypothesis ? [{ id: 'hipotese', label: 'Hipótese' }] : []),
+      ...(caseItem.benchmark ? [{ id: 'benchmark', label: 'Benchmark' }] : []),
+      { id: 'decisoes', label: 'Decisões' },
+      { id: 'metricas', label: 'Métricas' },
+      ...(caseItem.screenshots && caseItem.screenshots.length > 0 ? [{ id: 'interface', label: 'Interface' }] : []),
+      ...(caseItem.learnings && caseItem.learnings.length > 0 ? [{ id: 'aprendizados', label: 'Aprendizados' }] : []),
+    ];
+  }, [caseItem]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -34,16 +47,6 @@ export default function CaseStudyDetail() {
 
   const currentIndex = CASES_DATA.findIndex((c) => c.slug === slug);
   const nextCase = CASES_DATA[(currentIndex + 1) % CASES_DATA.length];
-
-  const tocItems = [
-    { id: 'problema', label: 'Problema & Reframing' },
-    ...(caseItem.benchmark ? [{ id: 'benchmark', label: 'Benchmark Audit' }] : []),
-    { id: 'decisoes', label: 'Decisões de Design' },
-    ...(caseItem.keyMetrics && caseItem.keyMetrics.length > 0 ? [{ id: 'metricas', label: 'Critérios de Sucesso' }] : []),
-    ...(caseItem.metricsTable ? [{ id: 'validacao', label: 'Validação Longitudinal' }] : []),
-    ...(caseItem.screenshots && caseItem.screenshots.length > 0 ? [{ id: 'interface', label: 'Interface & Telas' }] : []),
-    ...(caseItem.learnings && caseItem.learnings.length > 0 ? [{ id: 'aprendizados', label: 'Aprendizados' }] : []),
-  ];
 
   return (
     <article className="py-6 md:py-12 space-y-10">
@@ -94,6 +97,8 @@ export default function CaseStudyDetail() {
         </div>
       </header>
 
+      <CaseImpactCard caseItem={caseItem} />
+
       {/* Cover Image */}
       <div className="rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900">
         <img
@@ -104,19 +109,15 @@ export default function CaseStudyDetail() {
         />
       </div>
 
-      {/* Ficha de Impacto Executiva (Tempo 1: 45s de leitura) */}
-      <CaseImpactCard caseItem={caseItem} />
-
-      {/* Sumário Mobile Inline */}
       <div className="lg:hidden">
-        <TableOfContents items={tocItems} />
+        <TableOfContents items={tocItems} layout="scroll" />
       </div>
 
       {/* Layout de Leitura em Dois Tempos (Grid com Sumário Lateral no Desktop) */}
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_200px] gap-10 items-start">
         <div className="space-y-12 min-w-0">
           {/* Problem & Reframing */}
-          <section id="problema" className="space-y-6 scroll-mt-24">
+          <section tabIndex={-1} id="problema" className="space-y-6 scroll-mt-24 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 dark:focus-visible:ring-zinc-50 dark:focus-visible:ring-offset-zinc-950">
             <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
               O Problema & O Reframing
             </h2>
@@ -140,17 +141,26 @@ export default function CaseStudyDetail() {
                 </p>
               </div>
             </div>
-
-            {caseItem.hypothesis && (
-              <div className="p-5 border-l-2 border-zinc-900 dark:border-zinc-100 bg-zinc-50 dark:bg-zinc-900/30 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
-                <strong>Hipótese de Design:</strong> {caseItem.hypothesis}
-              </div>
-            )}
           </section>
+
+          {caseItem.hypothesis && (
+            <section
+              tabIndex={-1}
+              id="hipotese"
+              className="space-y-6 scroll-mt-24 border-t border-zinc-100 pt-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 dark:border-zinc-900 dark:focus-visible:ring-zinc-50 dark:focus-visible:ring-offset-zinc-950"
+            >
+              <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
+                Hipótese
+              </h2>
+              <p className="border-l-2 border-zinc-900 bg-zinc-50 p-5 text-sm leading-relaxed text-zinc-700 dark:border-zinc-100 dark:bg-zinc-900/30 dark:text-zinc-300">
+                {caseItem.hypothesis}
+              </p>
+            </section>
+          )}
 
       {/* Benchmark Audit */}
       {caseItem.benchmark && (
-        <section id="benchmark" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24">
+        <section tabIndex={-1} id="benchmark" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 dark:focus-visible:ring-zinc-50 dark:focus-visible:ring-offset-zinc-950">
           <div>
             <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
               {caseItem.benchmark.title}
@@ -188,7 +198,7 @@ export default function CaseStudyDetail() {
       )}
 
       {/* Decisions */}
-      <section id="decisoes" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24">
+      <section tabIndex={-1} id="decisoes" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 dark:focus-visible:ring-zinc-50 dark:focus-visible:ring-offset-zinc-950">
         <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
           Decisões de Design & Trade-offs
         </h2>
@@ -208,7 +218,7 @@ export default function CaseStudyDetail() {
 
       {/* Key Metrics Grid */}
       {caseItem.keyMetrics && caseItem.keyMetrics.length > 0 && (
-        <section id="metricas" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24">
+        <section tabIndex={-1} id="metricas" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 dark:focus-visible:ring-zinc-50 dark:focus-visible:ring-offset-zinc-950">
           <div>
             <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
               Métricas Chave & Critérios de Sucesso
@@ -237,7 +247,7 @@ export default function CaseStudyDetail() {
 
       {/* Metrics Table */}
       {caseItem.metricsTable && (
-        <section id="validacao" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24">
+        <section tabIndex={-1} id={caseItem.keyMetrics && caseItem.keyMetrics.length > 0 ? 'validacao' : 'metricas'} className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 dark:focus-visible:ring-zinc-50 dark:focus-visible:ring-offset-zinc-950">
           <div>
             <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
               Validação Longitudinal & Métricas
@@ -276,9 +286,20 @@ export default function CaseStudyDetail() {
         </section>
       )}
 
+      {!caseItem.keyMetrics?.length && !caseItem.metricsTable && (
+        <section tabIndex={-1} id="metricas" className="space-y-4 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 dark:focus-visible:ring-zinc-50 dark:focus-visible:ring-offset-zinc-950">
+          <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
+            Métricas
+          </h2>
+          <p className="font-mono text-sm font-semibold leading-snug text-emerald-600 dark:text-emerald-400">
+            {caseItem.highlightMetric}
+          </p>
+        </section>
+      )}
+
       {/* Visual Showcase / Screenshots */}
       {caseItem.screenshots && caseItem.screenshots.length > 0 && (
-        <section id="interface" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24">
+        <section tabIndex={-1} id="interface" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 dark:focus-visible:ring-zinc-50 dark:focus-visible:ring-offset-zinc-950">
           <div>
             <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
               Interface & Execução Visual
@@ -321,7 +342,7 @@ export default function CaseStudyDetail() {
 
       {/* Learnings */}
       {caseItem.learnings && caseItem.learnings.length > 0 && (
-        <section id="aprendizados" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24">
+        <section tabIndex={-1} id="aprendizados" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 dark:focus-visible:ring-zinc-50 dark:focus-visible:ring-offset-zinc-950">
           <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
             Aprendizados & Rigor Operacional
           </h2>
@@ -339,7 +360,7 @@ export default function CaseStudyDetail() {
 
         {/* Aside Sticky com ToC no Desktop */}
         <aside className="hidden lg:block sticky top-24">
-          <TableOfContents items={tocItems} />
+          <TableOfContents items={tocItems} layout="stack" />
         </aside>
       </div>
 

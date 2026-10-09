@@ -1,72 +1,83 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { List } from 'lucide-react';
 
-export interface TocItem {
+export type TocItem = {
   id: string;
   label: string;
-}
+};
 
-export interface TableOfContentsProps {
+type TableOfContentsProps = {
   items: TocItem[];
-}
+  layout: 'scroll' | 'stack';
+};
 
-export const TableOfContents: React.FC<TableOfContentsProps> = ({ items }) => {
-  const [activeId, setActiveId] = useState<string>('');
+const linkClassName =
+  'inline-flex min-h-[44px] min-w-[44px] items-center rounded-md px-3 text-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 dark:focus-visible:ring-zinc-50 dark:focus-visible:ring-offset-zinc-950';
+
+export function TableOfContents({ items, layout }: TableOfContentsProps) {
+  const [activeId, setActiveId] = useState(items[0]?.id ?? '');
+  const itemKey = items.map((item) => item.id).join('|');
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 160;
+    const syncActiveSection = () => {
+      const marker = 96;
+      let next = items[0]?.id ?? '';
       for (const item of items) {
-        const el = document.getElementById(item.id);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveId(item.id);
-            break;
-          }
+        const section = document.getElementById(item.id);
+        if (section && section.getBoundingClientRect().top <= marker) {
+          next = item.id;
         }
       }
+      setActiveId((current) => (current === next ? current : next));
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [items]);
+    syncActiveSection();
+    window.addEventListener('scroll', syncActiveSection, { passive: true });
+    return () => window.removeEventListener('scroll', syncActiveSection);
+  }, [itemKey, items]);
 
-  const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault();
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-      window.history.pushState(null, '', `#${id}`);
-      setActiveId(id);
-    }
+  const focusSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (!section) return;
+    window.setTimeout(() => {
+      section.focus({ preventScroll: true });
+    }, 0);
   };
 
+  const isScroll = layout === 'scroll';
+
   return (
-    <nav
-      aria-label="Sumário do estudo de caso"
-      className="p-4 border border-zinc-200 dark:border-zinc-800 rounded-lg bg-zinc-50/50 dark:bg-zinc-900/30 text-xs"
-    >
-      <div className="flex items-center gap-1.5 font-bold uppercase tracking-wider text-zinc-500 mb-3">
-        <List className="w-3.5 h-3.5" aria-hidden="true" />
+    <nav aria-label="Sumário do estudo de caso">
+      <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-zinc-600 dark:text-zinc-400">
+        <List className="h-4 w-4" aria-hidden="true" />
         <span>Neste estudo</span>
       </div>
-      <ul className="space-y-1">
+      <ul
+        className={
+          isScroll
+            ? 'flex gap-2 overflow-x-auto pb-1'
+            : 'space-y-1 rounded-md border border-zinc-200 bg-zinc-50 p-2 dark:border-zinc-800 dark:bg-zinc-900/40'
+        }
+      >
         {items.map((item) => {
           const isActive = activeId === item.id;
           return (
-            <li key={item.id}>
+            <li key={item.id} className={isScroll ? 'shrink-0' : undefined}>
               <a
                 href={`#${item.id}`}
-                onClick={(e) => scrollTo(e, item.id)}
-                className={`block py-1.5 px-2 rounded transition min-h-[32px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 dark:focus-visible:ring-zinc-50 ${
+                aria-current={isActive ? 'location' : undefined}
+                onClick={() => focusSection(item.id)}
+                className={`${linkClassName} ${isScroll ? 'whitespace-nowrap' : 'w-full'} ${
                   isActive
-                    ? 'font-semibold text-zinc-950 dark:text-zinc-50 bg-zinc-200/60 dark:bg-zinc-800'
-                    : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800/50'
+                    ? 'bg-zinc-900 font-semibold text-white dark:bg-zinc-100 dark:text-zinc-900'
+                    : 'text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800'
+                } ${
+                  isScroll
+                    ? isActive
+                      ? 'border border-zinc-900 dark:border-zinc-100'
+                      : 'border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950'
+                    : ''
                 }`}
-                aria-current={isActive ? 'true' : undefined}
               >
                 {item.label}
               </a>
@@ -76,4 +87,4 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({ items }) => {
       </ul>
     </nav>
   );
-};
+}
