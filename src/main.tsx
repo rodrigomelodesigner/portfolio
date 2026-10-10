@@ -14,7 +14,7 @@ const app = (
   </React.StrictMode>
 );
 
-if (container.hasChildNodes()) {
+if (container.dataset.prerender === 'true') {
   hydrateRoot(container, app);
 } else {
   createRoot(container).render(app);

@@ -5,11 +5,37 @@ import { pathToFileURL } from 'node:url';
 const distDir = path.resolve('dist');
 const templatePath = path.join(distDir, 'index.html');
 const template = fs.readFileSync(templatePath, 'utf8');
-const rootMarker = '<div id="root"></div>';
+const rootOpen = '<div id="root">';
 
-if (!template.includes(rootMarker)) {
-  console.error('O build do Vite não gerou <div id="root"></div> em dist/index.html.');
+if (!template.includes(rootOpen)) {
+  console.error('O build do Vite não gerou <div id="root"> em dist/index.html.');
   process.exit(1);
+}
+
+function replaceRoot(html, appHtml) {
+  const start = html.indexOf(rootOpen);
+  let index = start + rootOpen.length;
+  let depth = 1;
+
+  while (index < html.length && depth > 0) {
+    const nextOpen = html.indexOf('<div', index);
+    const nextClose = html.indexOf('</div>', index);
+    if (nextClose === -1) {
+      throw new Error('#root sem fechamento em dist/index.html');
+    }
+    if (nextOpen !== -1 && nextOpen < nextClose) {
+      depth += 1;
+      index = nextOpen + 4;
+    } else {
+      depth -= 1;
+      if (depth === 0) {
+        return `${html.slice(0, start)}<div id="root" data-prerender="true">${appHtml}</div>${html.slice(nextClose + 6)}`;
+      }
+      index = nextClose + 6;
+    }
+  }
+
+  throw new Error('#root sem fechamento em dist/index.html');
 }
 
 const serverEntry = path.join(path.resolve('.ssr-build'), 'entry-server.js');
@@ -61,7 +87,7 @@ for (const route of PRERENDER_ROUTES) {
     process.exit(1);
   }
 
-  const withBody = template.replace(rootMarker, () => `<div id="root">${appHtml}</div>`);
+  const withBody = replaceRoot(template, appHtml);
   const page = route.path === '/' ? withBody : applyHead(withBody, route);
   const relativePaths = route.path === '/'
     ? ['index.html']
