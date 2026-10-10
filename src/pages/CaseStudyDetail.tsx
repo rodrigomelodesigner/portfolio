@@ -5,6 +5,8 @@ import { Badge } from '../components/ui/Badge';
 import { ImageLightbox } from '../components/ui/ImageLightbox';
 import { CaseImpactCard } from '../components/ui/CaseImpactCard';
 import { TableOfContents } from '../components/ui/TableOfContents';
+import { BolaoPalpiteInteractive } from '../components/ui/BolaoPalpiteInteractive';
+import { SaidaResponsavelCompare } from '../components/ui/SaidaResponsavelCompare';
 import { ArrowLeft, ArrowRight, CheckCircle2, AlertCircle, ZoomIn } from 'lucide-react';
 
 export default function CaseStudyDetail() {
@@ -20,6 +22,10 @@ export default function CaseStudyDetail() {
       ...(caseItem.hypothesis ? [{ id: 'hipotese', label: 'Hipótese' }] : []),
       ...(caseItem.benchmark ? [{ id: 'benchmark', label: 'Benchmark' }] : []),
       { id: 'decisoes', label: 'Decisões' },
+      ...(caseItem.slug === 'bolao-da-copa' ? [{ id: 'simulador', label: 'Simulador de Palpite' }] : []),
+      ...(caseItem.slug === 'limites-prudenciais'
+        ? [{ id: 'comparativo', label: 'Comparativo Ético v1 × v2' }]
+        : []),
       { id: 'metricas', label: 'Métricas' },
       ...(caseItem.screenshots && caseItem.screenshots.length > 0 ? [{ id: 'interface', label: 'Interface' }] : []),
       ...(caseItem.learnings && caseItem.learnings.length > 0 ? [{ id: 'aprendizados', label: 'Aprendizados' }] : []),
@@ -215,6 +221,42 @@ export default function CaseStudyDetail() {
           ))}
         </div>
       </section>
+
+      {caseItem.slug === 'bolao-da-copa' ? (
+        <section
+          tabIndex={-1}
+          id="simulador"
+          className="space-y-6 scroll-mt-24 border-t border-zinc-100 pt-6 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-2 dark:border-zinc-900 dark:focus:ring-zinc-50 dark:focus:ring-offset-zinc-950"
+        >
+          <div className="max-w-prose space-y-4">
+            <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
+              Simulador de Palpite
+            </h2>
+            <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+              A mecânica de placar do Bolão da Copa: o campo nasce em 0×0 e a tag 2x substitui a estrela que o teste interno lia como favorito.
+            </p>
+          </div>
+          <BolaoPalpiteInteractive />
+        </section>
+      ) : null}
+
+      {caseItem.slug === 'limites-prudenciais' ? (
+        <section
+          tabIndex={-1}
+          id="comparativo"
+          className="space-y-6 scroll-mt-24 border-t border-zinc-100 pt-6 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-2 dark:border-zinc-900 dark:focus:ring-zinc-50 dark:focus:ring-offset-zinc-950"
+        >
+          <div className="max-w-prose space-y-4">
+            <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
+              Comparativo Ético v1 × v2
+            </h2>
+            <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+              A v1 foi reprovada por soar como retenção. A v2 coloca a pausa de 1, 7 ou 30 dias primeiro e deixa o encerramento definitivo na mesma tela.
+            </p>
+          </div>
+          <SaidaResponsavelCompare />
+        </section>
+      ) : null}
 
       {/* Key Metrics Grid */}
       {caseItem.keyMetrics && caseItem.keyMetrics.length > 0 && (
