@@ -5,6 +5,28 @@ O formato é baseado no [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.
 
 ---
 
+## [v1.4.0] — 2026-10-10 — Pré-render legível, llms.txt e estudos de caso auditados
+
+### 🚀 Visão Geral da Versão
+Esta versão publica o portfólio para leitores que não executam JavaScript e para modelos que ingerem URL. O HTML de cada rota pública deixa de ser uma linha de dezenas de milhares de caracteres, ganha um fallback `<noscript>` semântico e passa a ter um dossiê em Markdown. Entram também, desde a v1.3.0, a trinca canônica de cases auditada, o craft da Home e os simuladores de palpite e de saída responsável.
+
+---
+
+### 🔎 Crawlability e leitura por modelos
+- **Pré-render com quebra de linha (`scripts/prerender.mjs`):** as tags de bloco fecham seguidas de uma quebra de linha dentro de um comentário HTML. A linha mais longa da home fica em 991 caracteres, e o `hydrateRoot` continua casando com o HTML do servidor.
+- **Fallback `<noscript>`:** cada rota pública leva, antes de `#root`, um `<article>` com `<h1>`, parágrafos e tabela. Sem JavaScript, o `#root` fica oculto e o artigo é o conteúdo visível. Com JavaScript, o navegador ignora o `<noscript>`.
+- **`llms.txt` e `llms-full.txt`:** índice com os três links canônicos e dossiê em Markdown puro, gerados no build a partir de `src/data/cases.ts` e do texto publicado na Home e no About.
+- **`vercel.json`:** `cleanUrls` sem barra final. `/llms*.txt` responde `text/markdown; charset=utf-8`. O `Content-Type: text/html` fica restrito às rotas de página, para não remarcar JS, CSS, imagens e o PDF.
+- **Descoberta:** `<link rel="alternate" type="text/markdown" href="/llms.txt">` no shell HTML.
+
+### 📄 Estudos de caso e interface publicados desde a v1.3.0
+- Trinca canônica alinhada na Home e no About: Artilheiro da Casa, Bolão da Copa e Saída Responsável.
+- Home com identidade, vitrine de interface e fundação de craft. Cases com resumo de leitura rápida, sumário ancorado, menu sticky e simuladores de palpite e de comparativo v1 × v2.
+- Metadados, Open Graph e fallback semântico no `index.html`. Rotas públicas pré-renderizadas no HTML inicial.
+- Correções de overflow horizontal no mobile, capas e frames de interface auditados.
+
+---
+
 ## [v1.3.0] — 2026-10-08 — Protocolo de Acessibilidade Persistente A11Y.md, Skill Accessibility & ADR 0006
 
 ### 🚀 Visão Geral da Versão

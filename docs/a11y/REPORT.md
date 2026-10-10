@@ -6,14 +6,22 @@ Este relatório compila as evidências de conformidade técnica para o release d
 
 ## 📌 Contexto da Validação
 
-- **Funcionalidade/Escopo:** Portfólio Profissional Completo (SPA Modular React: Home, Work, Case Studies, About, Contact, Layout)
-- **Data do Teste:** 2026-10-08
-- **Cobre a interface em:** `v1.2.0` (commit `edbde2f` / atualizações A11Y)
+- **Funcionalidade/Escopo:** Portfólio Profissional Completo (SPA Modular React: Home, Work, Case Studies, About, Contact, Layout) e o fallback `<noscript>` da v1.4.0
+- **Data do Teste:** 2026-10-10
+- **Cobre a interface em:** `v1.4.0` (pré-render com quebra de linha, `<noscript>` semântico e `llms.txt`)
 - **Versão do padrão:** `2.2.0` ([`A11Y.md`](./A11Y.md))
 - **Perfil Alvo:** Standard (WCAG 2.2 AA) com aspiração Shield (AAA)
-- **Status de Conformidade:** ✅ **PASS** (em conformidade técnica com o nível-alvo)
-- **Independência da Verificação:** `fresh-context` (auditoria orientada pelas 19 regras do AI Behavior Contract e verificação de código-fonte)
-- **Gate Estático (`verify-a11y.mjs`):** PASS (Zero violações críticas ou sérias detectadas no código-fonte)
+- **Status de Conformidade:** ⚠️ **CONDICIONAL** — o gate estático e a verificação no Chrome passaram. O par leitor de tela + navegador não foi reexecutado nesta versão.
+- **Independência da Verificação:** `self-reported` (Cursor Agent, mesma sessão que implementou o pré-render e o `<noscript>`)
+- **Gate Estático (`verify-a11y.mjs`):** PASS em 2026-10-10 (15 checkpoints, zero violações críticas)
+
+### Revalidação v1.4.0
+
+- [x] **Gate estático:** `npm run verify-a11y` em 2026-10-10, 15 checkpoints, saída sem erro.
+- [x] **Um `<h1>` visível com JavaScript:** Chrome headless em `/`, `/work`, `/about`, `/contact` e `/work/artilheiro-da-casa`. `#root` com `display: block`. O `<noscript>` não entra na árvore de elementos.
+- [x] **Hidratação:** nenhum erro React #418/#423 nessas rotas. A navegação cliente de Artilheiro da Casa para Bolão da Copa troca o `<h1>`.
+- [x] **Sem JavaScript:** em `/work/artilheiro-da-casa`, o artigo do `<noscript>` é o texto visível, o `#root` fica `display: none` e a tabela de métricas R1–R7 está no DOM. Links do fallback têm `min-h-[44px]` e anel de foco.
+- [ ] **Leitor de tela:** não executado nesta versão. Falta um par nomeado (por exemplo NVDA + Firefox ou VoiceOver + Safari) na Home e no artigo sem JavaScript. Enquanto isso não rodar, o status desta versão permanece CONDICIONAL.
 
 ---
 
