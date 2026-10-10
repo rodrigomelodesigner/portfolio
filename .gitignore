@@ -147,3 +147,7 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# Local audit and backup files
+questionamentos_cases.md
+src/data/cases.original.ts
