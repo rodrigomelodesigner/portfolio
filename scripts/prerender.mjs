@@ -12,7 +12,47 @@ if (!template.includes(rootOpen)) {
   process.exit(1);
 }
 
-function replaceRoot(html, appHtml) {
+const BLOCK_CLOSING_TAGS = [
+  'div',
+  'section',
+  'article',
+  'p',
+  'header',
+  'h1',
+  'h2',
+  'h3',
+  'main',
+  'nav',
+  'footer',
+  'li',
+  'ul',
+  'ol',
+  'table',
+  'thead',
+  'tbody',
+  'tr',
+  'figure',
+  'figcaption',
+  'a',
+  'button',
+  'span',
+];
+
+function insertLineBreaks(html) {
+  let next = html;
+  for (const tag of BLOCK_CLOSING_TAGS) {
+    // O \n fica dentro de um comentário. Um \n solto entre elementos vira
+    // text node e o hydrateRoot aborta com React #418/#423.
+    next = next.replaceAll(`</${tag}>`, `</${tag}><!--\n-->`);
+  }
+  return next;
+}
+
+function noscriptBlock(noscriptHtml) {
+  return `<noscript>\n<style>#root{display:none}</style>\n${noscriptHtml}\n</noscript>\n`;
+}
+
+function replaceRoot(html, appHtml, noscriptHtml) {
   const start = html.indexOf(rootOpen);
   let index = start + rootOpen.length;
   let depth = 1;
@@ -29,7 +69,7 @@ function replaceRoot(html, appHtml) {
     } else {
       depth -= 1;
       if (depth === 0) {
-        return `${html.slice(0, start)}<div id="root" data-prerender="true">${appHtml}</div>${html.slice(nextClose + 6)}`;
+        return `${html.slice(0, start)}${noscriptBlock(noscriptHtml)}<div id="root" data-prerender="true">${appHtml}</div>${html.slice(nextClose + 6)}`;
       }
       index = nextClose + 6;
     }
@@ -39,7 +79,21 @@ function replaceRoot(html, appHtml) {
 }
 
 const serverEntry = path.join(path.resolve('.ssr-build'), 'entry-server.js');
-const { render, PRERENDER_ROUTES } = await import(pathToFileURL(serverEntry).href);
+const { render, PRERENDER_ROUTES, renderNoscript, LLMS_INDEX, LLMS_FULL } = await import(
+  pathToFileURL(serverEntry).href
+);
+
+const publicDir = path.resolve('public');
+fs.mkdirSync(publicDir, { recursive: true });
+fs.writeFileSync(path.join(publicDir, 'llms.txt'), LLMS_INDEX);
+fs.writeFileSync(path.join(publicDir, 'llms-full.txt'), LLMS_FULL);
+fs.writeFileSync(path.join(distDir, 'llms.txt'), LLMS_INDEX);
+fs.writeFileSync(path.join(distDir, 'llms-full.txt'), LLMS_FULL);
+
+if (LLMS_FULL.includes('<p>') || LLMS_FULL.includes('<div')) {
+  console.error('llms-full.txt contém marcação HTML.');
+  process.exit(1);
+}
 
 function escapeHtml(value) {
   return value
@@ -87,8 +141,24 @@ for (const route of PRERENDER_ROUTES) {
     process.exit(1);
   }
 
-  const withBody = replaceRoot(template, appHtml);
-  const page = route.path === '/' ? withBody : applyHead(withBody, route);
+  const noscriptHtml = renderNoscript(route.path);
+  if (!noscriptHtml.includes('<h1') || !noscriptHtml.includes('<article')) {
+    console.error(`A rota ${route.path} ficou sem fallback semântico em <noscript>.`);
+    process.exit(1);
+  }
+
+  const withBody = replaceRoot(template, appHtml, noscriptHtml);
+  const formatted = insertLineBreaks(route.path === '/' ? withBody : applyHead(withBody, route));
+  const maxLine = formatted.split('\n').reduce((max, line) => Math.max(max, line.length), 0);
+  if (maxLine > 8000) {
+    console.error(`A rota ${route.path} ainda tem uma linha de ${maxLine} caracteres.`);
+    process.exit(1);
+  }
+  if (!formatted.includes('<noscript>') || !formatted.includes('</div><!--\n-->')) {
+    console.error(`A rota ${route.path} saiu sem quebra de linha ou sem <noscript>.`);
+    process.exit(1);
+  }
+  const page = formatted;
   const relativePaths = route.path === '/'
     ? ['index.html']
     : [`${route.path.slice(1)}.html`, `${route.path.slice(1)}/index.html`];

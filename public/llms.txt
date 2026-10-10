@@ -1,0 +1,22 @@
+# Rodrigo Melo
+
+> Product Designer Pleno em operações reguladas pela SPA/MF. Clareza na decisão, proteção sem obstáculo.
+
+Desenho fluxos e sistemas de interface em operações reguladas de alto volume: conversão no sportsbook, aquisição orgânica e conformidade ética (SPA/MF). Cada estudo de caso documenta a causa raiz, as decisões de UI e o impacto mensurável.
+
+Product Designer & Interface · Local Leader @ IxDF Salvador. Operação Regulada SPA/MF · Sportsbook & Fintech. Disponível para novas oportunidades.
+
+Dossiê completo, em Markdown e sem marcação de layout: [llms-full.txt](https://rodrigomelodesigner.vercel.app/llms-full.txt)
+
+## Estudos de caso
+
+- [Artilheiro da Casa: cards de atleta no lugar do regulamento](https://rodrigomelodesigner.vercel.app/work/artilheiro-da-casa): 470 apostas por rodada em média com cards, contra 72 com regulamento em texto, sem verba de mídia adicional.
+- [Bolão da Copa: predição social, testes internos e adesão orgânica](https://rodrigomelodesigner.vercel.app/work/bolao-da-copa): 9.035 participantes em 25 dias sem mídia paga, testes com colaboradores internos e a realidade da adesão aos grupos privados.
+- [Saída responsável: pausa e autoexclusão sob as regras da SPA/MF](https://rodrigomelodesigner.vercel.app/work/limites-prudenciais): Pausa temporária, autoavaliação opcional e autoexclusão em 3 etapas, reunidas numa única página de Jogo Responsável.
+
+## Páginas
+
+- [Home](https://rodrigomelodesigner.vercel.app/): posicionamento, estudos em destaque e princípios operacionais.
+- [Estudos de caso](https://rodrigomelodesigner.vercel.app/work): Projetos executados sob restrições severas de compliance, volume e dados reais. Cada estudo de caso documenta hipóteses, decisões e impacto longitudinal.
+- [Sobre](https://rodrigomelodesigner.vercel.app/about): bio, método, trajetória e liderança no IxDF Salvador.
+- [Contato](https://rodrigomelodesigner.vercel.app/contact): contato@rodrigomelo.design · https://linkedin.com/in/rodrigomelodesigner

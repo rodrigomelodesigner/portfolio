@@ -3,6 +3,7 @@ import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom/server';
 import { AppRoutes } from './App';
 import { PRERENDER_ROUTES } from './prerenderRoutes';
+import { LLMS_FULL, LLMS_INDEX, renderNoscript } from './seo/crawlText';
 
 export function render(url: string) {
   return renderToString(
@@ -14,4 +15,4 @@ export function render(url: string) {
   );
 }
 
-export { PRERENDER_ROUTES };
+export { PRERENDER_ROUTES, renderNoscript, LLMS_INDEX, LLMS_FULL };

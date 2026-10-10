@@ -1,0 +1,305 @@
+# Rodrigo Melo — Product Designer
+
+> Clareza na decisão, proteção sem obstáculo.
+
+Origem: https://rodrigomelodesigner.vercel.app/
+Dossiê índice: https://rodrigomelodesigner.vercel.app/llms.txt
+
+## Posicionamento
+
+Product Designer & Interface · Local Leader @ IxDF Salvador
+
+Operação Regulada SPA/MF · Sportsbook & Fintech
+
+Disponível para novas oportunidades
+
+Desenho fluxos e sistemas de interface em operações reguladas de alto volume: conversão no sportsbook, aquisição orgânica e conformidade ética (SPA/MF). Cada estudo de caso documenta a causa raiz, as decisões de UI e o impacto mensurável.
+
+Decisões metodológicas, métricas reais e entrega de ponta a ponta.
+
+### Fundação de craft
+
+Como Product Designer focado em Interface, meu método une estética tipográfica suíça, conformidade estrita de acessibilidade (WCAG 2.2 AA) e especificação semântica para engenharia.
+
+### Escala Modular & Contraste AAA
+
+Grid de 4px, fontes Inter neo-grotescas, linha máxima em 65 caracteres (max-w-prose) e contraste nítido em light e dark mode.
+
+### Touch Targets & Foco Visível
+
+Área de toque mínima de 44×44px em mobile (SC 2.5.8), foco navegável por teclado sem supressão de outline e suporte a reduced-motion.
+
+### Zero Padrões Obstrutivos
+
+Rejeição de dark patterns de retenção. Em fluxos de encerramento e jogo responsável, o usuário encontra saída sóbria em 3 etapas.
+
+### Alinhamento com Engenharia
+
+Documentação de regras de negócio, contratos de dados e componentes tipados no Figma, eliminando atrito e retrabalho de sprint.
+
+### Princípios operacionais publicados na Home
+
+### 1. Clareza e Proteção
+
+No Artilheiro, troquei 15 linhas de regulamento por um card que já leva a odd ao boletim. Na Saída responsável, a autoexclusão fica na mesma tela da pausa, a 3 etapas.
+
+### 2. Hipótese e Resultado
+
+No Bolão, a aposta nos grupos de amigos não se confirmou: foram 81 grupos para 9.035 participantes, e o case declara isso. No Artilheiro, declaro o que o teste sequencial não isola.
+
+### 3. Regulação no Começo
+
+A v1 da Saída responsável usava retenção persuasiva ('Vamos sentir sua falta'). A v2 adotou linguagem factual ('Esta ação é irreversível') e pausa graduada para conter fechamentos impulsivos sem dark patterns.
+
+### Contato publicado na Home
+
+Disponível para posições de Product Design em fintechs, scale-ups de tecnologia e ambientes de operação regulada.
+
+- E-mail: contato@rodrigomelo.design
+- LinkedIn: https://linkedin.com/in/rodrigomelodesigner
+- Página: https://rodrigomelodesigner.vercel.app/contact
+
+## Bio
+
+### Design que transforma regras severas em clareza de uso.
+
+Atuo na intersecção entre arquitetura de informação, Design Systems, acessibilidade (WCAG 2.2 AA) e usabilidade de produto em setores regulados de alto volume.
+
+Trabalho com design de produto numa operação de apostas esportivas regulada pela SPA/MF. Meus projetos vão da conversão no sportsbook e da aquisição sem mídia paga até fluxos de jogo responsável. Também desenhei a tela de saque via Pix com checagem de titularidade do CPF, em produção desde agosto de 2026.
+
+Acredito que o papel do design em setores complexos não é adicionar ornamentos vazios, mas sim tornar visível a lógica do produto. Elimino a distância cognitiva entre regulamentações compulsórias (como a Portaria SPA/MF nº 1.231) e o modelo mental do usuário, sem recorrer a padrões escuros de retenção.
+
+### Local Leader @ Interaction Design Foundation (IxDF Salvador)
+
+Lidero o capítulo de Salvador do IxDF, organizando encontros presenciais, debates de casos reais e nivelamento técnico para a comunidade local. Defendo uma prática de design generosa e sem barreiras de status: conhecimento só gera valor quando vira sistema compartilhado.
+
+### Princípios operacionais publicados no About
+
+Princípios comprovados pelas evidências e dados de cada estudo de caso.
+
+### 1. Clareza e Proteção
+
+No Artilheiro, troquei 15 linhas de regulamento por um card que já leva a odd ao boletim. Na Saída responsável, a autoexclusão fica na mesma tela da pausa, a 3 etapas transparentes.
+
+### 2. Hipótese e Resultado
+
+No Bolão, a aposta nos grupos de amigos não se confirmou: foram 81 grupos para 9.035 participantes, e o case declara isso. No Artilheiro, o case declara o que o teste sequencial não isola.
+
+### 3. Regulação no Começo
+
+A v1 da Saída responsável foi reprovada por soar como retenção disfarçada. A v2 foi desenhada com texto neutro e validada por Compliance, Produto e Jurídico antes de ir para staging.
+
+### Domínio de atuação
+
+### Regulação & Compliance Ético
+
+Tradução de portarias governamentais (SPA/MF) em fluxos de jogo responsável, autoexclusão e limites compulsórios.
+
+### AI-Assisted Product Engineering
+
+Operação ágil com Lovable, Cursor, Claude Code e suítes de agentes, mantendo governança via ADRs e tipagem estrita.
+
+### Trajetória profissional
+
+### 2024 — Presente — Product Designer Pleno · Casa de Apostas (Operação Regulada SPA/MF)
+
+Atuação em squads de produto e engenharia: adequação mandatória à Portaria SPA/MF nº 1.231 (limites prudenciais e autoexclusão em 3 etapas), tela de saque via Pix com checagem de CPF em produção, e aumento de 6,5x em apostas e 4,9x em volume no sportsbook via cards visuais de atleta.
+
+### 2021 — 2024 — Product Designer · Produtos Digitais & Plataformas Web
+
+Estruturação de Design Systems em Figma com sincronização de tokens, descoberta contínua de usuários e otimização de taxas de conversão e autosserviço financeiro em squads ágeis.
+
+### Stack técnica
+
+### Design & UI
+
+Figma (Variables, AutoLayout), Design Tokens, Prototipagem Avançada, Wireframing Swiss Flat.
+
+### Engenharia Frontend
+
+React, TypeScript, Tailwind CSS, shadcn/ui, Git & Conventional Commits, Vite.
+
+### Dados & Conformidade
+
+WCAG 2.2 AA/AAA, Portaria SPA/MF 1.231, Amplitude, Hotjar, Google Analytics, Testes de Usabilidade.
+
+## Estudos de caso
+
+## Artilheiro da Casa: cards de atleta no lugar do regulamento
+
+https://rodrigomelodesigner.vercel.app/work/artilheiro-da-casa
+
+470 apostas por rodada em média com cards, contra 72 com regulamento em texto, sem verba de mídia adicional.
+
+- Categoria: Sportsbook UX
+- Empresa: Casa de Apostas
+- Papel: Product Designer (UX/UI & Mecânica)
+- Squad: Gabriel Nascimento (Produto), Lucca Schramm (Engenharia)
+- Período: Março a Maio / 2025 (7 Rodadas)
+- Impacto chave: 470 apostas/rodada (6,5x) · R$ 4.039 stake médio
+- Restrição: A validação comparou rodada com rodada, sem teste A/B e sem mídia adicional.
+
+### Problema
+
+Na estreia do Brasileirão 2025 (R1, 30/03), a promoção Artilheiro da Casa foi publicada na Home como um regulamento de 15 linhas em texto corrido. Resultado: 72 apostas e R$ 821,07 de stake nos cinco mercados de artilheiro.
+
+### Reframing
+
+A leitura foi outra: as pessoas já viam a oferta, mas ela não virava aposta porque exigia interpretar regras antes de chegar ao mercado. A barreira era o atrito entre ler a regra e encontrar a aposta no Sportsbook.
+
+### Hipótese
+
+A partir da R2, no mesmo espaço da Home, troquei o texto por um card por atleta, com partida e odd turbinada visíveis. Projeto feito com Gabriel Nascimento (Produto) e Lucca Schramm (Engenharia). A validação foi sequencial, comparando rodada com rodada, sem teste A/B.
+
+### Decisões de UI
+
+1. **Linguagem Visual de Cards Esportivos e Evolução de Craft.** Os 5 mercados de artilheiro da rodada viraram cards com foto do atleta, confronto e odd turbinada, no lugar dos parágrafos de regras. Na validação inicial de 2025 (R1 a R7), a oferta concedia aposta grátis de R$ 10 para cada gol marcado (aposta mínima de R$ 10); na evolução de 2026, a mecânica foi estendida com chips de chutes a gol ('R$ 5 a cada chute no gol') e multiplicadores, mantendo a mesma matriz anatômica do card.
+
+### Métricas auditadas
+
+| Rodada | Data | Formato / Contexto | Apostas | Stake (R$) | Ticket Médio |
+| --- | --- | --- | --- | --- | --- |
+| R1 | 30/03/2025 | MVP Textual (Baseline) | 72 | R$ 821,07 | R$ 11,40 |
+| R2 | 06/04/2025 | Lançamento dos Cards Visuais | 590 | R$ 6.128,37 | R$ 10,38 |
+| R3 | 13/04/2025 | Pico de Engajamento | 827 | R$ 6.790,55 | R$ 8,21 |
+| R4 | 16/04/2025 | Quarta-feira (meio de semana) + instabilidade de provedor | 345 | R$ 2.521,71 | R$ 7,30 |
+| R5 | 20/04/2025 | Atletas com menor apelo popular | 212 | R$ 2.270,83 | R$ 10,71 |
+| R6 | 27/04/2025 | Recuperação com craques em destaque | 628 | R$ 4.383,39 | R$ 6,98 |
+| R7 | 04/05/2025 | Fechamento de ciclo / normalização da novidade | 221 | R$ 2.139,81 | R$ 9,68 |
+
+### O que deu errado / faria diferente
+
+Trechos publicados no próprio case sobre hipótese não confirmada, limite de medição ou condição que o desenho seguinte precisaria tratar.
+
+- A validação comparou rodada com rodada, sem teste A/B e sem mídia adicional.
+- Limites de atribuição: teste sem grupo controle, relatório do provedor sem separação de usuários únicos e volume sensível ao apelo do atleta, estabilidade do provedor e dia da semana (quarta-feira na R4).
+
+### Aprendizados
+
+- Média de 470 apostas e R$ 4.039 de stake por rodada com cards, contra 72 apostas e R$ 821,07 na R1 (6,5x as apostas e 4,9x o stake).
+- O ticket médio caiu de R$ 11,40 para R$ 8,58 porque o card virou atalho para apostar direto no atleta, atraindo apostas menores nos mercados elegíveis.
+- Limites de atribuição: teste sem grupo controle, relatório do provedor sem separação de usuários únicos e volume sensível ao apelo do atleta, estabilidade do provedor e dia da semana (quarta-feira na R4).
+
+
+---
+
+## Bolão da Copa: predição social, testes internos e adesão orgânica
+
+https://rodrigomelodesigner.vercel.app/work/bolao-da-copa
+
+9.035 participantes em 25 dias sem mídia paga, testes com colaboradores internos e a realidade da adesão aos grupos privados.
+
+- Categoria: Social Gaming & Aquisição
+- Empresa: Casa de Apostas
+- Papel: Product Designer (UX/UI & Descoberta)
+- Squad: Tamille Rocha (PM), Gabriel Nascimento (Marketing), Wesley Dias (Engenharia/Zizy)
+- Período: Maio a Julho / 2026
+- Impacto chave: 9.035 participantes · 81 grupos privados
+- Restrição: Sem verba de mídia paga. O convite para um grupo privado exige conta na plataforma.
+
+### Problema
+
+Durante a Copa do Mundo de 2026, a operação precisava atrair e reativar usuários sem depender de campanhas pagas de aquisição, cujos custos sobem no torneio. A proposta foi criar um bolão esportivo gratuito (fantasy social), onde o público pudesse palpitar nos placares dos jogos e competir tanto em um ranking geral quanto em grupos privados de amigos. O prazo de entrega era de quatro semanas entre o briefing e o pontapé inicial da Copa.
+
+### Reframing
+
+O desafio foi desenhar uma mecânica de engajamento diário sem dinheiro real capaz de atrair participantes organicamente, avaliando se grupos fechados de amigos funcionariam como motor viral de aquisição.
+
+### Hipótese
+
+Como Product Designer, em parceria com a PM Tamille Rocha e o time de marketing, desenhei o fluxo completo de navegação e palpite para mobile. Em 11/06/2026, Adir Filho (Supervisor de Live Marketing) usou o bolão e trouxe sugestões: a estrela do 'Palpite Dobrado' remetia mais a 'favoritar' do que a 'dobrar', os palpites poderiam começar preenchidos com 0x0 e faltava deixar claro se um palpite valia para todos os grupos. As sugestões entraram na especificação de fluxos. O fluxo foi bifurcado para permitir que o usuário entrasse sozinho pela plataforma ou recebesse um convite via link para um grupo fechado com ranking próprio.
+
+### Decisões de UI
+
+1. **Partidas Encerradas em Modo Leitura.** Em jogos que já passaram, o campo de palpite some, o resultado real ganha destaque e o palpite da pessoa aparece menor, embaixo, com o card em estado opaco (decisão de 19/05/2026).
+
+2. **Fluxo de Entrada Bifurcado (Convite vs. Orgânico).** Quem abria o link de convite via uma tela intermediária com os dados do grupo e os botões 'Criar conta e entrar' e 'Já tenho conta', antes do onboarding; quem entrava pela plataforma começava no onboarding de 4 passos e chegava aos grupos pelo estado vazio da aba.
+
+3. **Interface de Palpites em Scroll com Bloqueio Automático.** Cards por jogo com confronto, data e campos de placar, bloqueio dos jogos já iniciados e horário do salvamento usado como critério de desempate.
+
+### Métricas auditadas
+
+| Impacto chave |
+| --- |
+| 9.035 participantes · 81 grupos privados |
+
+### O que deu errado / faria diferente
+
+Trechos publicados no próprio case sobre hipótese não confirmada, limite de medição ou condição que o desenho seguinte precisaria tratar.
+
+- Sem verba de mídia paga. O convite para um grupo privado exige conta na plataforma.
+- A hipótese de crescimento pelos grupos de amigos não se confirmou: foram criados só 81 grupos privados para 9.035 participantes.
+- Minha leitura é que o prêmio do ranking geral atraía mais do que a disputa entre amigos, e que convidar alguém exigia que essa pessoa tivesse ou criasse uma conta na plataforma.
+- O aprendizado é que um mecanismo de convite precisa de um incentivo próprio, forte o bastante para compensar o trabalho de trazer outra pessoa.
+
+### Aprendizados
+
+- Do lançamento, em 11/06, até 06/07/2026, o bolão teve 9.035 participantes inscritos, sem mídia paga, segundo o sistema Zizy.
+- A hipótese de crescimento pelos grupos de amigos não se confirmou: foram criados só 81 grupos privados para 9.035 participantes.
+- Minha leitura é que o prêmio do ranking geral atraía mais do que a disputa entre amigos, e que convidar alguém exigia que essa pessoa tivesse ou criasse uma conta na plataforma.
+- O aprendizado é que um mecanismo de convite precisa de um incentivo próprio, forte o bastante para compensar o trabalho de trazer outra pessoa.
+
+
+---
+
+## Saída responsável: pausa e autoexclusão sob as regras da SPA/MF
+
+https://rodrigomelodesigner.vercel.app/work/limites-prudenciais
+
+Pausa temporária, autoavaliação opcional e autoexclusão em 3 etapas, reunidas numa única página de Jogo Responsável.
+
+- Categoria: Compliance & Jogo Responsável
+- Empresa: Casa de Apostas
+- Papel: Product Designer (UX, Benchmark & UX Writing)
+- Squad: Tamille Rocha (PM), Diego Batista (Produto), Hans Schleier (Compliance)
+- Período: Abril a Julho / 2025
+- Impacto chave: Envio para staging aprovado em 28/07/2025 · Autoexclusão em 3 etapas
+- Restrição: A pausa e o encerramento definitivo ficam na mesma página de Jogo Responsável.
+
+### Problema
+
+Em abril de 2025, a única saída da plataforma era um botão que encerrava a conta na hora e de forma irreversível. A página comunicava apenas o encerramento definitivo, sem pausa temporária nem encaminhamento para apoio. O ticket #1992, aberto pela PM Tamille Rocha em 29/04/2025, pediu um novo layout e copy para a autoexclusão, para web e mobile, com benchmark de Superbet, Betano e Estrelabet.
+
+### Reframing
+
+Na reunião de 10/07/2025, Compliance (Hans Schleier) propôs trocar o botão único por uma jornada em etapas, com autoavaliação, apoio e pausa antes da exclusão definitiva, para dar tempo de a pessoa reavaliar a decisão. O desafio de design foi montar essa jornada sem esconder a saída: o encerramento continua na mesma página e o aviso final diz com clareza que a ação é irreversível.
+
+### Hipótese
+
+No painel de Jogo Responsável, os cards 'Limites pessoais', 'Precisa de ajuda?', 'Período de pausa' e 'Encerrar minha conta' ficam na mesma página, sem submenu. A pausa pode ser de 1 dia, 1 semana, 1 mês ou 3 meses. A autoexclusão aprovada (v2) tem três etapas: um modal 'Precisa de ajuda?' que sugere a autoavaliação, a tela 'Encerrar minha conta' com o lembrete de sacar todo o saldo e a opção de pausar, e o modal final 'Tem certeza dessa decisão?', que avisa que a ação é irreversível. A autoavaliação usa o formulário da EBAC, baseado no Canadian Problem Gambling Index (CPGI), e dá para seguir sem preenchê-lo. A v1 se despedia com 'Vamos sentir sua falta por aqui!' e 'Esperamos te ver de novo em breve.'; a v2 trocou isso por 'Esta ação é irreversível.' Depois do encerramento, a tela de conta encerrada informa que o saldo vai para a chave Pix cadastrada e oferece o chat de suporte, disponível 24 horas.
+
+### Auditoria Comparativa no FigJam
+
+Mapeamento de boas práticas de UX e copywriting em operadores do mercado, estruturado no FigJam antes dos wireframes.
+
+Plataformas auditadas: Betano, Superbet, Estrelabet.
+
+- No fluxo da própria Casa de Apostas, o mapeamento apontou linguagem brusca, ausência de etapas claras e risco de cliques acidentais.
+
+### Decisões de UI
+
+1. **Pausa e Autoexclusão na Mesma Página (Sem Submenus).** No painel de Jogo Responsável, 'Período de pausa' (1 dia, 1 semana, 1 mês ou 3 meses) fica logo acima de 'Encerrar minha conta'. Em 28/07/2025, Produto decidiu reunir as ferramentas de Jogo Responsável num menu único que leva a essa página central.
+
+2. **Autoexclusão em 3 Etapas.** 1. Modal 'Precisa de ajuda?', com a autoavaliação como sugestão e a opção de seguir direto; 2. Tela 'Encerrar minha conta', com o lembrete de sacar todo o saldo e a opção de pausar; 3. Modal 'Tem certeza dessa decisão?', com o aviso 'Esta ação é irreversível'.
+
+3. **Substituição do Apelo Emotivo e Arquitetura de Escolha Graduada (v1 × v2).** A v1 utilizava 'Vamos sentir sua falta por aqui!' e 'Esperamos te ver de novo em breve.', configurando retenção persuasiva. A v2 substituiu isso por linguagem factual ('Esta ação é irreversível'). Para acomodar a diretriz de negócio de mitigar encerramentos intempestivos/definitivos sem recorrer a dark patterns, o modal final priorizou a pausa temporária reversível como ação de menor dano em destaque, mantendo a opção de encerramento permanente acessível logo abaixo, sem labirintos de navegação.
+
+### Métricas auditadas
+
+| Impacto chave |
+| --- |
+| Envio para staging aprovado em 28/07/2025 · Autoexclusão em 3 etapas |
+
+### O que deu errado / faria diferente
+
+Trechos publicados no próprio case sobre hipótese não confirmada, limite de medição ou condição que o desenho seguinte precisaria tratar.
+
+- Em 28/07/2025, Produto (Diego Batista e Tamille Rocha) decidiu enviar as páginas de Autoexclusão e Período de Pausa para staging. A aprovação final de copy e CTAs ainda dependia de Compliance (Hans Schleier).
+- Não houve teste A/B por escolha ética: testar variantes de interface para ver qual faz menos pessoas saírem seria manipular usuários em momento de vulnerabilidade.
+
+### Aprendizados
+
+- Em 28/07/2025, Produto (Diego Batista e Tamille Rocha) decidiu enviar as páginas de Autoexclusão e Período de Pausa para staging. A aprovação final de copy e CTAs ainda dependia de Compliance (Hans Schleier).
+- Não houve teste A/B por escolha ética: testar variantes de interface para ver qual faz menos pessoas saírem seria manipular usuários em momento de vulnerabilidade.
+- Métricas a acompanhar em produção: proporção entre pausa e autoexclusão, retorno pós-pausa, tempo de conclusão da exclusão e solicitações manuais via chat de suporte.
+
