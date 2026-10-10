@@ -35,7 +35,7 @@ const HERO_SHOWCASE_DATA: HeroShowcaseItem[] = [
     category: 'Sportsbook UX & Conversão',
     description: 'Substituição de regulamento de 15 linhas em texto por cards colecionáveis acionáveis com odd em tempo real.',
     metric: '470 apostas/rodada (6,5x) · R$ 4.039 stake médio',
-    image: '/images/02_artilheiros_casa/artilheiro_ui_hero_3000x2000.png'
+    image: '/images/02_artilheiros_casa/extra_artilheiro_cards_rodada.png'
   },
   {
     id: 'bolao',
@@ -46,7 +46,7 @@ const HERO_SHOWCASE_DATA: HeroShowcaseItem[] = [
     category: 'Social Gaming & Aquisição',
     description: 'Interface mobile de palpites diários, refinamento de inputs com colaboradores e teste de motor viral de grupos.',
     metric: '9.035 participantes em 25 dias · Sem mídia paga',
-    image: '/images/04_bolao_copa/bolao_fluxo_mapeamento.png'
+    image: '/images/04_bolao_copa/bolao_palpites_flow.png'
   },
   {
     id: 'limites',
@@ -57,7 +57,7 @@ const HERO_SHOWCASE_DATA: HeroShowcaseItem[] = [
     category: 'Compliance Ético · Portaria SPA/MF 1.231',
     description: 'Reconstrução da jornada de afastamento com neutralidade verbal absoluta e eliminação de 4 a 5 níveis de menu obstrutivos.',
     metric: 'Homologado em Staging · Zero Labirinto Obstrutivo',
-    image: '/images/01_limites_autoexclusao/limites_tela_pausa_temporaria.png'
+    image: '/images/01_limites_autoexclusao/limites_autoexclusao_flow.png'
   }
 ];
 
