@@ -364,7 +364,7 @@ export default function Home() {
             <FileCheck className="w-6 h-6 mb-4 text-zinc-800 dark:text-zinc-200" />
             <h3 className="font-semibold text-base mb-2 text-zinc-900 dark:text-zinc-100">3. Regulação no Começo</h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              A v1 da Saída responsável foi reprovada por soar como retenção disfarçada. A v2 foi desenhada com texto neutro e validada por Compliance, Produto e Jurídico antes de ir para staging.
+              A v1 da Saída responsável usava retenção persuasiva ('Vamos sentir sua falta'). A v2 adotou linguagem factual ('Esta ação é irreversível') e pausa graduada para conter fechamentos impulsivos sem dark patterns.
             </p>
           </div>
         </div>
