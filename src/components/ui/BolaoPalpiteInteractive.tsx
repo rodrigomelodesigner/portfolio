@@ -12,14 +12,15 @@ const stepperClass = `inline-flex min-h-[44px] min-w-[44px] items-center justify
 type ScoreStepperProps = {
   team: string;
   value: number;
-  onChange: (next: number) => void;
+  onAdjust: (delta: number) => void;
+  onSet: (next: number) => void;
 };
 
 function clampScore(value: number) {
   return Math.min(MAX_SCORE, Math.max(MIN_SCORE, value));
 }
 
-function ScoreStepper({ team, value, onChange }: ScoreStepperProps) {
+function ScoreStepper({ team, value, onAdjust, onSet }: ScoreStepperProps) {
   const inputId = `placar-${team.toLowerCase().replace(/\s+/g, '-')}`;
 
   return (
@@ -33,7 +34,7 @@ function ScoreStepper({ team, value, onChange }: ScoreStepperProps) {
           className={stepperClass}
           aria-label={`Diminuir placar de ${team}`}
           disabled={value <= MIN_SCORE}
-          onClick={() => onChange(clampScore(value - 1))}
+          onClick={() => onAdjust(-1)}
         >
           <Minus className="h-4 w-4" aria-hidden="true" />
         </button>
@@ -45,7 +46,7 @@ function ScoreStepper({ team, value, onChange }: ScoreStepperProps) {
           value={value}
           onChange={(event) => {
             const parsed = Number.parseInt(event.target.value, 10);
-            onChange(clampScore(Number.isNaN(parsed) ? 0 : parsed));
+            onSet(clampScore(Number.isNaN(parsed) ? 0 : parsed));
           }}
           className={`h-11 w-14 rounded-md border border-zinc-200 bg-white text-center font-mono text-base text-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100 ${focusRing}`}
         />
@@ -54,7 +55,7 @@ function ScoreStepper({ team, value, onChange }: ScoreStepperProps) {
           className={stepperClass}
           aria-label={`Aumentar placar de ${team}`}
           disabled={value >= MAX_SCORE}
-          onClick={() => onChange(clampScore(value + 1))}
+          onClick={() => onAdjust(1)}
         >
           <Plus className="h-4 w-4" aria-hidden="true" />
         </button>
@@ -84,8 +85,12 @@ export function BolaoPalpiteInteractive() {
   const [doubled, setDoubled] = useState(false);
   const [saved, setSaved] = useState(false);
 
-  const markSaved = (update: () => void) => {
-    update();
+  const adjustHome = (delta: number) => {
+    setHome((current) => clampScore(current + delta));
+    setSaved(true);
+  };
+  const adjustAway = (delta: number) => {
+    setAway((current) => clampScore(current + delta));
     setSaved(true);
   };
 
@@ -105,21 +110,16 @@ export function BolaoPalpiteInteractive() {
           <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">Brasil × Sérvia</h3>
         </div>
 
-        <ScoreStepper
-          team="Brasil"
-          value={home}
-          onChange={(next) => markSaved(() => setHome(next))}
-        />
-        <ScoreStepper
-          team="Sérvia"
-          value={away}
-          onChange={(next) => markSaved(() => setAway(next))}
-        />
+        <ScoreStepper team="Brasil" value={home} onAdjust={adjustHome} onSet={(next) => { setHome(next); setSaved(true); }} />
+        <ScoreStepper team="Sérvia" value={away} onAdjust={adjustAway} onSet={(next) => { setAway(next); setSaved(true); }} />
 
         <button
           type="button"
           aria-pressed={doubled}
-          onClick={() => markSaved(() => setDoubled((current) => !current))}
+          onClick={() => {
+            setDoubled((current) => !current);
+            setSaved(true);
+          }}
           className={`inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-md border px-4 text-sm font-medium ${focusRing} ${
             doubled
               ? 'border-zinc-900 bg-zinc-900 text-white dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-900'
