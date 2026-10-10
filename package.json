@@ -6,7 +6,7 @@
   "description": "Portfólio profissional de Rodrigo Melo — Product Designer em operações reguladas (Fintech / iGaming)",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && vite build --ssr src/entry-server.tsx --outDir .ssr-build && node scripts/prerender.mjs",
     "preview": "vite preview",
     "optimize-images": "node scripts/optimize-images.mjs",
     "verify-a11y": "node tools/verify-a11y.mjs"

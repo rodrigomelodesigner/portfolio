@@ -137,6 +137,9 @@ dist
 !.yarn/sdks
 !.yarn/versions
 
+# Vite SSR bundle used only to prerender dist/
+.ssr-build/
+
 # Vite files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
@@ -147,3 +150,7 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# Local audit and backup files
+questionamentos_cases.md
+src/data/cases.original.ts

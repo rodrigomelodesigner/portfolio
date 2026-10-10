@@ -73,10 +73,16 @@ function Layout({ children }: { children: React.ReactNode }) {
         <div className="max-w-4xl mx-auto px-4 py-3 md:px-12 md:py-6 flex justify-between items-center gap-2">
           <Link
             to="/"
-            className="font-bold text-lg sm:text-xl tracking-tight hover:opacity-80 transition min-h-[44px] inline-flex items-center shrink-0"
+            className="font-bold text-lg sm:text-xl tracking-tight hover:opacity-80 transition min-h-[44px] inline-flex items-center gap-2.5 shrink-0"
             aria-label="Rodrigo Melo - Página Inicial"
           >
-            Rodrigo Melo.
+            <img
+              src="/images/rodrigo/rodrigo_melo_profile.png"
+              alt=""
+              aria-hidden="true"
+              className="w-7 h-7 rounded-full object-cover border border-zinc-200 dark:border-zinc-800 shrink-0"
+            />
+            <span>Rodrigo Melo.</span>
           </Link>
           <div className="flex gap-1 sm:gap-3 items-center text-xs sm:text-sm font-medium">
             <Link
@@ -135,7 +141,7 @@ function Layout({ children }: { children: React.ReactNode }) {
       {/* Unified Footer */}
       <footer className="border-t border-zinc-100 dark:border-zinc-900 text-xs text-zinc-500 py-8 bg-zinc-50/50 dark:bg-zinc-950">
         <div className="max-w-4xl mx-auto px-4 md:px-12 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
-          <span>© {new Date().getFullYear()} Rodrigo Melo. Todos os direitos reservados.</span>
+          <span suppressHydrationWarning>© {new Date().getFullYear()} Rodrigo Melo. Todos os direitos reservados.</span>
           <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
             <Link to="/about" className="hover:underline">Metodologia</Link>
             <span aria-hidden="true">·</span>
@@ -232,19 +238,25 @@ function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+export function AppRoutes() {
+  return (
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/work" element={<WorkIndex />} />
+        <Route path="/work/:slug" element={<CaseStudyDetail />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Layout>
+  );
+}
+
 export default function App() {
   return (
     <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/work" element={<WorkIndex />} />
-          <Route path="/work/:slug" element={<CaseStudyDetail />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Layout>
+      <AppRoutes />
     </BrowserRouter>
   );
 }

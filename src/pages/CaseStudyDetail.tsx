@@ -7,6 +7,7 @@ import { CaseImpactCard } from '../components/ui/CaseImpactCard';
 import { TableOfContents } from '../components/ui/TableOfContents';
 import { BolaoPalpiteInteractive } from '../components/ui/BolaoPalpiteInteractive';
 import { SaidaResponsavelCompare } from '../components/ui/SaidaResponsavelCompare';
+import { ArtilheiroCardAnatomy } from '../components/ui/ArtilheiroCardAnatomy';
 import { ArrowLeft, ArrowRight, CheckCircle2, AlertCircle, ZoomIn } from 'lucide-react';
 
 export default function CaseStudyDetail() {
@@ -22,6 +23,7 @@ export default function CaseStudyDetail() {
       ...(caseItem.hypothesis ? [{ id: 'hipotese', label: 'Hipótese' }] : []),
       ...(caseItem.benchmark ? [{ id: 'benchmark', label: 'Benchmark' }] : []),
       { id: 'decisoes', label: 'Decisões' },
+      ...(caseItem.slug === 'artilheiro-da-casa' ? [{ id: 'anatomia-card', label: 'Anatomia do Card' }] : []),
       ...(caseItem.slug === 'bolao-da-copa' ? [{ id: 'simulador', label: 'Simulador de Palpite' }] : []),
       ...(caseItem.slug === 'limites-prudenciais'
         ? [{ id: 'comparativo', label: 'Comparativo Ético v1 × v2' }]
@@ -233,7 +235,7 @@ export default function CaseStudyDetail() {
               Simulador de Palpite
             </h2>
             <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-              A mecânica de placar do Bolão da Copa: o campo nasce em 0×0 e a tag 2x substitui a estrela que o teste interno lia como favorito.
+              O placar nasce em 0×0, como Adir Filho sugeriu em 11/06/2026. A marcação 2x deixa o palpite dobrado explícito, no lugar da estrela que ele leu como favorito.
             </p>
           </div>
           <BolaoPalpiteInteractive />
@@ -251,10 +253,20 @@ export default function CaseStudyDetail() {
               Comparativo Ético v1 × v2
             </h2>
             <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-              A v1 foi reprovada por soar como retenção. A v2 coloca a pausa de 1, 7 ou 30 dias primeiro e deixa o encerramento definitivo na mesma tela.
+              A v1 se despedia com um convite para ficar. A v2 coloca a pausa de 1 dia, 1 semana, 1 mês ou 3 meses primeiro e deixa o encerramento definitivo na mesma página.
             </p>
           </div>
           <SaidaResponsavelCompare />
+        </section>
+      ) : null}
+
+      {caseItem.slug === 'artilheiro-da-casa' ? (
+        <section
+          tabIndex={-1}
+          id="anatomia-card"
+          className="scroll-mt-24 border-t border-zinc-100 pt-6 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-2 dark:border-zinc-900 dark:focus:ring-zinc-50 dark:focus:ring-offset-zinc-950"
+        >
+          <ArtilheiroCardAnatomy />
         </section>
       ) : null}
 
