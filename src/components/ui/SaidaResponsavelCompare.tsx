@@ -9,8 +9,8 @@ const focusRing =
   'focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 dark:focus-visible:ring-zinc-50 dark:focus-visible:ring-offset-zinc-950';
 
 const versions: { id: Version; label: string; panelId: string }[] = [
-  { id: 'v1', label: 'v1 — Retenção Persuasiva (Descartada)', panelId: 'comparativo-panel-v1' },
-  { id: 'v2', label: 'v2 — Arquitetura de Escolha Graduada (Aprovada)', panelId: 'comparativo-panel-v2' },
+  { id: 'v1', label: 'v1 — Retenção (descartada)', panelId: 'comparativo-panel-v1' },
+  { id: 'v2', label: 'v2 — Pausa primeiro (aprovada)', panelId: 'comparativo-panel-v2' },
 ];
 
 export function SaidaResponsavelCompare() {
@@ -129,7 +129,8 @@ export function SaidaResponsavelCompare() {
             <legend className="max-w-prose space-y-2">
               <span className="block text-lg font-semibold text-zinc-900 dark:text-zinc-100">Pausa temporária</span>
               <span className="block text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                1 dia, 1 semana, 1 mês ou 3 meses. A conta volta ao fim do prazo. É a primeira escolha, para conter uma saída impulsiva sem fechar a conta.
+                1 dia, 1 semana, 1 mês ou 3 meses. A conta volta ao fim do prazo. Fica em destaque de
+                propósito: atrito positivo pedido por Compliance/Produto, sem esconder o encerramento.
               </span>
             </legend>
             <div className="flex flex-col gap-2 sm:max-w-sm">
@@ -162,7 +163,8 @@ export function SaidaResponsavelCompare() {
           <div className="max-w-prose space-y-4 border-t border-zinc-200 pt-6 dark:border-zinc-800">
             <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">Encerrar conta definitivamente</h3>
             <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-              Esta ação é irreversível. O encerramento fica na mesma página, logo abaixo da pausa, e segue em três etapas: o modal de ajuda, a tela para sacar o saldo e o aviso final de que a decisão não volta atrás.
+              Esta ação é irreversível. O encerramento permanece na mesma página, abaixo da pausa, e
+              segue em três etapas (ajuda, sacar saldo, confirmação). Não é submenu escondido.
             </p>
             <button
               type="button"
@@ -183,21 +185,27 @@ export function SaidaResponsavelCompare() {
 
       <ol className="space-y-4 border-t border-zinc-200 pt-6 dark:border-zinc-800">
         <li className="max-w-prose space-y-1">
-          <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">1. Portaria SPA/MF nº 1.231</h3>
+          <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+            1. Portaria SPA/MF nº 1.231
+          </h3>
           <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-            Jogo responsável pede um caminho de afastamento. A tela antiga só oferecia fechar a conta, com o aviso de que a ação é irreversível, e sem pausa.
+            A Secretaria de Prêmios e Apostas exige caminho de afastamento. A tela antiga só fechava
+            a conta, sem pausa.
           </p>
         </li>
         <li className="max-w-prose space-y-1">
-          <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">2. Contenção sem labirinto</h3>
+          <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+            2. Atrito positivo, sem labirinto
+          </h3>
           <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-            A pausa vem primeiro. O encerramento definitivo permanece visível na mesma página, sem submenu.
+            A pausa vem primeiro. O encerramento fica visível na mesma página — hierarquia de botões
+            ≠ esconder a saída.
           </p>
         </li>
         <li className="max-w-prose space-y-1">
-          <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">3. Ética da linguagem</h3>
+          <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">3. Linguagem</h3>
           <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-            A v1 se despedia com “Vamos sentir sua falta por aqui!”. A v2 troca isso por “Esta ação é irreversível.”
+            A v1 dizia “Vamos sentir sua falta”. A v2 diz “Esta ação é irreversível.”
           </p>
         </li>
       </ol>

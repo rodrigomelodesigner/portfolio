@@ -8,22 +8,22 @@ type CaseImpactCardProps = {
 const pillars = [
   {
     key: 'desafio',
-    label: 'Desafio de Negócio',
+    label: 'Contexto',
     icon: Target,
   },
   {
     key: 'causa',
-    label: 'Causa Raiz / Reframing',
+    label: 'Leitura do problema',
     icon: Search,
   },
   {
     key: 'restricao',
-    label: 'Restrição Regulatória ou Técnica',
+    label: 'Restrição',
     icon: ShieldAlert,
   },
   {
     key: 'resultado',
-    label: 'Resultado / Impacto Medido',
+    label: 'Resultado',
     icon: TrendingUp,
   },
 ] as const;
@@ -39,7 +39,7 @@ export function CaseImpactCard({ caseItem }: CaseImpactCardProps) {
   return (
     <section
       aria-labelledby="leitura-rapida"
-      className="rounded-md border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900/40 md:p-8"
+      className="rounded border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900/40 md:p-8"
     >
       <h2
         id="leitura-rapida"
@@ -62,7 +62,7 @@ export function CaseImpactCard({ caseItem }: CaseImpactCardProps) {
                 className={
                   isResult
                     ? 'font-mono text-sm font-semibold leading-snug text-emerald-600 dark:text-emerald-400'
-                    : 'line-clamp-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400'
+                    : 'line-clamp-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400'
                 }
               >
                 {copy[pillar.key]}

@@ -6,115 +6,114 @@ const LINK_CLASS =
   'inline-flex items-center min-h-[44px] min-w-[44px] underline underline-offset-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-950 dark:focus:ring-zinc-50';
 
 const HOME = {
-  h1: 'Clareza na decisão, proteção sem obstáculo.',
-  role: 'Product Designer & Interface · Local Leader @ IxDF Salvador',
-  context: 'Operação Regulada SPA/MF · Sportsbook & Fintech',
+  h1: 'Fluxos que movem dinheiro e protegem o usuário.',
+  role: 'Product Designer Pleno · Local Leader @ IxDF Salvador',
+  context: 'Produtos regulados · dinheiro em movimento',
   availability: 'Disponível para novas oportunidades',
-  lede: 'Desenho fluxos e sistemas de interface em operações reguladas de alto volume: conversão no sportsbook, aquisição orgânica e conformidade ética (SPA/MF). Cada estudo de caso documenta a causa raiz, as decisões de UI e o impacto mensurável.',
-  workIntro: 'Decisões metodológicas, métricas reais e entrega de ponta a ponta.',
+  lede: 'Product Designer Pleno em casa de apostas regulada pela Secretaria de Prêmios e Apostas (SPA/MF). Desenho extrato e saque Pix, promoções no sportsbook e saída responsável — com causa raiz, trade-offs e o que a medição não isola.',
+  workIntro: 'Decisões, métricas auditadas e o que a medição não prova.',
   craftIntro:
-    'Como Product Designer focado em Interface, meu método une estética tipográfica suíça, conformidade estrita de acessibilidade (WCAG 2.2 AA) e especificação semântica para engenharia.',
+    'Tipografia sóbria, WCAG 2.2 AA e componentes com estados documentados — o mesmo rigor que peço aos cases.',
   craft: [
     {
-      title: 'Escala Modular & Contraste AAA',
-      body: 'Grid de 4px, fontes Inter neo-grotescas, linha máxima em 65 caracteres (max-w-prose) e contraste nítido em light e dark mode.',
+      title: 'Escala e contraste AA',
+      body: 'Grid de 4px, Inter, linha em ~65 caracteres e contraste verificável em light e dark.',
     },
     {
-      title: 'Touch Targets & Foco Visível',
-      body: 'Área de toque mínima de 44×44px em mobile (SC 2.5.8), foco navegável por teclado sem supressão de outline e suporte a reduced-motion.',
+      title: 'Toque e foco visível',
+      body: 'Alvos mínimos 44×44px (SC 2.5.8), foco por teclado e respeito a reduced-motion.',
     },
     {
-      title: 'Zero Padrões Obstrutivos',
-      body: 'Rejeição de dark patterns de retenção. Em fluxos de encerramento e jogo responsável, o usuário encontra saída sóbria em 3 etapas.',
+      title: 'Saída sem labirinto',
+      body: 'Em jogo responsável, pausa e encerramento na mesma página. Atrito positivo quando o risco é impulsivo — nunca submenu escondido.',
     },
     {
-      title: 'Alinhamento com Engenharia',
-      body: 'Documentação de regras de negócio, contratos de dados e componentes tipados no Figma, eliminando atrito e retrabalho de sprint.',
+      title: 'Regras e estados',
+      body: 'Specs de negócio, contratos de dados e variantes no Figma para reduzir retrabalho de sprint.',
     },
   ],
   principles: [
     {
-      title: '1. Clareza e Proteção',
-      body: 'No Artilheiro, troquei 15 linhas de regulamento por um card que já leva a odd ao boletim. Na Saída responsável, a autoexclusão fica na mesma tela da pausa, a 3 etapas.',
+      title: '1. Clareza e proteção',
+      body: 'No Extrato, sinal +/− e segregação por modalidade. Na Saída responsável, pausa e encerramento na mesma tela.',
     },
     {
-      title: '2. Hipótese e Resultado',
-      body: 'No Bolão, a aposta nos grupos de amigos não se confirmou: foram 81 grupos para 9.035 participantes, e o case declara isso. No Artilheiro, declaro o que o teste sequencial não isola.',
+      title: '2. Hipótese e resultado',
+      body: 'No Bolão, os grupos privados não viraram motor viral (81 para 9.035). No Artilheiro, declaro o que o teste sequencial não isola.',
     },
     {
-      title: '3. Regulação no Começo',
-      body: "A v1 da Saída responsável usava retenção persuasiva ('Vamos sentir sua falta'). A v2 adotou linguagem factual ('Esta ação é irreversível') e pausa graduada para conter fechamentos impulsivos sem dark patterns.",
+      title: '3. Regulação no começo',
+      body: "A v1 da Saída usava 'Vamos sentir sua falta'. A v2 usa 'Esta ação é irreversível' e pausa graduada — atrito positivo, saída ainda visível.",
     },
   ],
-  contact:
-    'Disponível para posições de Product Design em fintechs, scale-ups de tecnologia e ambientes de operação regulada.',
+  contact: 'Aberto a Product Design em fintechs, scale-ups e operações reguladas.',
 };
 
 const ABOUT = {
-  h1: 'Design que transforma regras severas em clareza de uso.',
-  lede: 'Atuo na intersecção entre arquitetura de informação, Design Systems, acessibilidade (WCAG 2.2 AA) e usabilidade de produto em setores regulados de alto volume.',
+  h1: 'Regras severas viram fluxos claros.',
+  lede: 'Product Designer Pleno em produtos regulados: extrato e dinheiro saindo, sportsbook e jogo responsável — com acessibilidade WCAG 2.2 AA.',
   paragraphs: [
-    'Trabalho com design de produto numa operação de apostas esportivas regulada pela SPA/MF. Meus projetos vão da conversão no sportsbook e da aquisição sem mídia paga até fluxos de jogo responsável. Também desenhei a tela de saque via Pix com checagem de titularidade do CPF, em produção desde agosto de 2026.',
-    'Acredito que o papel do design em setores complexos não é adicionar ornamentos vazios, mas sim tornar visível a lógica do produto. Elimino a distância cognitiva entre regulamentações compulsórias (como a Portaria SPA/MF nº 1.231) e o modelo mental do usuário, sem recorrer a padrões escuros de retenção.',
+    'Trabalho numa casa de apostas regulada pela Secretaria de Prêmios e Apostas do Ministério da Fazenda (SPA/MF). Os estudos publicados cobrem extrato de 36 meses, cards no sportsbook, bolão social e saída responsável. Em paralelo, desenhei a tela de saque via Pix com checagem de titularidade do CPF (em produção desde agosto de 2026); o case aberto de dinheiro em movimento neste portfólio é o Extrato.',
+    'Em setores complexos, o trabalho do design é tornar a lógica do produto legível — inclusive a Portaria SPA/MF nº 1.231 — sem padrões escuros de retenção.',
   ],
-  ixdfTitle: 'Local Leader @ Interaction Design Foundation (IxDF Salvador)',
-  ixdf: 'Lidero o capítulo de Salvador do IxDF, organizando encontros presenciais, debates de casos reais e nivelamento técnico para a comunidade local. Defendo uma prática de design generosa e sem barreiras de status: conhecimento só gera valor quando vira sistema compartilhado.',
-  principlesIntro: 'Princípios comprovados pelas evidências e dados de cada estudo de caso.',
+  ixdfTitle: 'Local Leader @ IxDF Salvador',
+  ixdf: 'Organizo encontros presenciais, debates de casos reais e nivelamento técnico no capítulo de Salvador da Interaction Design Foundation.',
+  principlesIntro: 'Hábitos que os estudos documentam.',
   principles: [
     {
-      title: '1. Clareza e Proteção',
-      body: 'No Artilheiro, troquei 15 linhas de regulamento por um card que já leva a odd ao boletim. Na Saída responsável, a autoexclusão fica na mesma tela da pausa, a 3 etapas transparentes.',
+      title: '1. Clareza e proteção',
+      body: 'Extrato com sinal +/− e segregação por modalidade. Saída responsável com pausa e encerramento na mesma tela.',
     },
     {
-      title: '2. Hipótese e Resultado',
-      body: 'No Bolão, a aposta nos grupos de amigos não se confirmou: foram 81 grupos para 9.035 participantes, e o case declara isso. No Artilheiro, o case declara o que o teste sequencial não isola.',
+      title: '2. Hipótese e resultado',
+      body: 'No Bolão, os grupos privados não viraram motor viral. No Artilheiro, a série mostra o pico e a queda — não só a média.',
     },
     {
-      title: '3. Regulação no Começo',
-      body: 'A v1 da Saída responsável foi reprovada por soar como retenção disfarçada. A v2 foi desenhada com texto neutro e validada por Compliance, Produto e Jurídico antes de ir para staging.',
+      title: '3. Regulação no começo',
+      body: 'Copy factual e pausa graduada na saída responsável, com staging aprovado por Produto e Compliance ainda no loop de copy.',
     },
   ],
   domains: [
     {
-      title: 'Regulação & Compliance Ético',
-      body: 'Tradução de portarias governamentais (SPA/MF) em fluxos de jogo responsável, autoexclusão e limites compulsórios.',
+      title: 'Dinheiro e autosserviço',
+      body: 'Extrato, Pix, sinais de lucro/prejuízo e redução de tickets de suporte.',
     },
     {
-      title: 'AI-Assisted Product Engineering',
-      body: 'Operação ágil com Lovable, Cursor, Claude Code e suítes de agentes, mantendo governança via ADRs e tipagem estrita.',
+      title: 'Regulação e jogo responsável',
+      body: 'Tradução da Portaria SPA/MF nº 1.231 em pausa, encerramento e limites sem labirinto.',
     },
   ],
   trajectory: [
     {
       when: '2024 — Presente',
-      title: 'Product Designer Pleno · Casa de Apostas (Operação Regulada SPA/MF)',
-      body: 'Atuação em squads de produto e engenharia: adequação mandatória à Portaria SPA/MF nº 1.231 (limites prudenciais e autoexclusão em 3 etapas), tela de saque via Pix com checagem de CPF em produção, e aumento de 6,5x em apostas e 4,9x em volume no sportsbook via cards visuais de atleta.',
+      title: 'Product Designer Pleno · Casa de Apostas (SPA/MF)',
+      body: 'Extrato de 36 meses e saque Pix com checagem de CPF; cards no sportsbook (pico 827 apostas/rodada); bolão com 9.035 inscritos; saída responsável em staging sob a Portaria SPA/MF nº 1.231.',
     },
     {
       when: '2021 — 2024',
-      title: 'Product Designer · Produtos Digitais & Plataformas Web',
-      body: 'Estruturação de Design Systems em Figma com sincronização de tokens, descoberta contínua de usuários e otimização de taxas de conversão e autosserviço financeiro em squads ágeis.',
+      title: 'Product Designer · Produtos digitais e plataformas web',
+      body: 'Design systems no Figma com tokens, descoberta contínua e otimização de conversão e autosserviço em squads ágeis.',
     },
   ],
   stack: [
     {
-      title: 'Design & UI',
-      body: 'Figma (Variables, AutoLayout), Design Tokens, Prototipagem Avançada, Wireframing Swiss Flat.',
+      title: 'Design e UI',
+      body: 'Figma (Variables, Auto Layout), design tokens, prototipagem, wireframes.',
     },
     {
-      title: 'Engenharia Frontend',
-      body: 'React, TypeScript, Tailwind CSS, shadcn/ui, Git & Conventional Commits, Vite.',
+      title: 'Frontend',
+      body: 'React, TypeScript, Tailwind CSS, shadcn/ui, Git, Vite.',
     },
     {
-      title: 'Dados & Conformidade',
-      body: 'WCAG 2.2 AA/AAA, Portaria SPA/MF 1.231, Amplitude, Hotjar, Google Analytics, Testes de Usabilidade.',
+      title: 'Dados e conformidade',
+      body: 'WCAG 2.2 AA, Portaria SPA/MF 1.231, Amplitude, Hotjar, analytics, testes de usabilidade.',
     },
   ],
 };
 
 const WORK = {
   h1: 'Estudos de Caso & Entregas',
-  lede: 'Projetos executados sob restrições severas de compliance, volume e dados reais. Cada estudo de caso documenta hipóteses, decisões e impacto longitudinal.',
+  lede: 'Estudos com restrição regulatória, dados auditados e o que a medição não isola.',
 };
 
 const CONTACT = {
@@ -152,8 +151,11 @@ function casePath(slug: string): string {
 }
 
 function limitNotes(caseItem: CaseStudy): string[] {
+  if (caseItem.whatWentWrong && caseItem.whatWentWrong.length > 0) {
+    return caseItem.whatWentWrong;
+  }
   const notes: string[] = [];
-  if (/teste A\/B|mídia|conta na plataforma|grupo controle/i.test(caseItem.constraint)) {
+  if (/teste A\/B|mídia|conta na plataforma|grupo controle|API|homologação/i.test(caseItem.constraint)) {
     notes.push(caseItem.constraint);
   }
   for (const learning of caseItem.learnings) {
@@ -237,9 +239,7 @@ function caseMarkdown(caseItem: CaseStudy): string {
     '',
     '### O que deu errado / faria diferente',
     '',
-    'Trechos publicados no próprio case sobre hipótese não confirmada, limite de medição ou condição que o desenho seguinte precisaria tratar.',
-    '',
-    limits,
+    limits || '- (sem notas de limite publicadas)',
     '',
     '### Aprendizados',
     '',
@@ -387,7 +387,7 @@ function bulletList(items: string[]): string {
 
 function nav(): string {
   return `<nav aria-label="Navegação">
-<p>${link('/', 'Home')} ${link('/work', 'Estudos de caso')} ${link('/about', 'Sobre')} ${link('/contact', 'Contato')} ${link('/llms.txt', 'llms.txt')}</p>
+<p>${link('/', 'Início')} ${link('/work', 'Estudos de caso')} ${link('/about', 'Sobre')} ${link('/contact', 'Contato')}</p>
 </nav>`;
 }
 

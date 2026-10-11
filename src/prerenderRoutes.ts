@@ -12,19 +12,19 @@ export const PRERENDER_ROUTES: PrerenderRoute[] = [
     path: '/',
     title: 'Rodrigo Melo — Product Designer',
     description:
-      'Portfólio de Rodrigo Melo — Product Designer Pleno em operações reguladas pela SPA/MF: conversão, aquisição sem mídia paga e proteção do consumidor.',
+      'Product Designer Pleno em produtos regulados (SPA/MF): extrato e Pix, sportsbook e saída responsável — com dados auditados.',
   },
   {
     path: '/work',
     title: 'Estudos de Caso — Rodrigo Melo',
     description:
-      'Projetos executados sob restrições severas de compliance, volume e dados reais. Cada estudo de caso documenta hipóteses, decisões e impacto longitudinal.',
+      'Estudos com restrição regulatória, métricas auditadas e limites de atribuição explícitos.',
   },
   {
     path: '/about',
     title: 'Sobre Rodrigo Melo — Product Designer',
     description:
-      'Desenho fluxos de produto numa operação de apostas regulada pela SPA/MF: conversão no sportsbook, aquisição sem mídia paga e jogo responsável.',
+      'Product Designer Pleno em casa de apostas regulada pela SPA/MF: dinheiro em movimento, sportsbook e jogo responsável.',
   },
   {
     path: '/contact',

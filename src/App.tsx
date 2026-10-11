@@ -91,7 +91,7 @@ function Layout({ children }: { children: React.ReactNode }) {
                 location.pathname.startsWith('/work') ? 'text-zinc-950 dark:text-zinc-50 font-semibold' : 'text-zinc-600 dark:text-zinc-400'
               }`}
             >
-              Work
+              Estudos
             </Link>
             <Link
               to="/about"
@@ -99,7 +99,7 @@ function Layout({ children }: { children: React.ReactNode }) {
                 location.pathname === '/about' ? 'text-zinc-950 dark:text-zinc-50 font-semibold' : 'text-zinc-600 dark:text-zinc-400'
               }`}
             >
-              About
+              Sobre
             </Link>
             <Link
               to="/contact"
@@ -107,7 +107,7 @@ function Layout({ children }: { children: React.ReactNode }) {
                 location.pathname === '/contact' ? 'text-zinc-950 dark:text-zinc-50 font-semibold' : 'text-zinc-600 dark:text-zinc-400'
               }`}
             >
-              Contact
+              Contato
             </Link>
             <button
               onClick={() => setIsPaletteOpen(true)}
@@ -143,11 +143,13 @@ function Layout({ children }: { children: React.ReactNode }) {
         <div className="max-w-4xl mx-auto px-4 md:px-12 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
           <span suppressHydrationWarning>© {new Date().getFullYear()} Rodrigo Melo. Todos os direitos reservados.</span>
           <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
-            <Link to="/about" className="hover:underline">Metodologia</Link>
+            <Link to="/about" className="hover:underline min-h-[44px] inline-flex items-center">
+              Sobre e método
+            </Link>
             <span aria-hidden="true">·</span>
-            <span>Prova sobre Promessa (ADR 005)</span>
+            <span>Prova sobre promessa</span>
             <span aria-hidden="true">·</span>
-            <span className="text-zinc-600 dark:text-zinc-400">WCAG 2.2 AA (A11Y.md)</span>
+            <span className="text-zinc-600 dark:text-zinc-400">WCAG 2.2 AA</span>
           </div>
         </div>
       </footer>
@@ -212,19 +214,19 @@ function Layout({ children }: { children: React.ReactNode }) {
                 onClick={() => { navigate('/work'); setIsPaletteOpen(false); }}
                 className="w-full text-left p-2.5 hover:bg-zinc-50 dark:hover:bg-zinc-800 rounded text-xs font-medium text-zinc-700 dark:text-zinc-300"
               >
-                Ver todos os projetos (/work)
+                Ver todos os estudos
               </button>
               <button
                 onClick={() => { navigate('/about'); setIsPaletteOpen(false); }}
                 className="w-full text-left p-2.5 hover:bg-zinc-50 dark:hover:bg-zinc-800 rounded text-xs font-medium text-zinc-700 dark:text-zinc-300"
               >
-                Sobre Mim & Filosofia (/about)
+                Sobre mim
               </button>
               <button
                 onClick={() => { navigate('/contact'); setIsPaletteOpen(false); }}
                 className="w-full text-left p-2.5 hover:bg-zinc-50 dark:hover:bg-zinc-800 rounded text-xs font-medium text-zinc-700 dark:text-zinc-300"
               >
-                Falar Comigo (/contact)
+                Contato
               </button>
             </div>
             <div className="px-4 py-2 border-t border-zinc-100 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 text-[10px] text-zinc-400 flex justify-between">
