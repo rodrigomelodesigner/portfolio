@@ -64,7 +64,7 @@ export const CASES_DATA: CaseStudy[] = [
     highlightMetric: "Homologação de design · meta −40% tickets N1 de extrato",
     constraint:
       "A API limita o histórico a 36 meses. O projeto parou na homologação de design antes das férias coletivas de outubro de 2026.",
-    coverImage: "/images/covers/transacoes_showcase_cover.png",
+    coverImage: "/images/03_transacoes_onboarding/transacoes_dashboard_desktop_1920x1440.png",
     problem: {
       briefing:
         "Em setembro de 2026, a Portaria SPA/MF nº 1.231 (Secretaria de Prêmios e Apostas / Ministério da Fazenda) passou a exigir transparência ativa da conta gráfica. O extrato legado misturava apostas esportivas e giros de cassino num feed contínuo, sem resultado líquido por categoria. O suporte Nível 1 recebia pedidos manuais de extrato e contestação de débitos. A demanda veio da PM Tamille Rocha, com prioridade regulatória sobre iniciativas de crescimento.",
