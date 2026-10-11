@@ -132,8 +132,8 @@ export function BolaoPalpiteInteractive() {
 
         <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
           {doubled
-            ? 'Palpite dobrado: se o placar fechar, os pontos deste jogo valem o dobro. Adir Filho leu a estrela como favoritar a partida.'
-            : 'Palpite simples. A marcação 2x deixa explícito que este acerto vale o dobro, no lugar da estrela que parecia um favorito.'}
+            ? 'Palpite dobrado neste simulador. Em produção a estrela ainda aparece; Adir Filho leu-a como “favoritar”.'
+            : 'Palpite simples. A marcação 2x é proposta deste portfólio — a produção ainda usa a estrela.'}
         </p>
 
         <p

@@ -19,18 +19,29 @@ export default function CaseStudyDetail() {
   const tocItems = useMemo(() => {
     if (!caseItem) return [];
     return [
-      { id: 'problema', label: 'Problema' },
-      ...(caseItem.hypothesis ? [{ id: 'hipotese', label: 'Hipótese' }] : []),
+      { id: 'problema', label: 'Contexto' },
+      ...(caseItem.hypothesis ? [{ id: 'hipotese', label: 'O que testei' }] : []),
       ...(caseItem.benchmark ? [{ id: 'benchmark', label: 'Benchmark' }] : []),
       { id: 'decisoes', label: 'Decisões' },
-      ...(caseItem.slug === 'artilheiro-da-casa' ? [{ id: 'anatomia-card', label: 'Anatomia do Card' }] : []),
-      ...(caseItem.slug === 'bolao-da-copa' ? [{ id: 'simulador', label: 'Simulador de Palpite' }] : []),
-      ...(caseItem.slug === 'limites-prudenciais'
-        ? [{ id: 'comparativo', label: 'Comparativo Ético v1 × v2' }]
+      ...(caseItem.slug === 'artilheiro-da-casa'
+        ? [{ id: 'anatomia-card', label: 'Componente' }]
         : []),
-      { id: 'metricas', label: 'Métricas' },
-      ...(caseItem.screenshots && caseItem.screenshots.length > 0 ? [{ id: 'interface', label: 'Interface' }] : []),
-      ...(caseItem.learnings && caseItem.learnings.length > 0 ? [{ id: 'aprendizados', label: 'Aprendizados' }] : []),
+      ...(caseItem.slug === 'bolao-da-copa'
+        ? [{ id: 'simulador', label: 'Simulador' }]
+        : []),
+      ...(caseItem.slug === 'limites-prudenciais'
+        ? [{ id: 'comparativo', label: 'v1 × v2' }]
+        : []),
+      { id: 'metricas', label: 'Resultado' },
+      ...(caseItem.screenshots && caseItem.screenshots.length > 0
+        ? [{ id: 'interface', label: 'Interface' }]
+        : []),
+      ...(caseItem.whatWentWrong && caseItem.whatWentWrong.length > 0
+        ? [{ id: 'limites', label: 'Limites' }]
+        : []),
+      ...(caseItem.learnings && caseItem.learnings.length > 0
+        ? [{ id: 'aprendizados', label: 'Aprendizados' }]
+        : []),
     ];
   }, [caseItem]);
 
@@ -60,9 +71,9 @@ export default function CaseStudyDetail() {
     <article className="py-6 md:py-12 space-y-10">
       {/* Breadcrumbs */}
       <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-zinc-500">
-        <Link to="/" className="hover:underline">Home</Link>
+        <Link to="/" className="hover:underline">Início</Link>
         <span>/</span>
-        <Link to="/work" className="hover:underline">Work</Link>
+        <Link to="/work" className="hover:underline">Estudos</Link>
         <span>/</span>
         <span className="text-zinc-900 dark:text-zinc-100">{caseItem.title}</span>
       </nav>
@@ -127,22 +138,22 @@ export default function CaseStudyDetail() {
           {/* Problem & Reframing */}
           <section tabIndex={-1} id="problema" className="space-y-6 scroll-mt-24 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-2 dark:focus:ring-zinc-50 dark:focus:ring-offset-zinc-950">
             <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-              O Problema & O Reframing
+              Contexto
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="p-6 border border-zinc-200 dark:border-zinc-800 rounded-lg bg-zinc-50 dark:bg-zinc-900/40">
+              <div className="p-6 border border-zinc-200 dark:border-zinc-800 rounded bg-zinc-50 dark:bg-zinc-900/40">
                 <div className="flex items-center gap-2 font-semibold text-xs uppercase tracking-wider text-zinc-500 mb-3">
-                  <AlertCircle className="w-4 h-4 text-zinc-400" />
-                  Briefing Inicial (Sintoma)
+                  <AlertCircle className="w-4 h-4 text-zinc-400" aria-hidden="true" />
+                  O que chegou
                 </div>
                 <p className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
                   {caseItem.problem.briefing}
                 </p>
               </div>
-              <div className="p-6 border border-zinc-900 dark:border-zinc-700 rounded-lg bg-zinc-900 text-white dark:bg-zinc-800">
+              <div className="p-6 border border-zinc-900 dark:border-zinc-700 rounded bg-zinc-900 text-white dark:bg-zinc-800">
                 <div className="flex items-center gap-2 font-semibold text-xs uppercase tracking-wider text-zinc-400 mb-3">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  Problema Real Refatorado (Causa Raiz)
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400" aria-hidden="true" />
+                  Como li o problema
                 </div>
                 <p className="text-sm text-zinc-200 leading-relaxed">
                   {caseItem.problem.reframed}
@@ -158,7 +169,7 @@ export default function CaseStudyDetail() {
               className="space-y-6 scroll-mt-24 border-t border-zinc-100 pt-6 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-2 dark:border-zinc-900 dark:focus:ring-zinc-50 dark:focus:ring-offset-zinc-950"
             >
               <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-                Hipótese
+                O que testei
               </h2>
               <p className="border-l-2 border-zinc-900 bg-zinc-50 p-5 text-sm leading-relaxed text-zinc-700 dark:border-zinc-100 dark:bg-zinc-900/30 dark:text-zinc-300">
                 {caseItem.hypothesis}
@@ -208,7 +219,7 @@ export default function CaseStudyDetail() {
       {/* Decisions */}
       <section tabIndex={-1} id="decisoes" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-2 dark:focus:ring-zinc-50 dark:focus:ring-offset-zinc-950">
         <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-          Decisões de Design & Trade-offs
+          O que decidi e por quê
         </h2>
         <div className="space-y-4">
           {caseItem.decisions.map((decision, idx) => (
@@ -235,7 +246,8 @@ export default function CaseStudyDetail() {
               Simulador de Palpite
             </h2>
             <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-              O placar nasce em 0×0, como Adir Filho sugeriu em 11/06/2026. A marcação 2x deixa o palpite dobrado explícito, no lugar da estrela que ele leu como favorito.
+              Simulador com placar 0×0 (feedback de Adir Filho em 11/06/2026) e marcação “2x” no
+              lugar da estrela. A produção ainda usa a estrela — isto é proposta, não tela shipada.
             </p>
           </div>
           <BolaoPalpiteInteractive />
@@ -250,10 +262,11 @@ export default function CaseStudyDetail() {
         >
           <div className="max-w-prose space-y-4">
             <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-              Comparativo Ético v1 × v2
+              v1 × v2: copy e hierarquia
             </h2>
             <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-              A v1 se despedia com um convite para ficar. A v2 coloca a pausa de 1 dia, 1 semana, 1 mês ou 3 meses primeiro e deixa o encerramento definitivo na mesma página.
+              A v1 pedia para ficar. A v2 usa texto factual e coloca a pausa primeiro — atrito
+              positivo pedido por Compliance/Produto, com o encerramento ainda na mesma página.
             </p>
           </div>
           <SaidaResponsavelCompare />
@@ -275,11 +288,9 @@ export default function CaseStudyDetail() {
         <section tabIndex={-1} id="metricas" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-2 dark:focus:ring-zinc-50 dark:focus:ring-offset-zinc-950">
           <div>
             <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-              Métricas Chave & Critérios de Sucesso
+              Resultado
             </h2>
-            <p className="text-sm text-zinc-500 mt-1">
-              Impacto mensurável acordado e validado em produção.
-            </p>
+            <p className="text-sm text-zinc-500 mt-1">Números acordados e o status da medição.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {caseItem.keyMetrics.map((km, idx) => (
@@ -304,16 +315,16 @@ export default function CaseStudyDetail() {
         <section tabIndex={-1} id={caseItem.keyMetrics && caseItem.keyMetrics.length > 0 ? 'validacao' : 'metricas'} className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-2 dark:focus:ring-zinc-50 dark:focus:ring-offset-zinc-950">
           <div>
             <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-              Validação Longitudinal & Métricas
+              Resultado por rodada
             </h2>
             <p className="text-sm text-zinc-500 mt-1">
-              Rastreamento empírico do impacto real ao longo do período de operação.
+              Série completa — inclua a queda após o pico, não só a média.
             </p>
           </div>
-          <div className="overflow-x-auto border border-zinc-200 dark:border-zinc-800 rounded-lg">
+          <div className="overflow-x-auto border border-zinc-200 dark:border-zinc-800 rounded">
             <table className="w-full text-left text-xs" aria-label={`Métricas de impacto para ${caseItem.title}`}>
               <caption className="sr-only">
-                Tabela de validação longitudinal e métricas reais de operação para o estudo de caso {caseItem.title}
+                Tabela de métricas por rodada do estudo {caseItem.title}
               </caption>
               <thead className="bg-zinc-50 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800 uppercase tracking-wider text-zinc-600 dark:text-zinc-400">
                 <tr>
@@ -356,10 +367,10 @@ export default function CaseStudyDetail() {
         <section tabIndex={-1} id="interface" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-2 dark:focus:ring-zinc-50 dark:focus:ring-offset-zinc-950">
           <div>
             <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-              Interface & Execução Visual
+              Interface
             </h2>
             <p className="text-sm text-zinc-500 mt-1">
-              Componentes, fluxos e telas implementadas em produção.
+              {caseItem.interfaceNote || 'Telas e fluxos do estudo.'}
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -394,16 +405,51 @@ export default function CaseStudyDetail() {
         </section>
       )}
 
-      {/* Learnings */}
-      {caseItem.learnings && caseItem.learnings.length > 0 && (
-        <section tabIndex={-1} id="aprendizados" className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-2 dark:focus:ring-zinc-50 dark:focus:ring-offset-zinc-950">
+      {caseItem.whatWentWrong && caseItem.whatWentWrong.length > 0 && (
+        <section
+          tabIndex={-1}
+          id="limites"
+          className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-2 dark:focus:ring-zinc-50 dark:focus:ring-offset-zinc-950"
+        >
           <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-            Aprendizados & Rigor Operacional
+            O que deu errado / faria diferente
+          </h2>
+          <ul className="space-y-3">
+            {caseItem.whatWentWrong.map((item, idx) => (
+              <li
+                key={idx}
+                className="flex items-start gap-3 text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed"
+              >
+                <span
+                  className="w-1.5 h-1.5 rounded-full bg-rose-600 dark:bg-rose-400 mt-2 flex-shrink-0"
+                  aria-hidden="true"
+                />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {caseItem.learnings && caseItem.learnings.length > 0 && (
+        <section
+          tabIndex={-1}
+          id="aprendizados"
+          className="space-y-6 pt-6 border-t border-zinc-100 dark:border-zinc-900 scroll-mt-24 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-2 dark:focus:ring-zinc-50 dark:focus:ring-offset-zinc-950"
+        >
+          <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
+            Aprendizados
           </h2>
           <ul className="space-y-3">
             {caseItem.learnings.map((learning, idx) => (
-              <li key={idx} className="flex items-start gap-3 text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                <span className="w-1.5 h-1.5 rounded-full bg-zinc-900 dark:bg-zinc-100 mt-2 flex-shrink-0" />
+              <li
+                key={idx}
+                className="flex items-start gap-3 text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed"
+              >
+                <span
+                  className="w-1.5 h-1.5 rounded-full bg-zinc-900 dark:bg-zinc-100 mt-2 flex-shrink-0"
+                  aria-hidden="true"
+                />
                 <span>{learning}</span>
               </li>
             ))}

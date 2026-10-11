@@ -8,7 +8,7 @@ export default function WorkIndex() {
   const [selectedCategory, setSelectedCategory] = useState<string>('Todos');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
-  const categories = ['Todos', 'Sportsbook UX', 'Social Gaming', 'Compliance'];
+  const categories = ['Todos', 'Fintech', 'Sportsbook', 'Social Gaming', 'Compliance'];
 
   const filteredCases = CASES_DATA.filter((caseItem) => {
     const matchesCategory =
@@ -33,7 +33,7 @@ export default function WorkIndex() {
           Estudos de Caso & Entregas
         </h1>
         <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
-          Projetos executados sob restrições severas de compliance, volume e dados reais. Cada estudo de caso documenta hipóteses, decisões e impacto longitudinal.
+          Estudos com restrição regulatória, dados auditados e o que a medição não isola.
         </p>
       </header>
 
@@ -93,12 +93,11 @@ export default function WorkIndex() {
           >
             <div>
               <div className="h-48 bg-zinc-100 dark:bg-zinc-900 relative overflow-hidden">
-                <img
-                  src={caseItem.coverImage}
-                  alt=""
-                  aria-hidden="true"
-                  className="object-cover w-full h-full group-hover:scale-105 transition duration-500"
-                  loading="lazy"
+                  <img
+                    src={caseItem.coverImage}
+                    alt={`Capa do estudo: ${caseItem.title}`}
+                    className="object-cover w-full h-full group-hover:scale-105 transition duration-500"
+                    loading="lazy"
                   onError={(e) => {
                     (e.target as HTMLElement).style.display = 'none';
                   }}
